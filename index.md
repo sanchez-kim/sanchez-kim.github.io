@@ -6,8 +6,20 @@ description: "Index for Sanchez Kim's devlog"
 permalink: /
 ---
 
-# 줄줄이 기록용 블로그
+DATA SCIENCE
+{: .label .label-blue}
+CV
+{: .label .label-yellow}
+ML
+{: .label .label-green}
+DL
+{: .label .label-red}
+
+# 연구노트
 {: .fs-9 }
 
-- 블로그 개설! 
+## Data Scientist Sanchez의 블로그 입니다.
+```python
+print("hello world")
+```
 {: .fs-6 .fw-300 }

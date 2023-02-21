@@ -1,6 +1,6 @@
 ---
 layout: default
 title: Pose Estimation
-parent: Computer Vision
+parent: AI Research
 nav_order: 2
 ---

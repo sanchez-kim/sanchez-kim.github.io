@@ -2,23 +2,23 @@
     "doc": "3D Reconstruction",
     "title": "3D Reconstruction",
     "content": " ",
-    "url": "/docs/ComputerVision/3DReconstruction/",
+    "url": "/docs/%08AI/3DReconstruction/",
     
-    "relUrl": "/docs/ComputerVision/3DReconstruction/"
+    "relUrl": "/docs/%08AI/3DReconstruction/"
   },"1": {
-    "doc": "Computer Vision",
-    "title": "Computer Vision 관련",
+    "doc": "AI Research",
+    "title": "Task 별 AI Research",
     "content": " ",
-    "url": "/AI/ComputerVision#computer-vision-%EA%B4%80%EB%A0%A8",
+    "url": "/AI/Research#task-%EB%B3%84-ai-research",
     
-    "relUrl": "/AI/ComputerVision#computer-vision-관련"
+    "relUrl": "/AI/Research#task-별-ai-research"
   },"2": {
-    "doc": "Computer Vision",
-    "title": "Computer Vision",
+    "doc": "AI Research",
+    "title": "AI Research",
     "content": " ",
-    "url": "/AI/ComputerVision",
+    "url": "/AI/Research",
     
-    "relUrl": "/AI/ComputerVision"
+    "relUrl": "/AI/Research"
   },"3": {
     "doc": "ETC",
     "title": "ETC",
@@ -27,51 +27,128 @@
     
     "relUrl": "/docs/Note/ETC/"
   },"4": {
+    "doc": "Gaze Estimation",
+    "title": "영유아의 눈 움직임 추적을 통한 자폐 진단",
+    "content": " ",
+    "url": "/docs/%08AI/GazeEstimation/#%EC%98%81%EC%9C%A0%EC%95%84%EC%9D%98-%EB%88%88-%EC%9B%80%EC%A7%81%EC%9E%84-%EC%B6%94%EC%A0%81%EC%9D%84-%ED%86%B5%ED%95%9C-%EC%9E%90%ED%8F%90-%EC%A7%84%EB%8B%A8",
+    
+    "relUrl": "/docs/%08AI/GazeEstimation/#영유아의-눈-움직임-추적을-통한-자폐-진단"
+  },"5": {
+    "doc": "Gaze Estimation",
+    "title": "Experiment Plan",
+    "content": ". | 24개월 미만 정상, 자폐 아동(50명, 50명) 대상으로 실험설계 | . ",
+    "url": "/docs/%08AI/GazeEstimation/#experiment-plan",
+    
+    "relUrl": "/docs/%08AI/GazeEstimation/#experiment-plan"
+  },"6": {
+    "doc": "Gaze Estimation",
+    "title": "ASD(Autism Spectrum Disorder) Detection",
+    "content": ". 아동이 동영상 속 인물의 눈을 응시한 시간 비율 (출처:UNIST) . | 1~4세 미만 아동 616명에게 1분 미만의 짧은 영상을 보여주고 눈 운동 추적 장비를 통해 측정 | 자폐 아동들이 동영상 속 인물의 눈을 응시한 총 시간은 다른 집단과 유사했음. | 자폐 영유아들은 눈동자를 응시하지 못한다기보다 얼굴 전체를 덜 보는 경향이 있다. | 문맥에 맞게 중요한 정보로 주의 집중하는 능력이 일반인에 비해 떨어짐을 알 수 있음. | . ",
+    "url": "/docs/%08AI/GazeEstimation/#asdautism-spectrum-disorder-detection",
+    
+    "relUrl": "/docs/%08AI/GazeEstimation/#asdautism-spectrum-disorder-detection"
+  },"7": {
+    "doc": "Gaze Estimation",
+    "title": "†DeepLabCut, GazeNet을 이용한 eye-tracking",
+    "content": "참고문서 . | Video camera-based eye-tracking . | Model-based . | 각막에 반사되는 적외선의 패턴으로 gaze의 포인트 계산 | . | Appearance-based . | 이미지 데이터에만 의존하여 눈의 음직임을 추적 | 머리가 고정되어 있지 않은 경우 시선을 추정하기 어렵다 | position of facial landmarks VS point of gaze | . | . | . ",
+    "url": "/docs/%08AI/GazeEstimation/#deeplabcut-gazenet%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-eye-tracking",
+    
+    "relUrl": "/docs/%08AI/GazeEstimation/#deeplabcut-gazenet을-이용한-eye-tracking"
+  },"8": {
+    "doc": "Gaze Estimation",
+    "title": "†Computer Vision Approach",
+    "content": "GazeTracking OWLET dlib-models . | dlib으로 face landmark를 추출하고 눈의 움직임을 추척하는 방식 추후 dlib의 성능을 개선할 수 있을지? . | . ",
+    "url": "/docs/%08AI/GazeEstimation/#computer-vision-approach",
+    
+    "relUrl": "/docs/%08AI/GazeEstimation/#computer-vision-approach"
+  },"9": {
+    "doc": "Gaze Estimation",
+    "title": "Gaze Estimation",
+    "content": "RESEARCH . ON-PROGRESS . ",
+    "url": "/docs/%08AI/GazeEstimation/",
+    
+    "relUrl": "/docs/%08AI/GazeEstimation/"
+  },"10": {
     "doc": "Issues",
     "title": "Issues",
     "content": " ",
     "url": "/docs/Note/Issues/",
     
     "relUrl": "/docs/Note/Issues/"
-  },"5": {
+  },"11": {
     "doc": "Note",
     "title": "끄적끄적",
     "content": " ",
     "url": "/Note#%EB%81%84%EC%A0%81%EB%81%84%EC%A0%81",
     
     "relUrl": "/Note#끄적끄적"
-  },"6": {
+  },"12": {
     "doc": "Note",
     "title": "Note",
     "content": " ",
     "url": "/Note",
     
     "relUrl": "/Note"
-  },"7": {
+  },"13": {
     "doc": "Object Detection",
     "title": "Object Detection",
-    "content": "# . ",
-    "url": "/docs/ComputerVision/ObjectDetection/",
+    "content": " ",
+    "url": "/docs/%08AI/ObjectDetection/",
     
-    "relUrl": "/docs/ComputerVision/ObjectDetection/"
-  },"8": {
+    "relUrl": "/docs/%08AI/ObjectDetection/"
+  },"14": {
     "doc": "Pose Estimation",
     "title": "Pose Estimation",
     "content": " ",
-    "url": "/docs/ComputerVision/PoseEstimation/",
+    "url": "/docs/%08AI/PoseEstimation/",
     
-    "relUrl": "/docs/ComputerVision/PoseEstimation/"
-  },"9": {
+    "relUrl": "/docs/%08AI/PoseEstimation/"
+  },"15": {
+    "doc": "TTS",
+    "title": "FastSpeech2",
+    "content": ". | . ",
+    "url": "/docs/%08AI/TTS/#fastspeech2",
+    
+    "relUrl": "/docs/%08AI/TTS/#fastspeech2"
+  },"16": {
+    "doc": "TTS",
+    "title": "TTS",
+    "content": " ",
+    "url": "/docs/%08AI/TTS/",
+    
+    "relUrl": "/docs/%08AI/TTS/"
+  },"17": {
+    "doc": "Talking Face Generation",
+    "title": "Wav2Lip",
+    "content": ". | 입술 모양을 생성하여 시각적으로 입술의 움직임을 음성신호에 맞추는 LipGAN에서 제안되었던 기술을 개선한 알고리즘 | LipGAN은 정적인 이미지에서는 높은 성능을 보여주었으나 실제 영상에 적용했을 때 시각적 이상 현상이 발생하거나 움직임이 자연스럽지 않았음 | Wav2Lip은 립싱크 학습과 시각적 결과를 생성하는 학습으로 분리하는 접근 방식을 제안 | SyncNet의 구조를 대부분 가져온듯함 | . ",
+    "url": "/docs/%08AI/TalkingFaceGeneration/#wav2lip",
+    
+    "relUrl": "/docs/%08AI/TalkingFaceGeneration/#wav2lip"
+  },"18": {
+    "doc": "Talking Face Generation",
+    "title": "Talking Face Generation",
+    "content": " ",
+    "url": "/docs/%08AI/TalkingFaceGeneration/",
+    
+    "relUrl": "/docs/%08AI/TalkingFaceGeneration/"
+  },"19": {
     "doc": "Home",
-    "title": "줄줄이 기록용 블로그",
-    "content": ". | 블로그 개설! | . ",
-    "url": "/#%EC%A4%84%EC%A4%84%EC%9D%B4-%EA%B8%B0%EB%A1%9D%EC%9A%A9-%EB%B8%94%EB%A1%9C%EA%B7%B8",
+    "title": "연구노트",
+    "content": " ",
+    "url": "/#%EC%97%B0%EA%B5%AC%EB%85%B8%ED%8A%B8",
     
-    "relUrl": "/#줄줄이-기록용-블로그"
-  },"10": {
+    "relUrl": "/#연구노트"
+  },"20": {
+    "doc": "Home",
+    "title": "Data Scientist Sanchez의 블로그 입니다.",
+    "content": "print(\"hello world\") . ",
+    "url": "/#data-scientist-sanchez%EC%9D%98-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%85%EB%8B%88%EB%8B%A4",
+    
+    "relUrl": "/#data-scientist-sanchez의-블로그-입니다"
+  },"21": {
     "doc": "Home",
     "title": "Home",
-    "content": " ",
+    "content": "DATA SCIENCE . CV . ML . DL . ",
     "url": "/",
     
     "relUrl": "/"

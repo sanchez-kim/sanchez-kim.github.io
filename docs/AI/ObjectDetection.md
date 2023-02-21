@@ -1,8 +1,6 @@
 ---
 layout: default
 title: Object Detection
-parent: Computer Vision
+parent: AI Research
 nav_order: 1
 ---
-
-#

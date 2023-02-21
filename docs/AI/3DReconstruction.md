@@ -1,6 +1,6 @@
 ---
 layout: default
 title: 3D Reconstruction
-parent: Computer Vision
+parent: AI Research
 nav_order: 3
 ---

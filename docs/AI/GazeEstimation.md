@@ -9,10 +9,11 @@ RESEARCH
 {: .label .label-yellow}
 ON-PROGRESS
 {: .label .label-green}
-# 영유아의 눈 움직임 추적을 통한 자폐 진단 
-## Experiment Plan
-- 24개월 미만 정상, 자폐 아동(50명, 50명) 대상으로 실험설계
-
+# 아동의 시선 추적을 통한 자폐 진단 
+- 아동에게 시각적 자극을 제시하고 Gaze(시선)을 추적
+- 추적한 Gaze Point로 Scanpath 이미지 생성
+- Scanpath 이미지로 자폐 유무를 분류
+    - *시선 추적만으로 자폐 진단이 가능한가?*
 ## ASD(Autism Spectrum Disorder) Detection
 ![](/assets/images/gaze_estimation/experiment1.jpeg)
 #### *아동이 동영상 속 인물의 눈을 응시한 시간 비율 (출처:UNIST)*
@@ -42,3 +43,8 @@ ON-PROGRESS
 > *추후 dlib의 성능을 개선할 수 있을지?* 
 > {: .text-red-000}
 
+## †Without Calibration
+[GazeCapture](https://github.com/MSREnable/GazeCapture)
+- Smart Phone, Tablet으로 부터 획득한 데이터를 바탕으로 Gaze Estimation 
+- 얼굴과 좌우 눈 이미지, 그리고 25*25 face-grid를 입력값으로 넣고, 2D gaze point를 출력함.
+- 캘리브레이션이 필요없다고는 하나, 원래 논문에서 제시된 모델은 아이폰 및 아이패드 등의 모바일 디바이스 데이터를 기반으로 학습되었으므로 실제 커스텀 데이터셋을 적용하기에는 다소 어려움이 있다. (오프셋 설정이나 카메라 정보를 기반으로 캘리브레이션이 진행되어야함..) 

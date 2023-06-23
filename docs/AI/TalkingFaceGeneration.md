@@ -2,8 +2,13 @@
 layout: default
 title: Talking Face Generation
 parent: AI Research
-nav_order: 4
+nav_order: 3
 ---
+
+RESEARCH
+{: .label .label-yellow}
+ON-PROGRESS
+{: .label .label-green}
 
 ## Wav2Lip
 - 입술 모양을 생성하여 시각적으로 입술의 움직임을 음성신호에 맞추는 LipGAN에서 제안되었던 기술을 개선한 알고리즘

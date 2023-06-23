@@ -1,186 +1,214 @@
 {"0": {
-    "doc": "3D Reconstruction",
-    "title": "3D Reconstruction",
-    "content": " ",
-    "url": "/docs/%08AI/3DReconstruction/",
-    
-    "relUrl": "/docs/%08AI/3DReconstruction/"
-  },"1": {
     "doc": "AI Research",
     "title": "Task 별 AI Research",
     "content": " ",
     "url": "/AI/Research#task-%EB%B3%84-ai-research",
     
     "relUrl": "/AI/Research#task-별-ai-research"
-  },"2": {
+  },"1": {
     "doc": "AI Research",
     "title": "AI Research",
     "content": " ",
     "url": "/AI/Research",
     
     "relUrl": "/AI/Research"
-  },"3": {
+  },"2": {
     "doc": "ETC",
     "title": "ETC",
     "content": " ",
     "url": "/docs/Note/ETC/",
     
     "relUrl": "/docs/Note/ETC/"
-  },"4": {
+  },"3": {
     "doc": "Gaze Estimation",
     "title": "아동의 시선 추적을 통한 자폐 진단",
     "content": ". | 아동에게 시각적 자극을 제시하고 Gaze(시선)을 추적 | 추적한 Gaze Point로 Scanpath 이미지 생성 | Scanpath 이미지로 자폐 유무를 분류 . | 시선 추적만으로 자폐 진단이 가능한가? ",
     "url": "/docs/%08AI/GazeEstimation/#%EC%95%84%EB%8F%99%EC%9D%98-%EC%8B%9C%EC%84%A0-%EC%B6%94%EC%A0%81%EC%9D%84-%ED%86%B5%ED%95%9C-%EC%9E%90%ED%8F%90-%EC%A7%84%EB%8B%A8",
     
     "relUrl": "/docs/%08AI/GazeEstimation/#아동의-시선-추적을-통한-자폐-진단"
-  },"5": {
+  },"4": {
     "doc": "Gaze Estimation",
     "title": "ASD(Autism Spectrum Disorder) Detection",
     "content": ". 아동이 동영상 속 인물의 눈을 응시한 시간 비율 (출처:UNIST) . | . | . | 1~4세 미만 아동 616명에게 1분 미만의 짧은 영상을 보여주고 눈 운동 추적 장비를 통해 측정 | 자폐 아동들이 동영상 속 인물의 눈을 응시한 총 시간은 다른 집단과 유사했음. | 자폐 영유아들은 눈동자를 응시하지 못한다기보다 얼굴 전체를 덜 보는 경향이 있다. | 문맥에 맞게 중요한 정보로 주의 집중하는 능력이 일반인에 비해 떨어짐을 알 수 있음. | . ",
     "url": "/docs/%08AI/GazeEstimation/#asdautism-spectrum-disorder-detection",
     
     "relUrl": "/docs/%08AI/GazeEstimation/#asdautism-spectrum-disorder-detection"
-  },"6": {
+  },"5": {
     "doc": "Gaze Estimation",
     "title": "†DeepLabCut, GazeNet을 이용한 eye-tracking",
     "content": "참고문서 . | Video camera-based eye-tracking . | Model-based . | 각막에 반사되는 적외선의 패턴으로 gaze의 포인트 계산 | . | Appearance-based . | 이미지 데이터에만 의존하여 눈의 음직임을 추적 | 머리가 고정되어 있지 않은 경우 시선을 추정하기 어렵다 | position of facial landmarks VS point of gaze | . | . | . ",
     "url": "/docs/%08AI/GazeEstimation/#deeplabcut-gazenet%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-eye-tracking",
     
     "relUrl": "/docs/%08AI/GazeEstimation/#deeplabcut-gazenet을-이용한-eye-tracking"
-  },"7": {
+  },"6": {
     "doc": "Gaze Estimation",
     "title": "†Computer Vision Approach",
     "content": "GazeTracking OWLET dlib-models . | dlib으로 face landmark를 추출하고 눈의 움직임을 추척하는 방식 추후 dlib의 성능을 개선할 수 있을지? . | . ",
     "url": "/docs/%08AI/GazeEstimation/#computer-vision-approach",
     
     "relUrl": "/docs/%08AI/GazeEstimation/#computer-vision-approach"
-  },"8": {
+  },"7": {
     "doc": "Gaze Estimation",
     "title": "†Without Calibration",
     "content": "GazeCapture . | Smart Phone, Tablet으로 부터 획득한 데이터를 바탕으로 Gaze Estimation | 얼굴과 좌우 눈 이미지, 그리고 25*25 face-grid를 입력값으로 넣고, 2D gaze point를 출력함. | 캘리브레이션이 필요없다고는 하나, 원래 논문에서 제시된 모델은 아이폰 및 아이패드 등의 모바일 디바이스 데이터를 기반으로 학습되었으므로 실제 커스텀 데이터셋을 적용하기에는 다소 어려움이 있다. (오프셋 설정이나 카메라 정보를 기반으로 캘리브레이션이 진행되어야함..) | . ",
     "url": "/docs/%08AI/GazeEstimation/#without-calibration",
     
     "relUrl": "/docs/%08AI/GazeEstimation/#without-calibration"
-  },"9": {
+  },"8": {
     "doc": "Gaze Estimation",
     "title": "Gaze Estimation",
     "content": "RESEARCH . ON-PROGRESS . ",
     "url": "/docs/%08AI/GazeEstimation/",
     
     "relUrl": "/docs/%08AI/GazeEstimation/"
-  },"10": {
+  },"9": {
     "doc": "Issues",
     "title": "생각날 때 꺼내먹으려고 기록하는 이슈 &amp; 팁 모음",
     "content": " ",
     "url": "/docs/Note/Issues/#%EC%83%9D%EA%B0%81%EB%82%A0-%EB%95%8C-%EA%BA%BC%EB%82%B4%EB%A8%B9%EC%9C%BC%EB%A0%A4%EA%B3%A0-%EA%B8%B0%EB%A1%9D%ED%95%98%EB%8A%94-%EC%9D%B4%EC%8A%88--%ED%8C%81-%EB%AA%A8%EC%9D%8C",
     
     "relUrl": "/docs/Note/Issues/#생각날-때-꺼내먹으려고-기록하는-이슈--팁-모음"
-  },"11": {
+  },"10": {
     "doc": "Issues",
     "title": "†LINUX",
-    "content": "로케일 설정 . | 도커 컨테이너 상의 bash에서 로케일 설정이 제대로 되지 않는 것을 발견 (한글 안쳐짐) | 사용 가능한 로케일 확인 locale -a . | 환경변수 설정 export LANG=ko_KR.utf8 bash . 이걸 도커에 넣어야할지 리눅스 이슈에 넣어야 할지 고민을 많이 했다만.. 추후 우분투에서 문제가 있을 경우도 있고해서 리눅스 이슈란에 포함시킴. | . GPG 키 에러 . | 도커로 이미지를 빌드할때 발생하곤 함 | 키를 등록해주면 해결 | 일단 업데이트 및 업그레이드를 하고 sudo를 설치해주자 apt update &amp;&amp; apt upgrade apt install sudo . | 이후 에러 메시지의 PUBKEY를 복사한 후 아래 커맨드로 등록을 해주면 끝 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys &lt;PUBKEY&gt; . | . 프로세스 한방에 종료 시키기 . | 통상 kill -9 [PID]로 프로세스를 종료시키는데 만약에 병렬 프로세스가 걸려있을 경우 일일이 PID를 찾기가 귀찮아진다 | 아래 커맨드로 한방에 프로세스를 종료해보자 kill -9 -ef &lt;PROCESS_NAME&gt; . | 권한이 없다면 sudo를 넣어주자 | . ",
+    "content": "로케일 설정 . | 도커 컨테이너 상의 bash에서 로케일 설정이 제대로 되지 않는 것을 발견. (한글 안쳐짐) | 사용 가능한 로케일 확인. locale -a . | 환경변수 설정 export LANG=ko_KR.utf8 bash . 이걸 도커에 넣어야할지 리눅스 이슈에 넣어야 할지 고민을 많이 했다만.. 추후 우분투에서 문제가 있을 경우도 있고해서 리눅스 이슈란에 포함시킴. | . GPG 키 에러 . | 도커로 이미지를 빌드할때 발생하곤 함. | 키를 등록해주면 해결. | 일단 업데이트 및 업그레이드를 하고 sudo를 설치해주자. apt update &amp;&amp; apt upgrade apt install sudo . | 이후 에러 메시지의 PUBKEY를 복사한 후 아래 커맨드로 등록을 해주면 끝 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys &lt;PUBKEY&gt; . | . 프로세스 한방에 종료 시키기 . | 통상 kill -9 [PID]로 프로세스를 종료시키는데 만약에 병렬 프로세스가 걸려있을 경우 일일이 PID를 찾기가 귀찮아진다. | 아래 커맨드로 한방에 프로세스를 종료해보자. kill -9 -ef &lt;PROCESS_NAME&gt; . | 권한이 없다면 sudo를 넣어주자 | . wget으로 구글드라이브 파일 다운로드 받기 . wget --load-cookies /tmp/cookies.txt \"https://docs.google.com/uc?export=download&amp;confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&amp;id={FILEID}' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\\1\\n/p')&amp;id={FILEID}\" -O {FILENAME} &amp;&amp; rm -rf /tmp/cookies.txt . | 직접적으로 drive.google.com으로 접근이 불가능하기 때문에 docs.google.com으로 우회해야 한다. | FILEID에 공유 링크에서 파일아이디를 복사하여 집어넣고 FILENAME에는 원하는 파일명을 작성하면 된다. | . ",
     "url": "/docs/Note/Issues/#linux",
     
     "relUrl": "/docs/Note/Issues/#linux"
-  },"12": {
+  },"11": {
     "doc": "Issues",
     "title": "†DOCKER",
-    "content": "컨테이너 재시작 . | 도커 컨테이너가 중지되었을때 강제로 무조건 다시 시작하도록 하는 커맨드 docker update --restart=always &lt;ContainerID&gt; . | . ",
+    "content": "컨테이너 재시작 . | 도커 컨테이너가 중지되었을때 강제로 무조건 다시 시작하도록 하는 커맨드. docker update --restart=always &lt;ContainerID&gt; . | . ",
     "url": "/docs/Note/Issues/#docker",
     
     "relUrl": "/docs/Note/Issues/#docker"
-  },"13": {
+  },"12": {
     "doc": "Issues",
     "title": "†JUPYTER",
-    "content": "Sublime Text 스타일로 키 맵핑하기 . | VSCode를 쓰다보면 cmd + D로 다중 선택하는 것에 익숙해져있다 | 주피터 노트북에서는 한줄을 다 지우는 단축키여서 화가 날때가 많다 | custom.js를 수정하면 키 맵핑이 가능하다 # 커스텀 파일 경로 # 없으면 하나 만들어주자 ~/.jupyter/custom/custom.js . | custom.js 코드 require([\"codemirror/keymap/sublime\", \"notebook/js/cell\", \"base/js/namespace\"], function(sublime_keymap, cell, IPython){ cell.Cell.options_default.cm_config.keyMap = \"sublime\"; var cells = IPython.notebook.get_cells(); for(var cl=0; cl&lt;cells.length; cl++){ cells[cl].code_mirror.setOption(\"keyMap\", \"sublime\"); } } ); . | . 테마설치 . pip install jupyterthemes pip install jupyter_contrib_nbextensions &amp;&amp; jupyter contrib nbextension install # 자주 쓰는 설정 1 jt -t onedork -T -N -kl -f roboto -fs 12 -tfs 11 -nfs 14 -tfs 14 -ofs 10 -cellw 90% -lineh 170 -cursc r -cursw 6 # 자주 쓰는 설정 2 jt -t chesterish -f bitstream -fs 12 -tf roboto -tfs 13 -nf opensans -nfs 12 -ofs 12 -dfs 12 -cellw 95% -lineh 150 -T -N . ",
+    "content": "Sublime Text 스타일로 키 맵핑하기 . | VSCode를 쓰다보면 cmd + D로 다중 선택하는 것에 익숙해져있다. | 주피터 노트북에서는 한줄을 다 지우는 단축키여서 화가 날때가 많다. | custom.js를 수정하면 키 맵핑이 가능하다. # 커스텀 파일 경로 # 없으면 하나 만들어주자 ~/.jupyter/custom/custom.js . | custom.js 코드 require([\"codemirror/keymap/sublime\", \"notebook/js/cell\", \"base/js/namespace\"], function(sublime_keymap, cell, IPython){ cell.Cell.options_default.cm_config.keyMap = \"sublime\"; var cells = IPython.notebook.get_cells(); for(var cl=0; cl&lt;cells.length; cl++){ cells[cl].code_mirror.setOption(\"keyMap\", \"sublime\"); } } ); . | . 테마설치 . pip install jupyterthemes pip install jupyter_contrib_nbextensions &amp;&amp; jupyter contrib nbextension install # 자주 쓰는 설정 1 jt -t onedork -T -N -kl -f roboto -fs 12 -tfs 11 -nfs 14 -tfs 14 -ofs 10 -cellw 90% -lineh 170 -cursc r -cursw 6 # 자주 쓰는 설정 2 jt -t chesterish -f bitstream -fs 12 -tf roboto -tfs 13 -nf opensans -nfs 12 -ofs 12 -dfs 12 -cellw 95% -lineh 150 -T -N . ",
     "url": "/docs/Note/Issues/#jupyter",
     
     "relUrl": "/docs/Note/Issues/#jupyter"
-  },"14": {
+  },"13": {
     "doc": "Issues",
     "title": "†GIT",
     "content": "gitignore 적용 안될 때 . | 캐시를 삭제해주자 git rm -r --cached . | . ",
     "url": "/docs/Note/Issues/#git",
     
     "relUrl": "/docs/Note/Issues/#git"
-  },"15": {
+  },"14": {
     "doc": "Issues",
     "title": "Issues",
     "content": " ",
     "url": "/docs/Note/Issues/",
     
     "relUrl": "/docs/Note/Issues/"
-  },"16": {
+  },"15": {
     "doc": "Note",
     "title": "끄적끄적",
     "content": " ",
     "url": "/Note#%EB%81%84%EC%A0%81%EB%81%84%EC%A0%81",
     
     "relUrl": "/Note#끄적끄적"
-  },"17": {
+  },"16": {
     "doc": "Note",
     "title": "Note",
     "content": " ",
     "url": "/Note",
     
     "relUrl": "/Note"
+  },"17": {
+    "doc": "Stable Diffusion",
+    "title": "Stable Diffusion Web UI 설치 &amp; 사용법",
+    "content": " ",
+    "url": "/docs/%08AI/StableDiffusion/#stable-diffusion-web-ui-%EC%84%A4%EC%B9%98--%EC%82%AC%EC%9A%A9%EB%B2%95",
+    
+    "relUrl": "/docs/%08AI/StableDiffusion/#stable-diffusion-web-ui-설치--사용법"
   },"18": {
-    "doc": "Object Detection",
-    "title": "Object Detection",
-    "content": " ",
-    "url": "/docs/%08AI/ObjectDetection/",
+    "doc": "Stable Diffusion",
+    "title": "설치방법",
+    "content": ". | Ubuntu 20.04 환경을 기준으로 설치를 진행함 | 본인은 remote server의 도커 환경에 설치를 진행하였음 | 공식 repository에는 파이썬 3.10 설치하고 webui.sh 실행하면 끝이라고 되어있지만 그렇게 간단하지 않다.. | . ",
+    "url": "/docs/%08AI/StableDiffusion/#%EC%84%A4%EC%B9%98%EB%B0%A9%EB%B2%95",
     
-    "relUrl": "/docs/%08AI/ObjectDetection/"
+    "relUrl": "/docs/%08AI/StableDiffusion/#설치방법"
   },"19": {
-    "doc": "Pose Estimation",
-    "title": "Pose Estimation",
-    "content": " ",
-    "url": "/docs/%08AI/PoseEstimation/",
+    "doc": "Stable Diffusion",
+    "title": "Dockerfile",
+    "content": "FROM nvidia/cuda:11.4.0-cudnn8-runtime-ubuntu20.04 RUN apt-get update &amp;&amp; apt-get upgrade -y \\ &amp;&amp; apt-get install -y git curl wget software-properties-common \\ &amp;&amp; add-apt-repository ppa:deadsnakes/ppa -y \\ &amp;&amp; apt-get install -y python3.10 python3.10-venv python3-pip \\ &amp;&amp; apt-get install -y libsm6 libxext6 libxrender-dev libgl1-mesa-glx libglib2.0-0 \\ &amp;&amp; rm -rf /var/lib/apt/lists/* RUN apt install libgoogle-perftools4 libtcmalloc-minimal4 -y RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10 RUN python3.10 -m venv venv \\ &amp;&amp; . /venv/bin/activate \\ &amp;&amp; pip install --upgrade pip . | 본인이 개삽질하면서 작성한 도커파일인데 테스트는 해보지 않았으나 아마도 잘 빌드 될 것임. | 뭘 설치해야하는지 들여다보면 대충 감이 올것임. | 빌드가 잘 되었다면 컨테이너를 만들어 접속하고, ui를 실행해보자 ./webui.sh --listen --deepdanbooru --enable-insecure-extension-access . | webui.sh –help를 통해 어떤 옵션이 있는지 확인할 수 있다. | 원하는 옵션을 선택하고 위와 같이 webui 쉘스크립트를 실행해준다. | . ",
+    "url": "/docs/%08AI/StableDiffusion/#dockerfile",
     
-    "relUrl": "/docs/%08AI/PoseEstimation/"
+    "relUrl": "/docs/%08AI/StableDiffusion/#dockerfile"
   },"20": {
+    "doc": "Stable Diffusion",
+    "title": "ControlNet",
+    "content": ". | 컨트롤넷이란? . | 컨트롤넷! | . | 설치방법 | 적용방법 작성예정 . | . ",
+    "url": "/docs/%08AI/StableDiffusion/#controlnet",
+    
+    "relUrl": "/docs/%08AI/StableDiffusion/#controlnet"
+  },"21": {
+    "doc": "Stable Diffusion",
+    "title": "Lora",
+    "content": ". | 적용방법 | 학습방법 | . ",
+    "url": "/docs/%08AI/StableDiffusion/#lora",
+    
+    "relUrl": "/docs/%08AI/StableDiffusion/#lora"
+  },"22": {
+    "doc": "Stable Diffusion",
+    "title": "Trouble Shooting",
+    "content": "Cannot locate TCMalloc . | webui 실행 시 나타나는 오류 정리 예정 | apt install libgoogle-perftools4 libtcmalloc-minimal4 -y | . Extension Install . Requirements . ",
+    "url": "/docs/%08AI/StableDiffusion/#trouble-shooting",
+    
+    "relUrl": "/docs/%08AI/StableDiffusion/#trouble-shooting"
+  },"23": {
+    "doc": "Stable Diffusion",
+    "title": "Stable Diffusion",
+    "content": "RESEARCH . ON-PROGRESS . ",
+    "url": "/docs/%08AI/StableDiffusion/",
+    
+    "relUrl": "/docs/%08AI/StableDiffusion/"
+  },"24": {
     "doc": "TTS",
     "title": "FastSpeech2",
     "content": ". | . ",
     "url": "/docs/%08AI/TTS/#fastspeech2",
     
     "relUrl": "/docs/%08AI/TTS/#fastspeech2"
-  },"21": {
+  },"25": {
     "doc": "TTS",
     "title": "TTS",
     "content": " ",
     "url": "/docs/%08AI/TTS/",
     
     "relUrl": "/docs/%08AI/TTS/"
-  },"22": {
+  },"26": {
     "doc": "Talking Face Generation",
     "title": "Wav2Lip",
     "content": ". | 입술 모양을 생성하여 시각적으로 입술의 움직임을 음성신호에 맞추는 LipGAN에서 제안되었던 기술을 개선한 알고리즘 | LipGAN은 정적인 이미지에서는 높은 성능을 보여주었으나 실제 영상에 적용했을 때 시각적 이상 현상이 발생하거나 움직임이 자연스럽지 않았음 | Wav2Lip은 립싱크 학습과 시각적 결과를 생성하는 학습으로 분리하는 접근 방식을 제안 | SyncNet의 구조를 대부분 가져온듯함 | . ",
     "url": "/docs/%08AI/TalkingFaceGeneration/#wav2lip",
     
     "relUrl": "/docs/%08AI/TalkingFaceGeneration/#wav2lip"
-  },"23": {
+  },"27": {
     "doc": "Talking Face Generation",
     "title": "Talking Face Generation",
-    "content": " ",
+    "content": "RESEARCH . ON-PROGRESS . ",
     "url": "/docs/%08AI/TalkingFaceGeneration/",
     
     "relUrl": "/docs/%08AI/TalkingFaceGeneration/"
-  },"24": {
+  },"28": {
     "doc": "Home",
     "title": "연구노트",
     "content": " ",
     "url": "/#%EC%97%B0%EA%B5%AC%EB%85%B8%ED%8A%B8",
     
     "relUrl": "/#연구노트"
-  },"25": {
+  },"29": {
     "doc": "Home",
     "title": "Data Scientist Sanchez의 블로그 입니다.",
     "content": "print(\"hello world\") . ",
     "url": "/#data-scientist-sanchez%EC%9D%98-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%85%EB%8B%88%EB%8B%A4",
     
     "relUrl": "/#data-scientist-sanchez의-블로그-입니다"
-  },"26": {
+  },"30": {
     "doc": "Home",
     "title": "Home",
     "content": "DATA SCIENCE . CV . ML . DL . ",

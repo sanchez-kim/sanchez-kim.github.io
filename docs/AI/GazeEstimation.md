@@ -2,13 +2,14 @@
 layout: default
 title: Gaze Estimation
 parent: AI Research
-nav_order: 6
+nav_order: 1
 ---
 
 RESEARCH
 {: .label .label-yellow}
 ON-PROGRESS
 {: .label .label-green}
+
 # 아동의 시선 추적을 통한 자폐 진단 
 - 아동에게 시각적 자극을 제시하고 Gaze(시선)을 추적
 - 추적한 Gaze Point로 Scanpath 이미지 생성

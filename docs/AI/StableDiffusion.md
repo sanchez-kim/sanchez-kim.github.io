@@ -19,7 +19,8 @@ ON-PROGRESS
 
 ## Dockerfile 만들기
 - 우선 공식 repo를 클론하고 해당 폴더에 도커파일을 작성해주자.
-- 도커파일의 내용은 아래와 같다. 
+- 도커파일의 내용은 아래와 같다.   
+
 ```dockerfile
 FROM nvidia/cuda:11.4.0-cudnn8-runtime-ubuntu20.04
 
@@ -45,6 +46,7 @@ ENV PATH="/venv/bin:$PATH"
 
 WORKDIR /webui
 ```
+
 - 본인이 개삽질하면서 작성한 도커파일인데 테스트는 해보지 않았으나 아마도 잘 빌드 될 것임.
 - 뭘 설치해야하는지 들여다보면 대충 감이 올것임.
 - 위의 코드 내용으로 도커파일을 작성하고 이미지를 빌드하자.
@@ -56,7 +58,7 @@ docker build --network=host -t webui:latest
 # this script cannot be run as root by default
 can_run_as_root=0
 ```
-- root로 실행해야할 경우 위에 해당하는 코드를 1로 수정해준다.
+- root로 실행해야할 경우 위에 해당하는 값을 1로 수정해준다.
 - 빌드가 잘 되었다면 컨테이너를 만들어 접속하고, ui를 실행해보자.
 - 아니면 더 간단하게 -f 옵션을 추가해주면 된다.
 ```bash

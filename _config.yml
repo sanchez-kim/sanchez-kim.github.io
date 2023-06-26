@@ -20,8 +20,6 @@ url: "https://sanchez-kim.github.io" # the base hostname & protocol for your sit
 
 permalink: pretty
 
-paginate: 5
-
 exclude:
  # from https://github.com/jekyll/jekyll/blob/master/lib/site_template/_config.yml:
    - .sass-cache/

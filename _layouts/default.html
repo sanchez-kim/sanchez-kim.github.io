@@ -24,8 +24,17 @@ layout: table_wrappers
         {% if page.has_children == true and page.has_toc != false %}
           {% include components/children_nav.html toc_list=toc_list %}
         {% endif %}
-
+        <script src="https://utteranc.es/client.js"
+                repo="sanchez-kim/sanchez-kim.github.io"
+                issue-term="pathname"
+                theme="photon-dark"
+                crossorigin="anonymous"
+                async>
+        </script>
         {% include components/footer.html %}
+        <footer>
+          Copyright &copy; 2023 Sanchez Kim. Distributed by an <a href="https://creativecommons.org/licenses/by-nc-sa/3.0">CC BY-NC-SA 3.0</a> license
+        </footer>
 
       </div>
     </div>
@@ -37,5 +46,6 @@ layout: table_wrappers
   {% if site.mermaid %}
     {% include components/mermaid.html %}
   {% endif %}
+
 </body>
 </html>

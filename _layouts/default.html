@@ -24,6 +24,7 @@ layout: table_wrappers
         {% if page.has_children == true and page.has_toc != false %}
           {% include components/children_nav.html toc_list=toc_list %}
         {% endif %}
+        <!-- use utterance for comments -->
         <script src="https://utteranc.es/client.js"
                 repo="sanchez-kim/sanchez-kim.github.io"
                 issue-term="pathname"
@@ -46,6 +47,7 @@ layout: table_wrappers
   {% if site.mermaid %}
     {% include components/mermaid.html %}
   {% endif %}
-
+  <!-- use mathjax -->
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 </body>
 </html>

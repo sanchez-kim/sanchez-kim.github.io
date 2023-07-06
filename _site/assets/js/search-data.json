@@ -57,28 +57,28 @@
   },"8": {
     "doc": "Issues",
     "title": "†LINUX",
-    "content": "로케일 설정 . | 도커 컨테이너 상의 bash에서 로케일 설정이 제대로 되지 않는 것을 발견. (한글 안쳐짐) | 사용 가능한 로케일 확인. locale -a . | 환경변수 설정 export LANG=ko_KR.utf8 bash . 이걸 도커에 넣어야할지 리눅스 이슈에 넣어야 할지 고민을 많이 했다만.. 추후 우분투에서 문제가 있을 경우도 있고해서 리눅스 이슈란에 포함시킴. | . GPG 키 에러 . | 도커로 이미지를 빌드할때 발생하곤 함. | 키를 등록해주면 해결. | 일단 업데이트 및 업그레이드를 하고 sudo를 설치해주자. apt update &amp;&amp; apt upgrade apt install sudo . | 이후 에러 메시지의 PUBKEY를 복사한 후 아래 커맨드로 등록을 해주면 끝 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys &lt;PUBKEY&gt; . | . 프로세스 한방에 종료 시키기 . | 통상 kill -9 [PID]로 프로세스를 종료시키는데 만약에 병렬 프로세스가 걸려있을 경우 일일이 PID를 찾기가 귀찮아진다. | 아래 커맨드로 한방에 프로세스를 종료해보자. kill -9 -ef &lt;PROCESS_NAME&gt; . | 권한이 없다면 sudo를 넣어주자 | . wget으로 구글드라이브 파일 다운로드 받기 . wget --load-cookies /tmp/cookies.txt \"https://docs.google.com/uc?export=download&amp;confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&amp;id={FILEID}' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\\1\\n/p')&amp;id={FILEID}\" -O {FILENAME} &amp;&amp; rm -rf /tmp/cookies.txt . | 직접적으로 drive.google.com으로 접근이 불가능하기 때문에 docs.google.com으로 우회해야 한다. | FILEID에 공유 링크에서 파일아이디를 복사하여 집어넣고 FILENAME에는 원하는 파일명을 작성하면 된다. | . ",
+    "content": "로케일 설정 . | 도커 컨테이너 상의 bash에서 로케일 설정이 제대로 되지 않는 것을 발견. (한글 안쳐짐) | 사용 가능한 로케일 확인. | . locale -a . | 환경변수 설정 | . export LANG=ko_KR.utf8 bash . 이걸 도커에 넣어야할지 리눅스 이슈에 넣어야 할지 고민을 많이 했다만.. 추후 우분투에서 문제가 있을 경우도 있고해서 리눅스 이슈란에 포함시킴. GPG 키 에러 . | 도커로 이미지를 빌드할때 발생하곤 함. | 키를 등록해주면 해결. | 일단 업데이트 및 업그레이드를 하고 sudo를 설치해주자. | . apt update &amp;&amp; apt upgrade apt install sudo . | 이후 에러 메시지의 PUBKEY를 복사한 후 아래 커맨드로 등록을 해주면 끝 | . sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys &lt;PUBKEY&gt; . 프로세스 한방에 종료 시키기 . | 통상 kill -9 [PID]로 프로세스를 종료시키는데 만약에 병렬 프로세스가 걸려있을 경우 일일이 PID를 찾기가 귀찮아진다. | 아래 커맨드로 한방에 프로세스를 종료해보자. | . kill -9 -ef &lt;PROCESS_NAME&gt; . | 권한이 없다면 sudo를 넣어주자 | . wget으로 구글드라이브 파일 다운로드 받기 . wget --load-cookies /tmp/cookies.txt \"https://docs.google.com/uc?export=download&amp;confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&amp;id={FILEID}' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\\1\\n/p')&amp;id={FILEID}\" -O {FILENAME} &amp;&amp; rm -rf /tmp/cookies.txt . | 직접적으로 drive.google.com으로 접근이 불가능하기 때문에 docs.google.com으로 우회해야 한다. | FILEID에 공유 링크에서 파일아이디를 복사하여 집어넣고 FILENAME에는 원하는 파일명을 작성하면 된다. | . ",
     "url": "/docs/Note/Issues/#linux",
     
     "relUrl": "/docs/Note/Issues/#linux"
   },"9": {
     "doc": "Issues",
     "title": "†DOCKER",
-    "content": "컨테이너 재시작 . | 도커 컨테이너가 중지되었을때 강제로 무조건 다시 시작하도록 하는 커맨드. docker update --restart=always &lt;ContainerID&gt; . | . ",
+    "content": "컨테이너 재시작 . | 도커 컨테이너가 중지되었을때 강제로 무조건 다시 시작하도록 하는 커맨드. | . docker update --restart=always &lt;ContainerID&gt; . 컨테이너 저장하기 . | 작업하던 컨테이너 내용을 그대로 저장하고 싶을때, 갑자기 컨테이너를 내리거나 재시작해야할때! | . docker commit [CONTAINER] [IMAGENAME] . ",
     "url": "/docs/Note/Issues/#docker",
     
     "relUrl": "/docs/Note/Issues/#docker"
   },"10": {
     "doc": "Issues",
     "title": "†JUPYTER",
-    "content": "Sublime Text 스타일로 키 맵핑하기 . | VSCode를 쓰다보면 cmd + D로 다중 선택하는 것에 익숙해져있다. | 주피터 노트북에서는 한줄을 다 지우는 단축키여서 화가 날때가 많다. | custom.js를 수정하면 키 맵핑이 가능하다. # 커스텀 파일 경로 # 없으면 하나 만들어주자 ~/.jupyter/custom/custom.js . | custom.js 코드 require([\"codemirror/keymap/sublime\", \"notebook/js/cell\", \"base/js/namespace\"], function(sublime_keymap, cell, IPython){ cell.Cell.options_default.cm_config.keyMap = \"sublime\"; var cells = IPython.notebook.get_cells(); for(var cl=0; cl&lt;cells.length; cl++){ cells[cl].code_mirror.setOption(\"keyMap\", \"sublime\"); } } ); . | . 테마설치 . pip install jupyterthemes pip install jupyter_contrib_nbextensions &amp;&amp; jupyter contrib nbextension install # 자주 쓰는 설정 1 jt -t onedork -T -N -kl -f roboto -fs 12 -tfs 11 -nfs 14 -tfs 14 -ofs 10 -cellw 90% -lineh 170 -cursc r -cursw 6 # 자주 쓰는 설정 2 jt -t chesterish -f bitstream -fs 12 -tf roboto -tfs 13 -nf opensans -nfs 12 -ofs 12 -dfs 12 -cellw 95% -lineh 150 -T -N . ",
+    "content": "Sublime Text 스타일로 키 맵핑하기 . | VSCode를 쓰다보면 cmd + D로 다중 선택하는 것에 익숙해져있다. | 주피터 노트북에서는 한줄을 다 지우는 단축키여서 화가 날때가 많다. | custom.js를 수정하면 키 맵핑이 가능하다. | . # 커스텀 파일 경로 # 없으면 하나 만들어주자 ~/.jupyter/custom/custom.js . | custom.js 코드 | . require([ \"codemirror/keymap/sublime\", \"notebook/js/cell\", \"base/js/namespace\", ], function (sublime_keymap, cell, IPython) { cell.Cell.options_default.cm_config.keyMap = \"sublime\"; var cells = IPython.notebook.get_cells(); for (var cl = 0; cl &lt; cells.length; cl++) { cells[cl].code_mirror.setOption(\"keyMap\", \"sublime\"); } }); . 테마설치 . pip install jupyterthemes pip install jupyter_contrib_nbextensions &amp;&amp; jupyter contrib nbextension install # 자주 쓰는 설정 1 jt -t onedork -T -N -kl -f roboto -fs 12 -tfs 11 -nfs 14 -tfs 14 -ofs 10 -cellw 90% -lineh 170 -cursc r -cursw 6 # 자주 쓰는 설정 2 jt -t chesterish -f bitstream -fs 12 -tf roboto -tfs 13 -nf opensans -nfs 12 -ofs 12 -dfs 12 -cellw 95% -lineh 150 -T -N . ",
     "url": "/docs/Note/Issues/#jupyter",
     
     "relUrl": "/docs/Note/Issues/#jupyter"
   },"11": {
     "doc": "Issues",
     "title": "†GIT",
-    "content": "gitignore 적용 안될 때 . | 캐시를 삭제해주자 git rm -r --cached . | . ",
+    "content": "gitignore 적용 안될 때 . | 캐시를 삭제해주자 | . git rm -r --cached . ",
     "url": "/docs/Note/Issues/#git",
     
     "relUrl": "/docs/Note/Issues/#git"
@@ -162,17 +162,17 @@
   },"23": {
     "doc": "TTS",
     "title": "Data Processing",
-    "content": "오픈데이터 다운로드 . | AI Hub 카이스트 오디오북 데이터셋에 가면 다운로드 가능하다. | 여기서 남자 성우 중 한명을 선택하여 오디오파일과 스크립트를 정리하였다. | AI Hub에 올라가있는 데이터다보니 나름 잘 정리되어있지만 누락된 데이터도 있으니 꼭 확인을 꼼꼼하게 하길 바란다. | . TextGrid 만들기 . | FastSpeech2를 학습시키기 위해서는 phoneme-utterance sequence간의 alignment 정보가 필요한데 이를 TextGrid라고 한다. | TextGrid는 MFA를 사용해서 추출할 수 있다. | MFA 설치는 공식 문서를 참고해서 설치하는 것이 가장 깔끔하다.. 개인적으로는 도커를 활용하였다. | TextGrid를 추출하기 위해서는 MFA 학습용 데이터셋을 만들어야하는데 이때 원본 오디오파일과 그 오디오파일에 해당하는 스크립트, 그리고 음소(phoneme) 단위의 딕셔너리가 필요하다. | 딕셔너리 제작시에 MFA로 g2p 모델을 학습시켜서 변환시키는 방법도 있지만 학습시간이 너무 오래걸리기 때문에 되도록이면 g2pk를 사용해서 미리 한글을 phoneme으로 변환시켜 놓자. | 아래의 커맨드를 통해 최종적으로 TextGrid를 획득할 수 있다. | . mfa train [dataset_path] [dictionary_path] [save_model_path] . | dataset_path : 오디오, 스크립트 쌍(wav, lab)이 존재하는 디렉토리의 경로 | dictionary_path : g2pk로 만든 딕셔너리 파일의 경로 | save_model_path : 학습 완료 후 모델을 저장할 경로 | . mfa align [dataset_path] [dict_file_path] [model_path] [result_path] . | dataset_path : 학습 시킬 때 사용했던 데이터 경로와 동일 | dict_file_path : train 결과롤 생성된 *.dict 파일의 경로 | model_path : 학습된 모델 파일의 경로 | result_path : TextGrid를 저장할 경로 | . | | . | 생성된 TextGrid 예시 | . Preprocessing . | TextGrid를 만들었다고 끝난게 아니다. 이제시작이다.. | | . ",
+    "content": "1. 오픈데이터 다운로드 . | AI Hub 카이스트 오디오북 데이터셋에 가면 다운로드 가능하다. | 여기서 남자 성우 중 한명을 선택하여 오디오파일과 스크립트를 정리하였다. | AI Hub에 올라가있는 데이터다보니 나름 잘 정리되어있지만 누락된 데이터도 있으니 꼭 확인을 꼼꼼하게 하길 바란다. | . 2. TextGrid 만들기 . | FastSpeech2를 학습시키기 위해서는 phoneme-utterance sequence간의 alignment 정보가 필요한데 이를 TextGrid라고 한다. | TextGrid는 MFA를 사용해서 추출할 수 있다. | MFA 설치는 공식 문서를 참고해서 설치하는 것이 가장 깔끔하다.. 개인적으로는 도커를 활용하였다. | TextGrid를 추출하기 위해서는 MFA 학습용 데이터셋을 만들어야하는데 이때 원본 오디오파일과 그 오디오파일에 해당하는 스크립트, 그리고 음소(phoneme) 단위의 딕셔너리가 필요하다. | . | | . | kss 데이터셋을 음소 단위로 변환한 예 | . | 딕셔너리 제작시에 MFA로 g2p 모델을 학습시켜서 변환시키는 방법도 있지만 학습시간이 너무 오래걸리기 때문에 되도록이면 g2pk를 사용해서 미리 한글을 위의 그림처럼 phoneme으로 변환시켜 놓자. | 아래의 커맨드를 통해 최종적으로 TextGrid를 획득할 수 있다. | . mfa train [dataset_path] [dictionary_path] [save_model_path] . | dataset_path : 오디오, 스크립트 쌍(wav, lab)이 존재하는 디렉토리의 경로 | dictionary_path : g2pk로 만든 딕셔너리 파일의 경로 | save_model_path : 학습 완료 후 모델을 저장할 경로 | . mfa align [dataset_path] [dict_file_path] [model_path] [result_path] . | dataset_path : 학습 시킬 때 사용했던 데이터 경로와 동일 | dict_file_path : train 결과롤 생성된 *.dict 파일의 경로 | model_path : 학습된 모델 파일의 경로 | result_path : TextGrid를 저장할 경로 | . | | . | 생성된 TextGrid 예시 | . 3. Preprocessing . | TextGrid를 만들었다고 끝난게 아니다. 이제시작이다.. | TextGrid가 준비되었으면 데이터셋의 형태에 맞게 (kss데이터셋의 포맷을 따라가는게 편리함) 전처리를 진행하자. | . | | . | 전처리 후 폴더구조 | . ",
     "url": "/docs/%08AI/TTS/#data-processing",
     
     "relUrl": "/docs/%08AI/TTS/#data-processing"
   },"24": {
     "doc": "TTS",
-    "title": "Train &amp; Test",
-    "content": " ",
-    "url": "/docs/%08AI/TTS/#train--test",
+    "title": "Training",
+    "content": "| | . | 학습결과 | . | 보코더는 한국인 남성의 목소리를 학습시킨 모델이 없어서 VocGAN의 영어 다화자 사전학습 모델을 사용하였다. | 추후 diffwave 기반 모델 테스트 예정 | . | 학습용 데이터의 수량은 training set 9,115건, validation set 1,951건으로 결코 많은 양은 아닌 듯 하다. | 하이퍼파라미터가 굉장히 많은데(attention head, dropout, learning rate 등등), 하나하나 테스트해보기에는 너무 시간이 오래걸리므로 HGU-DLLAB의 Jackson Kang님의 코드에 수록되어있는 파라미터를 대부분 그대로 적용하였다. | 3000 epoch으로 총 180만 스텝을 학습시키게 되었다. | . 학습결과 분석 . | 데이터의 글자 빈도 수에 따라서 발화가 결정되는 케이스 존재 \\(\\rightarrow\\) overfitting 우짜꼬.. | loss 만으로는 학습이 잘 되었는지 판별이 불가. | 데이터 전처리에 따라서 품질이 달라질 수 있을듯.. | . ",
+    "url": "/docs/%08AI/TTS/#training",
     
-    "relUrl": "/docs/%08AI/TTS/#train--test"
+    "relUrl": "/docs/%08AI/TTS/#training"
   },"25": {
     "doc": "TTS",
     "title": "References",

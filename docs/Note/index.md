@@ -4,9 +4,9 @@ title: Note
 has_children: true
 # has_toc: false
 permalink: /Note
-nav_order: 1
+# nav_order: 1
 ---
 
-# 끄적끄적
+# 이슈 & 해결방법 정리
 
 {: .no_toc}

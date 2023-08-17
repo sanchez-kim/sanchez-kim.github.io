@@ -2,7 +2,7 @@
 layout: default
 title: TTS
 parent: AI Research
-nav_order:
+nav_order: 3
 ---
 
 RESEARCH

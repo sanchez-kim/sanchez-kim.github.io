@@ -156,11 +156,14 @@ callouts:
 # ga_tracking: UA-2709176-10,G-5FG1HLH3XQ
 # ga_tracking_anonymize_ip: true # Use GDPR compliant Google Analytics settings (true/nil by default)
 
-analytics:
-  provider: "google-gtag"
-  google:
-    tracking_id: "G-PW8ZJ38P79"
-    anonymize_ip: # true, false (default)
+ga_tracking: G-PW8ZJ38P79
+ga_tracking_anonymize_ip: true
+
+# analytics:
+#   provider: "google-gtag"
+#   google:
+#     tracking_id: "G-PW8ZJ38P79"
+#     anonymize_ip: # true, false (default)
 
 plugins:
   - jekyll-seo-tag

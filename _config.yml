@@ -167,6 +167,7 @@ ga_tracking_anonymize_ip: true
 
 plugins:
   - jekyll-seo-tag
+  - jekyll-sitemap
 
 kramdown:
   syntax_highlighter_opts:

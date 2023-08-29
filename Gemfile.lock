@@ -43,6 +43,8 @@ GEM
       sass-embedded (~> 1.54)
     jekyll-seo-tag (2.8.0)
       jekyll (>= 3.8, < 5.0)
+    jekyll-sitemap (1.4.0)
+      jekyll (>= 3.7, < 5.0)
     jekyll-watch (2.2.1)
       listen (~> 3.0)
     kramdown (2.4.0)
@@ -76,6 +78,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 2.3.5)
+  jekyll-sitemap
   just-the-docs!
   webrick (~> 1.7)
 

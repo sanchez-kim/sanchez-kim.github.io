@@ -178,6 +178,8 @@ body::before {
 .card-media[data-slug="carrybot"] { background: linear-gradient(135deg,#d9a441,#3aa76d); }
 .card-media[data-slug="jeung"]    { background: linear-gradient(135deg,#5a1020,#120512); }
 .card-media[data-slug="ai-saju"]  { background: linear-gradient(135deg,#4b2fae,#9a5bff); }
+.card-media[data-slug="rabbit-hole"]    { background: linear-gradient(135deg,#2f9e57,#c98a3a); }
+.card-media[data-slug="stock-terminal"] { background: linear-gradient(135deg,#2b6fb0,#36c4a8); }
 .build-body { padding: 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
 .build-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .build-head h3 { font-size: 1.1rem; }

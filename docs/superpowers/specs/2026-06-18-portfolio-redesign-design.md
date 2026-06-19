@@ -17,7 +17,7 @@
 | 비주얼 톤 | 모던 그라데이션 + 글래스 카드 (밝은 배경) |
 | 추가 요소 | 연락처/소셜 링크 (PDF 다운로드·GitHub 프로젝트 링크·성과 지표는 범위 외, 추후 확장 가능) |
 | 기술 방식 | 바닐라 정적 (HTML + 손수제작 CSS + 소량 JS), GitHub Pages 직접 배포 |
-| 프로필 사진 | 미제공 → 이니셜 모노그램 아바타로 시작 (추후 교체) |
+| 프로필 사진 | 제공됨 — 루트 `profile.png` (1200×896). `assets/img/`로 이동 후 웹용 최적화 |
 | 다크 모드 | 미포함, 밝은 그라데이션 단일 테마 |
 
 ## 2. 데이터 출처
@@ -59,7 +59,7 @@
 
 원페이지 스크롤. 상단 고정 내비(섹션 앵커 + KO/EN 토글).
 
-1. **Hero** — 이름(김태형 / Taehyung Kim), 직함 `AI Engineer`, 한 줄 요약, 연락처/소셜 아이콘, 스크롤 유도. 프로필은 이니셜 모노그램 아바타.
+1. **Hero** — 이름(김태형 / Taehyung Kim), 직함 `AI Engineer`, 한 줄 요약, 연락처/소셜 아이콘, 스크롤 유도. 프로필 사진(`profile.png`)을 글래스 프레임에 배치.
 2. **About** — Summary 3줄 (CV·NLP·생성형 AI 4년 / E2E 개발 역량 / 공공·방송·의료 도메인 실증).
 3. **Experience** — 타임라인 4개:
    - (주)인사이터 — AI Engineer (2022.07–현재)
@@ -75,7 +75,7 @@
    - 아동 심리 HTP 자동 분석 시스템 ('아맘때', 2023–2024)
 5. **Skills** — 카테고리별 칩: 딥러닝/AI · MLOps/배포 · 프로그래밍 · 데이터.
 6. **Education** — 서울과기대(산업정보시스템공학) · Northumbria University(복수학위) · K-Digital(AI/ML 과정).
-7. **Contact / Footer** — 이메일(sanchez.kim.kr@gmail.com), GitHub(sanchez-kim), 소셜 링크 자리(LinkedIn 등 추후 추가).
+7. **Contact / Footer** — 이메일(sanchez.kim.kr@gmail.com), GitHub(sanchez-kim). 소셜 링크는 GitHub만 (LinkedIn 없음).
 
 ## 5. 다국어(i18n)
 
@@ -113,5 +113,4 @@
 
 ## 10. 미해결/추후 확인
 
-- 프로필 사진 파일 (제공 시 모노그램 대체).
-- LinkedIn 등 추가 소셜 링크 URL.
+- 없음. 모든 핵심 결정 확정 완료.

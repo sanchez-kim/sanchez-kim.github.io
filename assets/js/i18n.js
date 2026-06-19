@@ -138,3 +138,64 @@ export const dict = {
     contact: { title: 'Contact', email: 'sanchez.kim.kr@gmail.com', github: 'https://github.com/sanchez-kim' }
   }
 };
+
+function getByPath(obj, path) {
+  return path.split('.').reduce((o, k) => (o == null ? o : o[k]), obj);
+}
+
+function renderLists(t) {
+  const set = (id, html) => { const el = document.getElementById(id); if (el) el.innerHTML = html; };
+  set('about-points', t.about.points.map(p => `<li>${p}</li>`).join(''));
+  set('experience-list', t.experience.items.map(e => `
+    <li class="timeline-item">
+      <div class="timeline-head"><span class="org">${e.org}</span><span class="period">${e.period}</span></div>
+      <p class="role">${e.role}</p>
+      <ul class="bullets">${e.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
+    </li>`).join(''));
+  set('projects-grid', t.projects.items.map(p => `
+    <article class="card">
+      <header class="card-head"><h3>${p.name}</h3><span class="card-meta">${p.org} · ${p.year}</span></header>
+      <p class="card-summary">${p.summary}</p>
+      <ul class="tags">${p.tags.map(tag => `<li>${tag}</li>`).join('')}</ul>
+    </article>`).join(''));
+  set('skills-groups', t.skills.groups.map(g => `
+    <div class="skill-group">
+      <h3>${g.label}</h3>
+      <ul class="tags">${g.items.map(i => `<li>${i}</li>`).join('')}</ul>
+    </div>`).join(''));
+  set('education-list', t.education.items.map(ed => `
+    <li class="edu-item">
+      <span class="school">${ed.school}</span>
+      <span class="degree">${ed.degree}</span>
+      <span class="period">${ed.period}</span>
+    </li>`).join(''));
+}
+
+export function applyLang(lang) {
+  if (!SUPPORTED.includes(lang)) lang = 'en';
+  const t = dict[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const val = getByPath(t, el.getAttribute('data-i18n'));
+    if (typeof val === 'string') el.textContent = val;
+  });
+  renderLists(t);
+  document.documentElement.lang = lang;
+  localStorage.setItem('lang', lang);
+  const toggle = document.getElementById('lang-toggle');
+  if (toggle) toggle.setAttribute('aria-pressed', String(lang === 'en'));
+  document.querySelectorAll('[data-lang]').forEach(s => {
+    s.classList.toggle('active', s.getAttribute('data-lang') === lang);
+  });
+}
+
+// Guarded so the module can be imported in Node (no `document`) for verification.
+if (typeof document !== 'undefined') {
+  document.addEventListener('DOMContentLoaded', () => {
+    const initial = localStorage.getItem('lang') || detectLang();
+    applyLang(initial);
+    const toggle = document.getElementById('lang-toggle');
+    if (toggle) toggle.addEventListener('click', () => {
+      applyLang(document.documentElement.lang === 'ko' ? 'en' : 'ko');
+    });
+  });
+}

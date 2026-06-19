@@ -11,9 +11,74 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-  <main>
-    <h1>Taehyung Kim — AI Engineer</h1>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-brand" href="#top" data-i18n="hero.name">Taehyung Kim</a>
+      <ul class="nav-links">
+        <li><a href="#about" data-i18n="nav.about">About</a></li>
+        <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
+        <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+        <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+        <li><a href="#education" data-i18n="nav.education">Education</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+      <button id="lang-toggle" type="button" aria-pressed="false" aria-label="Toggle language">
+        <span data-lang="ko">KO</span><span aria-hidden="true">/</span><span data-lang="en">EN</span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" id="hero">
+      <div class="hero-photo"><img src="/assets/img/profile.png" alt="" width="180" height="180"></div>
+      <p class="hero-role" data-i18n="hero.role">AI Engineer</p>
+      <h1 class="hero-name" data-i18n="hero.name">Taehyung Kim</h1>
+      <p class="hero-tagline" data-i18n="hero.tagline"></p>
+      <div class="hero-links">
+        <a id="hero-github" href="https://github.com/sanchez-kim" target="_blank" rel="noopener">GitHub</a>
+        <a id="hero-email" href="mailto:sanchez.kim.kr@gmail.com">Email</a>
+      </div>
+      <a class="scroll-cue" href="#about" data-i18n="hero.cta">Scroll down</a>
+    </section>
+
+    <section class="section reveal" id="about">
+      <h2 data-i18n="about.title">About</h2>
+      <ul id="about-points" class="about-points"></ul>
+    </section>
+
+    <section class="section reveal" id="experience">
+      <h2 data-i18n="experience.title">Experience</h2>
+      <ol id="experience-list" class="timeline"></ol>
+    </section>
+
+    <section class="section reveal" id="projects">
+      <h2 data-i18n="projects.title">Projects</h2>
+      <div id="projects-grid" class="card-grid"></div>
+    </section>
+
+    <section class="section reveal" id="skills">
+      <h2 data-i18n="skills.title">Skills</h2>
+      <div id="skills-groups" class="skills-groups"></div>
+    </section>
+
+    <section class="section reveal" id="education">
+      <h2 data-i18n="education.title">Education</h2>
+      <ul id="education-list" class="education-list"></ul>
+    </section>
+
+    <section class="section reveal" id="contact">
+      <h2 data-i18n="contact.title">Contact</h2>
+      <div class="contact-links">
+        <a id="contact-email" href="mailto:sanchez.kim.kr@gmail.com">sanchez.kim.kr@gmail.com</a>
+        <a id="contact-github" href="https://github.com/sanchez-kim" target="_blank" rel="noopener">github.com/sanchez-kim</a>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Taehyung Kim</p>
+  </footer>
+
   <script type="module" src="/assets/js/i18n.js"></script>
   <script type="module" src="/assets/js/main.js"></script>
 </body>

@@ -6,7 +6,6 @@ export function detectLang() {
 
 export const dict = {
   ko: {
-    meta: { summary: 'CV·NLP·생성형 AI를 아우르는 4년 차 AI 엔지니어' },
     nav: { about: '소개', experience: '경력', projects: '프로젝트', skills: '기술', education: '학력', contact: '연락처' },
     hero: { name: '김태형', role: 'AI Engineer', tagline: '컴퓨터 비전, 자연어처리, 생성형 AI를 아우르는 약 4년 차 AI 엔지니어', cta: '아래로 스크롤' },
     about: {
@@ -72,7 +71,6 @@ export const dict = {
     contact: { title: '연락처', email: 'sanchez.kim.kr@gmail.com', github: 'https://github.com/sanchez-kim' }
   },
   en: {
-    meta: { summary: 'AI Engineer across computer vision, NLP, and generative AI — ~4 years' },
     nav: { about: 'About', experience: 'Experience', projects: 'Projects', skills: 'Skills', education: 'Education', contact: 'Contact' },
     hero: { name: 'Taehyung Kim', role: 'AI Engineer', tagline: 'AI Engineer with ~4 years across computer vision, NLP, and generative AI', cta: 'Scroll down' },
     about: {

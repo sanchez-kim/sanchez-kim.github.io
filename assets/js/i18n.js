@@ -6,14 +6,39 @@ export function detectLang() {
 
 export const dict = {
   ko: {
-    nav: { about: '소개', experience: '경력', projects: '프로젝트', skills: '기술', education: '학력', contact: '연락처' },
+    nav: { about: '소개', focus: '관심사', building: '사이드', experience: '경력', skills: '기술', contact: '연락처' },
     hero: { name: '김태형', role: 'AI Engineer', tagline: '컴퓨터 비전, 자연어처리, 생성형 AI를 아우르는 약 4년 차 AI 엔지니어', cta: '아래로 스크롤' },
     about: {
       title: '소개',
+      intro: '안녕하세요, AI 엔지니어 김태형입니다. 컴퓨터 비전·자연어처리·생성형 AI를 넘나들며 4년째 모델을 만들고 실제 서비스로 배포해 왔습니다. 회사 밖에서도 호기심이 생기면 곧장 만들어보는 편이라, 아이콘 도구부터 자동매매 봇·절차적 호러 게임까지 직접 빌드하고 운영합니다.',
       points: [
-        '컴퓨터 비전, 자연어처리, 생성형 AI를 아우르는 AI Engineer로 약 4년간의 실무 경험 보유.',
-        '멀티모달 AI 파이프라인 설계부터 모델 학습/파인튜닝, 서비스 배포까지 엔드-투-엔드 개발 역량 보유.',
-        '공공기관(수원시·화성시), 방송사(MBC Art), 의료기관 등 다양한 도메인에서 실증 납품 및 운영 경험.'
+        '멀티모달 파이프라인 설계부터 모델 학습·파인튜닝, 서비스 배포까지 엔드투엔드로 다룹니다.',
+        '공공기관(수원시·화성시)·방송사(MBC Art)·의료기관 등 다양한 도메인에 실증 납품한 경험이 있습니다.'
+      ]
+    },
+    focus: {
+      title: '관심사',
+      items: [
+        { label: '생성형 AI · 창작 도구', desc: 'SDXL·LoRA·VLM·MusicGen으로 이미지·영상·음악을 만드는 파이프라인' },
+        { label: '로컬 · 온디바이스 LLM', desc: 'Ollama와 직접 파인튜닝한 GGUF 모델로 프라이빗하게 도는 LLM' },
+        { label: 'AI × 한국 문화 도메인', desc: '사주, 사극 의상 고증, 한국형 호러 — 문화 맥락을 담은 AI' },
+        { label: '풀스택 제품 빌딩', desc: '기획부터 배포·SEO·운영까지 혼자 끝내는 인디 개발' },
+        { label: '3D · 인터랙티브 웹', desc: 'Three.js·R3F로 브라우저에서 도는 3D 경험' },
+        { label: 'AI 보조 개발 방법론', desc: '자가검증 루프와 에이전트 오케스트레이션으로 빠르게 만드는 법' }
+      ]
+    },
+    building: {
+      title: '요즘 만드는 것들',
+      live: '운영 중',
+      dev: '개발 중',
+      visit: '바로가기',
+      items: [
+        { slug: 'icony', name: 'icony', tagline: '1만+ 오픈소스 아이콘 통합 브라우저', summary: '8개 라이브러리의 아이콘을 한 곳에서 검색하고, 색·크기·굵기를 조절해 PNG·SVG로 내보내는 웹앱. 한·영 동의어 검색 지원.', tags: ['Next.js', 'TypeScript', 'SSG'], status: 'live', url: 'https://iconyapp.com' },
+        { slug: 'easymd', name: 'EasyMD', tagline: 'Notion처럼 쓰는 마크다운 에디터', summary: '입력하는 즉시 서식이 보이는 WYSIWYG 마크다운 에디터. 다중 문서·버전관리·이미지 압축·PDF/docx 내보내기, 모든 데이터는 로컬 저장.', tags: ['SvelteKit', 'Tiptap', 'Netlify'], status: 'live', url: 'https://easy-md.com' },
+        { slug: 'autotube', name: 'autotube', tagline: '유튜브 쇼츠 자동 편집 파이프라인', summary: 'whisper 전사 → 하이라이트 탐지 → Remotion 비주얼 에디터 → MusicGen BGM·자막 → 9:16 렌더까지 잇는 풀스택 멀티모달 도구.', tags: ['Next.js', 'Python', 'Remotion', 'MusicGen'], status: 'dev', url: '' },
+        { slug: 'carrybot', name: 'crypto-carrybot', tagline: 'BTC 델타뉴트럴 펀딩비 캐리 봇', summary: '현물 롱 + 무기한 선물 숏으로 시장 중립을 유지하며 8시간마다 펀딩비를 수확하는 자동매매 봇. 상태머신·리스크 관리·6년 백테스트·Telegram 제어.', tags: ['Python', 'asyncio', 'ccxt', 'React'], status: 'dev', url: '' },
+        { slug: 'jeung', name: '제웅 (Jeung)', tagline: '절차적 생성 1인칭 오컬트 호러', summary: '1990년대 한국 아파트를 배경으로 한 슬로우번 호러. 텍스처·지오메트리·오디오를 전부 코드로 생성하고, Playwright 자가검증 루프로 비주얼을 다듬습니다.', tags: ['Three.js', 'TypeScript', 'WebAudio'], status: 'dev', url: '' },
+        { slug: 'ai-saju', name: 'ai-saju', tagline: '사주팔자 + 로컬 LLM 해석', summary: '생년월일시로 사주 원국·오행·십성·대운을 계산하고, 로컬 LLM(Qwen)이 자연어 해석을 스트리밍하는 웹앱. 단정 대신 경향으로 풀어내도록 설계.', tags: ['Next.js', 'Ollama', 'Recharts'], status: 'dev', url: '' }
       ]
     },
     experience: {
@@ -41,7 +66,7 @@ export const dict = {
       ]
     },
     projects: {
-      title: '주요 프로젝트',
+      title: '회사 프로젝트',
       items: [
         { name: '생성형 AI 기반 고위험 고립위기 청소년 사전예방 시스템', org: '(주)인사이터', year: '2024', summary: 'HyperCLOVA X 공감 대화 챗봇 + RAG + ELECTRA·7B sLLM 복합 위험 감지 모델. Function Calling으로 고위험군 실시간 감지 및 오프라인 상담 자동 연계. 수원시·화성시 6개월 이상 실증 운영.', tags: ['HyperCLOVA X', 'RAG', 'ELECTRA', 'sLLM', 'Function Calling'] },
         { name: '자폐 스펙트럼 아동 특화 음성인식 및 분석 모델', org: '(주)인사이터', year: '2024–2025', summary: '발달장애 아동 음성 데이터셋 구축, Whisper-large 파인튜닝으로 CER 10.4 달성(약 50% 개선). DeepSpeed Zero-3·GQA 최적화, LLM 기반 감정·발화 패턴 분석 파이프라인. 임상 전문가 검증.', tags: ['Whisper', 'DeepSpeed', 'GQA', 'LLM', 'PyTorch'] },
@@ -56,8 +81,8 @@ export const dict = {
       groups: [
         { label: '딥러닝 / AI', items: ['PyTorch', 'Whisper', 'SDXL', 'LoRA', 'YOLO', 'BERT/RoBERTa', 'ELECTRA', 'LLM (HyperCLOVA X)'] },
         { label: 'MLOps / 배포', items: ['Docker', 'FastAPI', 'Flask', 'DeepSpeed', 'Git'] },
-        { label: '프로그래밍', items: ['Python', 'Flutter', 'React', 'SQL'] },
-        { label: '데이터', items: ['pandas', 'numpy', 'scikit-learn', 'OpenCV'] }
+        { label: '프로그래밍', items: ['Python', 'TypeScript', 'React', 'Next.js', 'Flutter', 'SQL'] },
+        { label: '데이터 / 그래픽스', items: ['pandas', 'numpy', 'scikit-learn', 'OpenCV', 'Three.js'] }
       ]
     },
     education: {
@@ -71,14 +96,39 @@ export const dict = {
     contact: { title: '연락처', email: 'sanchez.kim.kr@gmail.com', github: 'https://github.com/sanchez-kim' }
   },
   en: {
-    nav: { about: 'About', experience: 'Experience', projects: 'Projects', skills: 'Skills', education: 'Education', contact: 'Contact' },
+    nav: { about: 'About', focus: 'Focus', building: 'Building', experience: 'Experience', skills: 'Skills', contact: 'Contact' },
     hero: { name: 'Taehyung Kim', role: 'AI Engineer', tagline: 'AI Engineer with ~4 years across computer vision, NLP, and generative AI', cta: 'Scroll down' },
     about: {
       title: 'About',
+      intro: "Hi, I'm Taehyung Kim — an AI engineer. For about four years I've built models across computer vision, NLP, and generative AI and shipped them as real services. Outside work, when something sparks my curiosity I just build it — from an icon tool to a trading bot to a procedural horror game.",
       points: [
-        'AI Engineer with ~4 years of experience spanning computer vision, NLP, and generative AI.',
-        'End-to-end capability: multimodal pipeline design, model training/fine-tuning, and production deployment.',
-        'Delivered AI systems across public sector (city governments), broadcasting (MBC Art), and clinical domains.'
+        'End-to-end: multimodal pipeline design, model training/fine-tuning, and production deployment.',
+        'Delivered AI systems across the public sector (city governments), broadcasting (MBC Art), and clinical domains.'
+      ]
+    },
+    focus: {
+      title: 'Focus',
+      items: [
+        { label: 'Generative AI & creative tools', desc: 'Pipelines that make images, video, and music with SDXL, LoRA, VLMs, and MusicGen' },
+        { label: 'Local & on-device LLMs', desc: 'Private LLMs running on Ollama and my own fine-tuned GGUF models' },
+        { label: 'AI × Korean cultural domains', desc: 'Saju, historical costume, Korean-style horror — AI with cultural context' },
+        { label: 'Full-stack product building', desc: 'Indie development from idea to deploy, SEO, and operations — solo' },
+        { label: '3D & interactive web', desc: '3D experiences that run in the browser with Three.js and R3F' },
+        { label: 'AI-assisted dev methodology', desc: 'Shipping fast with self-verification loops and agent orchestration' }
+      ]
+    },
+    building: {
+      title: 'Currently Building',
+      live: 'Live',
+      dev: 'In development',
+      visit: 'Visit',
+      items: [
+        { slug: 'icony', name: 'icony', tagline: 'Unified browser for 10,000+ open-source icons', summary: 'A web app to search icons from 8 libraries in one place, tweak color/size/stroke, and export to PNG or SVG. Bilingual KO/EN search.', tags: ['Next.js', 'TypeScript', 'SSG'], status: 'live', url: 'https://iconyapp.com' },
+        { slug: 'easymd', name: 'EasyMD', tagline: 'A Notion-style markdown editor', summary: 'A WYSIWYG markdown editor that renders formatting as you type. Multi-doc, version history, image compression, PDF/docx export — all stored locally.', tags: ['SvelteKit', 'Tiptap', 'Netlify'], status: 'live', url: 'https://easy-md.com' },
+        { slug: 'autotube', name: 'autotube', tagline: 'Automated YouTube Shorts editing pipeline', summary: 'A full-stack multimodal tool chaining whisper transcription → highlight detection → a Remotion editor → MusicGen BGM & captions → 9:16 render.', tags: ['Next.js', 'Python', 'Remotion', 'MusicGen'], status: 'dev', url: '' },
+        { slug: 'carrybot', name: 'crypto-carrybot', tagline: 'Delta-neutral BTC funding-rate carry bot', summary: 'Holds spot-long + perp-short to stay market-neutral and harvest funding every 8h. State machine, risk management, 6-year backtest, Telegram control.', tags: ['Python', 'asyncio', 'ccxt', 'React'], status: 'dev', url: '' },
+        { slug: 'jeung', name: 'Jeung (제웅)', tagline: 'Procedural first-person occult horror', summary: 'A slow-burn horror set in a 1990s Korean apartment. Textures, geometry, and audio are all generated in code, refined via a Playwright self-verification loop.', tags: ['Three.js', 'TypeScript', 'WebAudio'], status: 'dev', url: '' },
+        { slug: 'ai-saju', name: 'ai-saju', tagline: 'Korean saju + local-LLM interpretation', summary: 'Computes the four-pillar saju chart, five elements, and destiny cycles from your birth time, then streams a natural-language reading from a local LLM (Qwen).', tags: ['Next.js', 'Ollama', 'Recharts'], status: 'dev', url: '' }
       ]
     },
     experience: {
@@ -106,7 +156,7 @@ export const dict = {
       ]
     },
     projects: {
-      title: 'Key Projects',
+      title: 'Work Projects',
       items: [
         { name: 'Generative AI System for At-Risk Youth Crisis Prevention', org: 'Insighter Inc.', year: '2024', summary: 'HyperCLOVA X empathetic chatbot + RAG + a hybrid ELECTRA·7B sLLM risk detector. Function Calling for real-time high-risk detection and automated escalation to offline counselors. Operated by Suwon & Hwaseong for 6+ months.', tags: ['HyperCLOVA X', 'RAG', 'ELECTRA', 'sLLM', 'Function Calling'] },
         { name: 'Autism Spectrum-Specific Speech Recognition & Analysis', org: 'Insighter Inc.', year: '2024–2025', summary: 'Built a speech dataset for children with developmental disabilities; fine-tuned Whisper-large to CER 10.4 (~50% gain) with DeepSpeed Zero-3 and GQA. LLM-based emotion/speech-pattern pipeline validated with clinicians.', tags: ['Whisper', 'DeepSpeed', 'GQA', 'LLM', 'PyTorch'] },
@@ -121,8 +171,8 @@ export const dict = {
       groups: [
         { label: 'Deep Learning / AI', items: ['PyTorch', 'Whisper', 'SDXL', 'LoRA', 'YOLO', 'BERT/RoBERTa', 'ELECTRA', 'LLM (HyperCLOVA X)'] },
         { label: 'MLOps / Deployment', items: ['Docker', 'FastAPI', 'Flask', 'DeepSpeed', 'Git'] },
-        { label: 'Programming', items: ['Python', 'Flutter', 'React', 'SQL'] },
-        { label: 'Data', items: ['pandas', 'numpy', 'scikit-learn', 'OpenCV'] }
+        { label: 'Programming', items: ['Python', 'TypeScript', 'React', 'Next.js', 'Flutter', 'SQL'] },
+        { label: 'Data / Graphics', items: ['pandas', 'numpy', 'scikit-learn', 'OpenCV', 'Three.js'] }
       ]
     },
     education: {
@@ -141,9 +191,39 @@ function getByPath(obj, path) {
   return path.split('.').reduce((o, k) => (o == null ? o : o[k]), obj);
 }
 
+function wireMediaFallback() {
+  document.querySelectorAll('.card-media img').forEach(img => {
+    const drop = () => img.remove();
+    img.addEventListener('error', drop);
+    if (img.complete && img.naturalWidth === 0) drop();
+  });
+}
+
 function renderLists(t) {
   const set = (id, html) => { const el = document.getElementById(id); if (el) el.innerHTML = html; };
   set('about-points', t.about.points.map(p => `<li>${p}</li>`).join(''));
+  set('focus-list', t.focus.items.map(f => `
+    <div class="focus-item">
+      <h3>${f.label}</h3>
+      <p>${f.desc}</p>
+    </div>`).join(''));
+  set('building-grid', t.building.items.map(b => `
+    <article class="build-card">
+      <div class="card-media" data-slug="${b.slug}">
+        <img src="/assets/img/projects/${b.slug}.png" alt="" loading="lazy">
+        <span class="media-label">${b.name}</span>
+      </div>
+      <div class="build-body">
+        <div class="build-head">
+          <h3>${b.name}</h3>
+          <span class="badge badge-${b.status}">${b.status === 'live' ? t.building.live : t.building.dev}</span>
+        </div>
+        <p class="build-tagline">${b.tagline}</p>
+        <p class="card-summary">${b.summary}</p>
+        <ul class="tags">${b.tags.map(tag => `<li>${tag}</li>`).join('')}</ul>
+        ${b.url ? `<a class="build-link" href="${b.url}" target="_blank" rel="noopener">${t.building.visit} ↗</a>` : ''}
+      </div>
+    </article>`).join(''));
   set('experience-list', t.experience.items.map(e => `
     <li class="timeline-item">
       <div class="timeline-head"><span class="org">${e.org}</span><span class="period">${e.period}</span></div>
@@ -167,6 +247,7 @@ function renderLists(t) {
       <span class="degree">${ed.degree}</span>
       <span class="period">${ed.period}</span>
     </li>`).join(''));
+  wireMediaFallback();
 }
 
 export function applyLang(lang) {

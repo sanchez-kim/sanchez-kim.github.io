@@ -1,0 +1,211 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1781760921226,
+  "projectRoot": "/Users/sanchez/Desktop/projects/sanchez-kim.github.io",
+  "techStack": {
+    "languages": [
+      {
+        "name": "JavaScript/TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "package.json"
+        ]
+      },
+      {
+        "name": "Ruby",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "Gemfile"
+        ]
+      }
+    ],
+    "frameworks": [],
+    "packageManager": "bundler",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": "npm test",
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {
+      "test": "stylelint '**/*.scss'",
+      "format": "prettier --write '**/*.{scss,js,json}'",
+      "stylelint-check": "stylelint-config-prettier-check"
+    }
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "assets",
+      "bin",
+      "docs",
+      "lib"
+    ],
+    "gitBranches": {
+      "defaultBranch": "main",
+      "branchingStrategy": null
+    }
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "_includes": {
+      "path": "_includes",
+      "purpose": null,
+      "fileCount": 11,
+      "lastAccessed": 1781760921195,
+      "keyFiles": [
+        "fix_linenos.html",
+        "footer_custom.html",
+        "head.html",
+        "head_custom.html",
+        "header_custom.html"
+      ]
+    },
+    "_layouts": {
+      "path": "_layouts",
+      "purpose": null,
+      "fileCount": 7,
+      "lastAccessed": 1781760921216,
+      "keyFiles": [
+        "about.html",
+        "default.html",
+        "home.html",
+        "minimal.html",
+        "page.html"
+      ]
+    },
+    "_sass": {
+      "path": "_sass",
+      "purpose": null,
+      "fileCount": 13,
+      "lastAccessed": 1781760921217,
+      "keyFiles": [
+        "base.scss",
+        "buttons.scss",
+        "code.scss",
+        "content.scss",
+        "labels.scss"
+      ]
+    },
+    "_site": {
+      "path": "_site",
+      "purpose": null,
+      "fileCount": 9,
+      "lastAccessed": 1781760921217,
+      "keyFiles": [
+        "404.html",
+        "CODE_OF_CONDUCT.md",
+        "Dockerfile",
+        "Note.html",
+        "docker-compose.yml"
+      ]
+    },
+    "assets": {
+      "path": "assets",
+      "purpose": "Static assets",
+      "fileCount": 0,
+      "lastAccessed": 1781760921217,
+      "keyFiles": []
+    },
+    "bin": {
+      "path": "bin",
+      "purpose": "Executable scripts",
+      "fileCount": 1,
+      "lastAccessed": 1781760921217,
+      "keyFiles": [
+        "just-the-docs"
+      ]
+    },
+    "docs": {
+      "path": "docs",
+      "purpose": "Documentation",
+      "fileCount": 0,
+      "lastAccessed": 1781760921218,
+      "keyFiles": []
+    },
+    "lib": {
+      "path": "lib",
+      "purpose": "Library code",
+      "fileCount": 0,
+      "lastAccessed": 1781760921218,
+      "keyFiles": []
+    },
+    "_includes/components": {
+      "path": "_includes/components",
+      "purpose": "UI components",
+      "fileCount": 9,
+      "lastAccessed": 1781760921218,
+      "keyFiles": [
+        "aux_nav.html",
+        "breadcrumbs.html",
+        "children_nav.html"
+      ]
+    },
+    "_layouts/vendor": {
+      "path": "_layouts/vendor",
+      "purpose": "Third-party code",
+      "fileCount": 1,
+      "lastAccessed": 1781760921219,
+      "keyFiles": [
+        "compress.html"
+      ]
+    },
+    "_site/assets": {
+      "path": "_site/assets",
+      "purpose": "Static assets",
+      "fileCount": 0,
+      "lastAccessed": 1781760921219,
+      "keyFiles": []
+    },
+    "_site/docs": {
+      "path": "_site/docs",
+      "purpose": "Documentation",
+      "fileCount": 0,
+      "lastAccessed": 1781760921219,
+      "keyFiles": []
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "docs/superpowers/specs/2026-06-18-portfolio-redesign-design.md",
+      "accessCount": 7,
+      "lastAccessed": 1781830432205,
+      "type": "file"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-06-19-portfolio-redesign.md",
+      "accessCount": 2,
+      "lastAccessed": 1781830667711,
+      "type": "file"
+    },
+    {
+      "path": "index.html",
+      "accessCount": 2,
+      "lastAccessed": 1781831081743,
+      "type": "file"
+    },
+    {
+      "path": "index.md",
+      "accessCount": 1,
+      "lastAccessed": 1781761789344,
+      "type": "file"
+    },
+    {
+      "path": "_config.yml",
+      "accessCount": 1,
+      "lastAccessed": 1781761789707,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}

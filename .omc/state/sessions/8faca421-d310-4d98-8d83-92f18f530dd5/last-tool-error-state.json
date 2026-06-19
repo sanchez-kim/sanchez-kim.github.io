@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"\\\\\\ngit rm -r \\\\\\n  _config.yml index.md 404.html Gemfile Gemfile.lock package.json package-lock.json \\\\\\n  just-the-docs.gemspec Rakefile Dockerfile docker-compose.yml CHANGELOG.md \\\\\\n  ...",
+  "error": "Exit code 128\nfatal: pathspec 'docs/AI' did not match any files",
+  "timestamp": "2026-06-19T01:05:27.976Z",
+  "retry_count": 1
+}

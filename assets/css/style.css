@@ -1,9 +1,10 @@
 :root {
-  --bg-1: #eef2ff; --bg-2: #faf0ff; --bg-3: #eafaff;
-  --grad: linear-gradient(120deg,#7c5cff,#5b8cff,#36d1c4,#ff7eb3);
-  --ink: #1c1b29; --ink-soft: #4a4860; --ink-faint: #6b6982;
-  --glass: rgba(255,255,255,0.55); --glass-brd: rgba(255,255,255,0.7);
-  --shadow: 0 10px 30px rgba(60,40,120,0.12);
+  --bg-1: #0a0c16; --bg-2: #0b0e1c; --bg-3: #11152b;
+  --grad: linear-gradient(120deg,#9a7bff,#6aa0ff,#46e3d2,#ff8fc0);
+  --ink: #eef0f8; --ink-soft: #b7bcd4; --ink-faint: #828aab;
+  --glass: rgba(255,255,255,0.055); --glass-brd: rgba(255,255,255,0.12);
+  --glass-nav: rgba(10,12,22,0.55);
+  --shadow: 0 14px 40px rgba(0,0,0,0.45);
   --radius: 18px; --maxw: 1040px;
   --font: "Pretendard Variable", Pretendard, system-ui, -apple-system, "Apple SD Gothic Neo", sans-serif;
 }
@@ -16,10 +17,10 @@ body {
 body::before {
   content: ""; position: fixed; inset: -20% -20% -20% -20%; z-index: -1;
   background:
-    radial-gradient(40% 50% at 20% 20%, rgba(124,92,255,0.35), transparent 60%),
-    radial-gradient(40% 50% at 80% 25%, rgba(54,209,196,0.30), transparent 60%),
-    radial-gradient(50% 50% at 50% 90%, rgba(255,126,179,0.28), transparent 60%),
-    linear-gradient(160deg, var(--bg-2), var(--bg-3));
+    radial-gradient(38% 48% at 18% 18%, rgba(124,92,255,0.40), transparent 62%),
+    radial-gradient(40% 50% at 82% 22%, rgba(54,209,196,0.26), transparent 62%),
+    radial-gradient(52% 52% at 50% 92%, rgba(255,126,179,0.24), transparent 62%),
+    linear-gradient(160deg, var(--bg-1), var(--bg-3));
   background-size: 200% 200%; will-change: transform;
   animation: drift 24s ease-in-out infinite alternate;
 }
@@ -33,7 +34,7 @@ body::before {
 .nav {
   max-width: var(--maxw); margin: 0 auto; padding: 14px 24px;
   display: flex; align-items: center; gap: 18px;
-  background: var(--glass); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+  background: var(--glass-nav); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--glass-brd);
 }
 .nav-brand { font-weight: 700; text-decoration: none; color: var(--ink); }
@@ -41,7 +42,7 @@ body::before {
 .nav-links a { text-decoration: none; color: var(--ink-soft); font-size: .95rem; }
 .nav-links a:hover { color: var(--ink); }
 #lang-toggle {
-  border: 1px solid var(--glass-brd); background: rgba(255,255,255,0.6);
+  border: 1px solid var(--glass-brd); background: rgba(255,255,255,0.08); color: var(--ink);
   border-radius: 999px; padding: 6px 12px; cursor: pointer; font: inherit; font-size: .85rem;
   display: flex; gap: 4px; align-items: center;
 }
@@ -87,7 +88,7 @@ body::before {
   padding: 22px; -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
   box-shadow: var(--shadow); transition: transform .25s ease, box-shadow .25s ease;
 }
-.card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(60,40,120,0.18); }
+.card:hover { transform: translateY(-6px); border-color: rgba(157,139,255,0.45); box-shadow: 0 20px 48px rgba(0,0,0,0.55); }
 .card-head h3 { font-size: 1.08rem; line-height: 1.35; }
 .card-meta { color: var(--ink-faint); font-size: .82rem; }
 .card-summary { color: var(--ink-soft); font-size: .92rem; margin: 12px 0 14px; }
@@ -96,7 +97,7 @@ body::before {
 .tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
 .tags li {
   font-size: .75rem; padding: 4px 10px; border-radius: 999px;
-  background: rgba(124,92,255,0.10); color: #5b46c9; border: 1px solid rgba(124,92,255,0.18);
+  background: rgba(124,92,255,0.16); color: #cabfff; border: 1px solid rgba(124,92,255,0.34);
 }
 
 /* timeline */
@@ -114,7 +115,7 @@ body::before {
 /* about + skills + education */
 .about-points { list-style: none; display: grid; gap: 12px; }
 .about-points li { padding-left: 18px; position: relative; color: var(--ink-soft); }
-.about-points li::before { content: "▹"; position: absolute; left: 0; color: #7c5cff; }
+.about-points li::before { content: "▹"; position: absolute; left: 0; color: #9d8bff; }
 .skills-groups { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
 .skill-group {
   background: var(--glass); border: 1px solid var(--glass-brd); border-radius: var(--radius);

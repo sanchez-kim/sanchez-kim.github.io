@@ -7,10 +7,10 @@ export function detectLang() {
 export const dict = {
   ko: {
     nav: { about: '소개', focus: '관심사', building: '사이드', experience: '경력', skills: '기술', contact: '연락처' },
-    hero: { name: '김태형', role: 'AI Engineer', tagline: '컴퓨터 비전, 자연어처리, 생성형 AI를 아우르는 약 4년 차 AI 엔지니어', cta: '아래로 스크롤' },
+    hero: { name: '김태형', role: 'AI Engineer', tagline: '연구에서 멈추지 않고 제품으로 출시하는 AI 엔지니어. 컴퓨터 비전, 자연어처리, 그리고 생성형 AI.', cta: '아래로 스크롤' },
     about: {
       title: '소개',
-      intro: '안녕하세요, AI 엔지니어 김태형입니다. 컴퓨터 비전·자연어처리·생성형 AI를 넘나들며 4년째 모델을 만들고 실제 서비스로 배포해 왔습니다. 회사 밖에서도 호기심이 생기면 곧장 만들어보는 편이라, 아이콘 도구부터 자동매매 봇·절차적 호러 게임까지 직접 빌드하고 운영합니다.',
+      intro: '모델 코드 한 줄이 실제 사용자에게 닿기까지의 전 과정을 좋아합니다. 지난 4년간 공공·방송·의료 현장에 AI를 납품해 왔고, 일과 무관하게도 궁금한 것이 생기면 곧장 만들어 세상에 내놓습니다 — 아이콘 도구부터 자동매매 봇, 절차적 호러 게임까지.',
       points: [
         '멀티모달 파이프라인 설계부터 모델 학습·파인튜닝, 서비스 배포까지 엔드투엔드로 다룹니다.',
         '공공기관(수원시·화성시)·방송사(MBC Art)·의료기관 등 다양한 도메인에 실증 납품한 경험이 있습니다.'
@@ -99,10 +99,10 @@ export const dict = {
   },
   en: {
     nav: { about: 'About', focus: 'Focus', building: 'Building', experience: 'Experience', skills: 'Skills', contact: 'Contact' },
-    hero: { name: 'Taehyung Kim', role: 'AI Engineer', tagline: 'AI Engineer with ~4 years across computer vision, NLP, and generative AI', cta: 'Scroll down' },
+    hero: { name: 'Taehyung Kim', role: 'AI Engineer', tagline: 'An AI engineer who ships — turning research into products across computer vision, NLP, and generative AI.', cta: 'Scroll down' },
     about: {
       title: 'About',
-      intro: "Hi, I'm Taehyung Kim — an AI engineer. For about four years I've built models across computer vision, NLP, and generative AI and shipped them as real services. Outside work, when something sparks my curiosity I just build it — from an icon tool to a trading bot to a procedural horror game.",
+      intro: "I care about the whole distance — from a line of model code to something real in someone's hands. For four years I've shipped AI into public, broadcasting, and clinical settings, and on the side I build and release whatever I'm curious about: an icon tool, a trading bot, a procedural horror game.",
       points: [
         'End-to-end: multimodal pipeline design, model training/fine-tuning, and production deployment.',
         'Delivered AI systems across the public sector (city governments), broadcasting (MBC Art), and clinical domains.'

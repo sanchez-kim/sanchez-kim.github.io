@@ -124,7 +124,20 @@
 - **요즘 만드는 것들(Currently Building)** *(신규)*: 사이드 프로젝트 8개 카드 (`~/Desktop/projects/` 조사 기반). 상태 배지(운영 중/개발 중), 라이브 링크, 슬러그별 그라데이션 플레이스홀더 + `assets/img/projects/<slug>.png` 자동 교체.
   - icony (iconyapp.com, live), EasyMD (easy-md.com, live), autotube (dev), crypto-carrybot (dev), 제웅/Jeung (dev), ai-saju (dev), Rabbit Hole (rabbit-hole.vercel.app, dev), MarketSpot/stock-terminal (dev).
   - 실제 이미지 확보: icony·easymd(라이브 사이트 헤드리스 캡처), jeung(레포 captures), rabbit-hole(레포 게임샷). **플레이스홀더 유지(사용자 캡처 필요): autotube, crypto-carrybot, ai-saju, stock-terminal.** (stock-terminal의 sample-ui.jpg는 Bloomberg 레퍼런스라 사용 불가.)
-- **파비콘**: 옛 Jekyll `favicon.ico` 제거 → 그라데이션 "TK" 모노그램 `favicon.svg` + `apple-touch-icon.png`(180) + `favicon-32.png`, `theme-color` 추가.
+- **파비콘**: 옛 Jekyll `favicon.ico` 제거 → "TK" 모노그램 `favicon.svg` + `apple-touch-icon.png`(180) + `favicon-32.png`, `theme-color` 추가.
+
+## 12. v3 — 프로페셔널 리파인 (2026-06-22, ui-ux-pro-max 기반)
+
+"디자인이 구리다"는 피드백 → Linear/Vercel 계열의 절제된 전문성으로 전면 정리.
+
+- **팔레트**: 무지개 그라데이션·헤비 글래스 폐기 → near-black(#060608) + **단일 인디고 액센트(#6e7bff)**. 배경은 정적인 미묘한 상단 글로우 1개(움직이는 오로라 제거).
+- **타이포그래피**: **Inter**(라틴) + Pretendard(한글) + **JetBrains Mono**(섹션 번호·역할·기간·태그·뱃지 등 기술 라벨). 타이트한 음수 트래킹, 정밀한 스케일/웨이트.
+- **헤딩**: 무지개 그라데이션 텍스트 제거 → 솔리드 화이트. 히어로 이름만 미묘한 white→70% 그라데이션. 섹션마다 모노 번호 배지(01·02…).
+- **카드**: 헤비 글래스 → 헤어라인 보더(rgba 255 .08) + 절제된 표면, 호버 시 보더 밝아짐/미세 상승. 라운드 12px.
+- **히어로**: 좌측 정렬, 작은 아바타(96px), 모노 역할 라벨.
+- **소개 문구**: hero 태그라인·about 인트로를 더 확신 있고 정제된 톤으로 재작성("연구에서 멈추지 않고 제품으로 출시하는…").
+- **빌딩 플레이스홀더**: 슬러그별 무지개 → 통일된 다크+인디고 글로우 + 모노 라벨.
+- **파비콘**: 무지개 → 인디고 단색 "TK".
 - **회사 프로젝트(Work Projects)**: 기존 회사 프로젝트는 별도 섹션으로 명확히 구분.
 - 내비: 소개 · 관심사 · 사이드 · 경력 · 기술 · 연락처 (6개).
 - 이미지: 사용자가 직접 생성/삽입. 슬롯과 아트디렉션은 plan/대화 기록 참조. 기본은 그라데이션 플레이스홀더.

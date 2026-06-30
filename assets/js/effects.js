@@ -25,7 +25,7 @@
     document.body.prepend(canvas);
     document.documentElement.classList.add('has-webgl');
 
-    const dpr = Math.min(window.devicePixelRatio || 1, 1.25);
+    const dpr = 1; // background is soft/blurred — full DPR is wasted GPU
     renderer.setPixelRatio(dpr);
 
     const scene = new THREE.Scene();
@@ -86,40 +86,22 @@
     }
     window.addEventListener('scroll', () => { uniforms.u_scroll.value = window.scrollY || 0; }, { passive: true });
 
-    let running = true;
+    let running = true, last = 0;
     document.addEventListener('visibilitychange', () => { running = !document.hidden; if (running) requestAnimationFrame(loop); });
     const start = performance.now();
     function loop(now) {
       if (!running) return;
-      uniforms.u_time.value = (now - start) / 1000;
-      uniforms.u_mouse.value.lerp(target, 0.05);
-      renderer.render(scene, camera);
       requestAnimationFrame(loop);
+      if (now - last < 32) return; // throttle to ~30fps to leave the main thread free for scrolling
+      last = now;
+      uniforms.u_time.value = (now - start) / 1000;
+      uniforms.u_mouse.value.lerp(target, 0.08);
+      renderer.render(scene, camera);
     }
     requestAnimationFrame(loop);
   }
 
-  /* ---------------- 2. Lenis smooth scroll ---------------- */
-  function initLenis() {
-    if (reduce || !has('Lenis')) return;
-    const lenis = new Lenis({ lerp: 0.1, smoothWheel: true, wheelMultiplier: 1, touchMultiplier: 1.5 });
-    if (has('ScrollTrigger') && has('gsap')) {
-      // Drive Lenis from GSAP's ticker (single source of truth) and sync ScrollTrigger.
-      lenis.on('scroll', ScrollTrigger.update);
-      gsap.ticker.add((t) => lenis.raf(t * 1000));
-      gsap.ticker.lagSmoothing(0);
-    } else {
-      const raf = (t) => { lenis.raf(t); requestAnimationFrame(raf); };
-      requestAnimationFrame(raf);
-    }
-    // anchor links through Lenis
-    document.querySelectorAll('a[href^="#"]').forEach((a) => {
-      a.addEventListener('click', (e) => {
-        const id = a.getAttribute('href');
-        if (id.length > 1) { const el = document.querySelector(id); if (el) { e.preventDefault(); lenis.scrollTo(el, { offset: -70 }); } }
-      });
-    });
-  }
+  /* (Native scroll — no smooth-scroll library; CSS scroll-behavior handles anchors) */
 
   /* ---------------- 3. Kinetic hero ---------------- */
   function splitName() {
@@ -196,7 +178,7 @@
   }
 
   /* ---------------- boot ---------------- */
-  function boot() { initWebGL(); initLenis(); glowCards(); }
+  function boot() { initWebGL(); glowCards(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
 

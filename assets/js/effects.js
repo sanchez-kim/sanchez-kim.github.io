@@ -274,9 +274,32 @@
     }, { passive: true });
   }
 
+  /* ---------------- 6. Kinetic marquee (scroll-velocity reactive) ---------------- */
+  const MARQUEE = ['Generative AI', 'Local LLMs', 'AI Agents', 'Multimodal', '3D & WebGL', 'Indie Hacker', 'Always Building'];
+  function initMarquee() {
+    const track = document.getElementById('marquee-track');
+    if (!track) return;
+    const make = () => MARQUEE.map((w, i) => `<span class="mword${i % 2 ? ' outline' : ''}">${w}</span><span class="sep">✦</span>`).join('');
+    track.innerHTML = make() + make();
+    if (reduce) return;
+    let x = 0, lastY = window.scrollY || 0, vel = 0;
+    function loop() {
+      requestAnimationFrame(loop);
+      const y = window.scrollY || 0;
+      vel = y - lastY; lastY = y;
+      const boost = Math.min(Math.abs(vel) * 0.5, 36);
+      x -= 0.6 + boost;
+      const half = track.scrollWidth / 2;
+      if (half > 0 && -x >= half) x += half;
+      const skew = Math.max(-10, Math.min(10, -vel * 0.35));
+      track.style.transform = `translateX(${x}px) skewX(${skew}deg)`;
+    }
+    requestAnimationFrame(loop);
+  }
+
   /* ---------------- boot ---------------- */
   let pc = null;
-  function boot() { init3D(); glowCards(); }
+  function boot() { init3D(); initMarquee(); glowCards(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
 

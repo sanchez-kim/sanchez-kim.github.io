@@ -125,7 +125,7 @@
 
   /* ---------------- 3. Scroll reveals (IntersectionObserver) ---------------- */
   let built = false, revealObs = null;
-  const REVEAL_SEL = '.about-intro, .about-points li, .focus-item, .build-card, .card, .timeline-item, .skill-group, .edu-item, .contact-links a';
+  const REVEAL_SEL = '.about-intro p, .focus-item, .build-card, .card, .timeline-item, .strength-list li, .toolkit, .edu-item, .contact-links a';
   const targetsIn = (sec) => [sec.querySelector('h2'), ...sec.querySelectorAll(REVEAL_SEL)].filter(Boolean);
   function setupScroll() {
     if (reduce || !has('gsap')) return;

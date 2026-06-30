@@ -1,149 +1,134 @@
-/* Interactive layer: WebGL reactive background, smooth scroll, kinetic hero,
-   scroll-triggered reveals, magnetic buttons, cursor-glow cards.
-   Every feature is feature-detected and wrapped so a missing CDN lib or a
-   reduced-motion preference degrades gracefully without breaking the page. */
+/* Interactive layer (vanilla, no build):
+   - Hero name rendered as a Canvas2D particle field that scatters away from the
+     cursor and springs back (the signature interaction).
+   - GSAP entrance for the rest of the hero + IntersectionObserver scroll reveals.
+   - Magnetic buttons + cursor-glow cards.
+   Everything degrades gracefully: content is visible by default, and if a lib or
+   the canvas is unavailable the page is still fully readable. */
 (() => {
   'use strict';
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const finePointer = matchMedia('(pointer: fine)').matches;
-  const isMobile = matchMedia('(max-width: 760px)').matches;
   const has = (g) => typeof window[g] !== 'undefined';
-
   document.documentElement.classList.add('js');
-  // Disable GSAP lag-smoothing up front: under large frame gaps it can stall a
-  // timeline mid-play and leave from()-animated elements stuck hidden.
   if (has('gsap')) gsap.ticker.lagSmoothing(0);
 
-  /* ---------------- 1. WebGL reactive background ---------------- */
-  function initWebGL() {
-    if (reduce || isMobile || !has('THREE')) return;
-    let renderer;
-    try { renderer = new THREE.WebGLRenderer({ antialias: false, alpha: false, powerPreference: 'low-power' }); }
-    catch (e) { return; }
-    if (!renderer.getContext()) return;
+  /* ---------------- 1. Interactive particle name ---------------- */
+  function initParticles() {
+    const wrap = document.querySelector('.hero-fx');
+    const h1 = document.querySelector('.hero-name');
+    const canvas = wrap && wrap.querySelector('canvas');
+    if (!canvas) return null;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return null;
 
-    const canvas = renderer.domElement;
-    canvas.id = 'bg-webgl';
-    Object.assign(canvas.style, { position: 'fixed', inset: '0', width: '100%', height: '100%', zIndex: '-1', display: 'block' });
-    document.body.prepend(canvas);
-    document.documentElement.classList.add('has-webgl');
+    let W = 0, H = 0, dpr = 1, particles = [], raf = 0;
+    const mouse = { x: -9999, y: -9999 };
 
-    const dpr = 1; // background is soft/blurred — full DPR is wasted GPU
-    renderer.setPixelRatio(dpr);
-
-    const scene = new THREE.Scene();
-    const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
-    const uniforms = {
-      u_time: { value: 0 },
-      u_res: { value: new THREE.Vector2() },
-      u_mouse: { value: new THREE.Vector2(0.5, 0.5) },
-      u_scroll: { value: 0 },
-    };
-    const material = new THREE.ShaderMaterial({
-      uniforms,
-      vertexShader: `void main(){ gl_Position = vec4(position,1.0); }`,
-      fragmentShader: `
-        precision highp float;
-        uniform float u_time; uniform vec2 u_res; uniform vec2 u_mouse; uniform float u_scroll;
-        float hash(vec2 p){ return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453); }
-        float noise(vec2 p){ vec2 i=floor(p),f=fract(p); f=f*f*(3.0-2.0*f);
-          return mix(mix(hash(i),hash(i+vec2(1,0)),f.x),mix(hash(i+vec2(0,1)),hash(i+vec2(1,1)),f.x),f.y); }
-        float fbm(vec2 p){ float v=0.0,a=0.5; for(int i=0;i<4;i++){ v+=a*noise(p); p*=2.02; a*=0.5; } return v; }
-        void main(){
-          vec2 uv = gl_FragCoord.xy/u_res.xy;
-          float ar = u_res.x/u_res.y;
-          vec2 p = vec2(uv.x*ar, uv.y);
-          float t = u_time*0.07;
-          // domain-warped flow for a living aurora
-          vec2 q = vec2(fbm(p*1.3 + t), fbm(p*1.3 - t + 4.0));
-          float n = fbm(p*1.7 + q*1.6 + vec2(0.0, -u_scroll*0.0004));
-          // mouse glow
-          vec2 m = vec2(u_mouse.x*ar, u_mouse.y);
-          float glow = smoothstep(0.75, 0.0, distance(p, m));
-          // palette
-          vec3 indigo = vec3(0.30,0.36,0.98);
-          vec3 violet = vec3(0.60,0.30,0.98);
-          vec3 pink   = vec3(0.98,0.36,0.72);
-          vec3 col = vec3(0.018,0.018,0.028);
-          col += indigo * smoothstep(0.18,0.80,n) * 0.60;
-          col += violet * smoothstep(0.45,0.92,n) * 0.45;
-          col += pink   * pow(smoothstep(0.60,1.0,n),1.5) * 0.32;
-          col += (indigo+violet)*0.5 * glow * 0.55;
-          // vignette + keep the hero (left) darker for text legibility
-          col *= 1.0 - 0.48*distance(uv, vec2(0.5));
-          col *= mix(0.55, 1.0, smoothstep(0.05, 0.6, uv.x));
-          // vivid in the hero, fade to near-black as the user scrolls into content
-          float depth = clamp(u_scroll / max(u_res.y, 1.0), 0.0, 1.0);
-          col *= mix(1.0, 0.22, depth);
-          gl_FragColor = vec4(col, 1.0);
-        }`,
-    });
-    scene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), material));
-
-    function resize() {
-      const w = window.innerWidth, h = window.innerHeight;
-      renderer.setSize(w, h, false);
-      uniforms.u_res.value.set(w * dpr, h * dpr);
+    function palette(t) { // 0..1 across width: indigo -> violet -> pink
+      const a = [120, 135, 255], b = [165, 110, 250], c = [250, 120, 200];
+      let r, g, bl;
+      if (t < 0.5) { const k = t / 0.5; r = a[0] + (b[0] - a[0]) * k; g = a[1] + (b[1] - a[1]) * k; bl = a[2] + (b[2] - a[2]) * k; }
+      else { const k = (t - 0.5) / 0.5; r = b[0] + (c[0] - b[0]) * k; g = b[1] + (c[1] - b[1]) * k; bl = b[2] + (c[2] - b[2]) * k; }
+      return `rgb(${r | 0},${g | 0},${bl | 0})`;
     }
-    resize();
-    window.addEventListener('resize', resize, { passive: true });
 
-    const target = new THREE.Vector2(0.5, 0.5);
+    function build() {
+      const rect = wrap.getBoundingClientRect();
+      W = Math.max(1, rect.width); H = Math.max(1, rect.height);
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = W * dpr; canvas.height = H * dpr;
+      const text = (h1.getAttribute('aria-label') || h1.textContent || '').trim();
+      if (!text) return;
+      const oc = document.createElement('canvas');
+      oc.width = W * dpr; oc.height = H * dpr;
+      const o = oc.getContext('2d');
+      o.scale(dpr, dpr);
+      let fs = Math.min(H * 0.86, (W * 1.85) / Math.max(text.length, 1));
+      fs = Math.max(fs, 22);
+      o.fillStyle = '#fff'; o.textAlign = 'left'; o.textBaseline = 'middle';
+      o.font = `800 ${fs}px Inter, 'Pretendard Variable', Pretendard, sans-serif`;
+      o.fillText(text, 2, H / 2);
+      const data = o.getImageData(0, 0, oc.width, oc.height).data;
+      const step = Math.max(3, Math.round(2.6 * dpr));
+      const targets = [];
+      for (let y = 0; y < oc.height; y += step) {
+        for (let x = 0; x < oc.width; x += step) {
+          if (data[(y * oc.width + x) * 4 + 3] > 128) targets.push([x / dpr, y / dpr]);
+        }
+      }
+      particles = targets.map((t, i) => {
+        const old = particles[i];
+        return {
+          x: old ? old.x : Math.random() * W, y: old ? old.y : Math.random() * H,
+          tx: t[0], ty: t[1], vx: 0, vy: 0, col: palette(t[0] / W),
+        };
+      });
+    }
+
+    function frame() {
+      raf = requestAnimationFrame(frame);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.save();
+      ctx.scale(dpr, dpr);
+      ctx.globalCompositeOperation = 'lighter';
+      const R = 76, R2 = R * R;
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        let ax = (p.tx - p.x) * 0.04, ay = (p.ty - p.y) * 0.04;
+        const dx = p.x - mouse.x, dy = p.y - mouse.y, d2 = dx * dx + dy * dy;
+        if (d2 < R2) { const d = Math.sqrt(d2) || 1, f = (R - d) / R * 5.0; ax += (dx / d) * f; ay += (dy / d) * f; }
+        p.vx = (p.vx + ax) * 0.85; p.vy = (p.vy + ay) * 0.85;
+        p.x += p.vx; p.y += p.vy;
+        ctx.globalAlpha = 0.9; ctx.fillStyle = p.col;
+        ctx.fillRect(p.x - 0.9, p.y - 0.9, 1.8, 1.8);
+      }
+      ctx.restore();
+    }
+
+    function drawStatic() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.save(); ctx.scale(dpr, dpr); ctx.globalCompositeOperation = 'lighter';
+      particles.forEach((p) => { ctx.globalAlpha = 0.9; ctx.fillStyle = p.col; ctx.fillRect(p.tx - 0.9, p.ty - 0.9, 1.8, 1.8); });
+      ctx.restore();
+    }
+
     if (finePointer) {
       window.addEventListener('pointermove', (e) => {
-        target.set(e.clientX / window.innerWidth, 1 - e.clientY / window.innerHeight);
+        const r = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
       }, { passive: true });
+      window.addEventListener('pointerout', () => { mouse.x = mouse.y = -9999; }, { passive: true });
     }
-    window.addEventListener('scroll', () => { uniforms.u_scroll.value = window.scrollY || 0; }, { passive: true });
+    window.addEventListener('resize', () => { build(); if (reduce) drawStatic(); }, { passive: true });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { build(); if (reduce) drawStatic(); });
 
-    let running = true, last = 0;
-    document.addEventListener('visibilitychange', () => { running = !document.hidden; if (running) requestAnimationFrame(loop); });
-    const start = performance.now();
-    function loop(now) {
-      if (!running) return;
-      requestAnimationFrame(loop);
-      if (now - last < 32) return; // throttle to ~30fps to leave the main thread free for scrolling
-      last = now;
-      uniforms.u_time.value = (now - start) / 1000;
-      uniforms.u_mouse.value.lerp(target, 0.08);
-      renderer.render(scene, camera);
-    }
-    requestAnimationFrame(loop);
+    build();
+    document.documentElement.classList.add('fx-ready');
+    if (reduce) drawStatic(); else { cancelAnimationFrame(raf); frame(); }
+    return { rebuild: () => { build(); if (reduce) drawStatic(); } };
   }
 
-  /* (Native scroll — no smooth-scroll library; CSS scroll-behavior handles anchors) */
-
-  /* ---------------- 3. Kinetic hero ---------------- */
-  function splitName() {
-    const el = document.querySelector('.hero-name');
-    if (!el || el.dataset.split) return el;
-    const text = el.textContent.trim();
-    el.dataset.split = '1';
-    el.setAttribute('aria-label', text);
-    el.innerHTML = text.split('').map((ch) =>
-      ch === ' ' ? '<span class="kchar">&nbsp;</span>'
-      : `<span class="kchar" aria-hidden="true">${ch}</span>`).join('');
-    return el;
-  }
+  /* ---------------- 2. Hero entrance (everything except the particle name) ---------------- */
+  let heroAnimated = false;
   function animateHero() {
-    if (reduce || !has('gsap')) return;
-    const chars = document.querySelectorAll('.hero-name .kchar');
-    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-    tl.from('.hero-photo', { opacity: 0, scale: 0.85, duration: 0.6 })
+    if (reduce || !has('gsap') || heroAnimated) return;
+    heroAnimated = true;
+    gsap.timeline({ defaults: { ease: 'power3.out' } })
+      .from('.hero-photo', { opacity: 0, scale: 0.85, duration: 0.6 })
       .from('.hero-role', { opacity: 0, y: 14, duration: 0.5 }, '-=0.3')
-      .from(chars, { yPercent: 120, opacity: 0, duration: 0.7, stagger: 0.035 }, '-=0.2')
-      .from('.hero-tagline', { opacity: 0, y: 18, duration: 0.6 }, '-=0.3')
+      .from('.hero-fx', { opacity: 0, duration: 0.8 }, '-=0.2')
+      .from('.hero-tagline', { opacity: 0, y: 18, duration: 0.6 }, '-=0.4')
       .from('.hero-links a', { opacity: 0, y: 14, duration: 0.5, stagger: 0.08 }, '-=0.3')
       .from('.scroll-cue', { opacity: 0, duration: 0.5 }, '-=0.2');
   }
 
-  /* ---------------- 4. Scroll reveals (IntersectionObserver — robust) ---------------- */
-  let built = false;
-  let revealObs = null;
+  /* ---------------- 3. Scroll reveals (IntersectionObserver) ---------------- */
+  let built = false, revealObs = null;
   const REVEAL_SEL = '.about-intro, .about-points li, .focus-item, .build-card, .card, .timeline-item, .skill-group, .edu-item, .contact-links a';
-  function targetsIn(sec) { return [sec.querySelector('h2'), ...sec.querySelectorAll(REVEAL_SEL)].filter(Boolean); }
+  const targetsIn = (sec) => [sec.querySelector('h2'), ...sec.querySelectorAll(REVEAL_SEL)].filter(Boolean);
   function setupScroll() {
-    if (reduce || !has('gsap')) return; // content stays visible (CSS) when motion is off / gsap missing
+    if (reduce || !has('gsap')) return;
     if (revealObs) revealObs.disconnect();
     revealObs = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
@@ -162,7 +147,7 @@
     });
   }
 
-  /* ---------------- 5. Magnetic buttons ---------------- */
+  /* ---------------- 4. Magnetic buttons ---------------- */
   function magnetize() {
     if (reduce || !finePointer || !has('gsap')) return;
     document.querySelectorAll('.hero-links a, .contact-links a, #lang-toggle').forEach((btn) => {
@@ -175,7 +160,7 @@
     });
   }
 
-  /* ---------------- 6. Cursor-glow on cards ---------------- */
+  /* ---------------- 5. Cursor-glow cards ---------------- */
   function glowCards() {
     if (!finePointer) return;
     document.addEventListener('pointermove', (e) => {
@@ -188,14 +173,14 @@
   }
 
   /* ---------------- boot ---------------- */
-  function boot() { initWebGL(); glowCards(); }
+  let pc = null;
+  function boot() { glowCards(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
 
-  // (re)bind text + scroll animations after i18n renders / language toggles
   window.addEventListener('langapplied', () => {
-    splitName();
-    if (!built) { animateHero(); }
+    if (!pc) pc = initParticles(); else pc.rebuild();
+    animateHero();
     setupScroll();
     magnetize();
     built = true;

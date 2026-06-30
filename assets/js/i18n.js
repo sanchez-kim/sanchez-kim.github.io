@@ -64,6 +64,11 @@ export const dict = {
         { org: '(주)루원스테이', role: 'Data Analyst — 부동산개발팀', period: '2020.06 – 2020.11', bullets: [
           '부동산 사업지 입지 조건·수요 데이터 분석 및 시각화.',
           '수지분석 프로세스 자동화 프로그램 개발 (Python).'
+        ] },
+        { org: '스튜디오 엠에프', role: '대표이사 (Founder & CEO)', period: '2017.04 – 2020.04', bullets: [
+          '복합 미디어 기업을 목표로 창업, 기업 홍보·SNS 바이럴 영상 제작.',
+          '소니뮤직 재팬 소속 아티스트 내한 공연 기획·유치 (PM).',
+          '프로젝션 맵핑 조명 자동화 시스템 개발 참여, 모델 선발대회(우먼센스) 투표 프로그램 개발.'
         ] }
       ]
     },
@@ -156,6 +161,11 @@ export const dict = {
         { org: 'Luone Stay Inc.', role: 'Data Analyst — Real Estate Development', period: 'Jun 2020 – Nov 2020', bullets: [
           'Analyzed location and demand data for real estate development projects.',
           'Built an automated financial feasibility analysis tool in Python.'
+        ] },
+        { org: 'Studio MF', role: 'Founder & CEO', period: 'Apr 2017 – Apr 2020', bullets: [
+          'Founded a multi-media studio; produced corporate promo and social viral videos.',
+          'Planned and brought a Sony Music Japan artist’s Korea concert (project management).',
+          'Co-developed a projection-mapping lighting-automation system; built a voting app for a public model contest (Woman Sense).'
         ] }
       ]
     },

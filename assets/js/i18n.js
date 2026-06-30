@@ -7,7 +7,7 @@ export function detectLang() {
 export const dict = {
   ko: {
     nav: { about: '소개', focus: '관심사', building: '사이드', experience: '경력', skills: '강점', contact: '연락처' },
-    hero: { name: '김태형', role: 'AI Engineer', tagline: '아이디어를 끝까지 밀어붙여 제품으로 만드는 AI 엔지니어입니다.', cta: '아래로 스크롤' },
+    hero: { name: '김태형', role: 'AI Engineer', tagline: '궁금한 게 생기면 그냥 지나치지 못하고, 일단 만들어 봐야 직성이 풀리는 AI 엔지니어입니다.', contact: '연락하기', cta: '아래로 스크롤' },
     about: {
       title: '소개',
       intro: [
@@ -92,11 +92,11 @@ export const dict = {
         { school: 'K-Digital Training', degree: 'AI / 머신러닝 과정', period: '2021' }
       ]
     },
-    contact: { title: '연락처', email: 'sanchez.kim.kr@gmail.com', github: 'https://github.com/sanchez-kim' }
+    contact: { title: '연락처', copy: '복사', email: 'sanchez.kim.kr@gmail.com', github: 'https://github.com/sanchez-kim' }
   },
   en: {
     nav: { about: 'About', focus: 'Focus', building: 'Building', experience: 'Experience', skills: 'Strengths', contact: 'Contact' },
-    hero: { name: 'Taehyung Kim', role: 'AI Engineer', tagline: 'An AI engineer who pushes ideas all the way to a finished product.', cta: 'Scroll down' },
+    hero: { name: 'Taehyung Kim', role: 'AI Engineer', tagline: "An AI engineer who can't leave a curiosity alone, and just has to build it to find out.", contact: 'Get in touch', cta: 'Scroll down' },
     about: {
       title: 'About',
       intro: [
@@ -181,7 +181,7 @@ export const dict = {
         { school: 'K-Digital Training', degree: 'AI / Machine Learning Program', period: '2021' }
       ]
     },
-    contact: { title: 'Contact', email: 'sanchez.kim.kr@gmail.com', github: 'https://github.com/sanchez-kim' }
+    contact: { title: 'Contact', copy: 'Copy', email: 'sanchez.kim.kr@gmail.com', github: 'https://github.com/sanchez-kim' }
   }
 };
 

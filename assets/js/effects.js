@@ -221,13 +221,13 @@
       .from('.hero-role', { opacity: 0, y: 14, duration: 0.5 }, '-=0.3')
       .from('.hero-fx', { opacity: 0, duration: 0.8 }, '-=0.2')
       .from('.hero-tagline', { opacity: 0, y: 18, duration: 0.6 }, '-=0.4')
-      .from('.hero-links a', { opacity: 0, y: 14, duration: 0.5, stagger: 0.08 }, '-=0.3')
+      .from('.hero-cta', { opacity: 0, y: 14, duration: 0.5 }, '-=0.3')
       .from('.scroll-cue', { opacity: 0, duration: 0.5 }, '-=0.2');
   }
 
   /* ---------------- 3. Scroll reveals (IntersectionObserver) ---------------- */
   let built = false, revealObs = null;
-  const REVEAL_SEL = '.about-intro p, .focus-item, .build-card, .card, .timeline-item, .strength-list li, .toolkit, .edu-item, .contact-links a';
+  const REVEAL_SEL = '.about-intro p, .focus-item, .build-card, .card, .timeline-item, .strength-list li, .toolkit, .edu-item, .contact-item';
   const targetsIn = (sec) => [sec.querySelector('h2'), ...sec.querySelectorAll(REVEAL_SEL)].filter(Boolean);
   function setupScroll() {
     if (reduce || !has('gsap')) return;
@@ -252,7 +252,7 @@
   /* ---------------- 4. Magnetic buttons ---------------- */
   function magnetize() {
     if (reduce || !finePointer || !has('gsap')) return;
-    document.querySelectorAll('.hero-links a, .contact-links a, #lang-toggle').forEach((btn) => {
+    document.querySelectorAll('.hero-cta, #lang-toggle').forEach((btn) => {
       if (btn.dataset.mag) return; btn.dataset.mag = '1';
       btn.addEventListener('pointermove', (e) => {
         const r = btn.getBoundingClientRect();

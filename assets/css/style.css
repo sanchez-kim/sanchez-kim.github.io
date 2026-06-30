@@ -71,9 +71,14 @@ main { counter-reset: sec; }
 
 /* hero */
 .hero {
+  position: relative;
   max-width: var(--maxw); margin: 0 auto; min-height: min(90vh, 760px);
   display: flex; flex-direction: column; align-items: flex-start; justify-content: center;
   text-align: left; padding: 96px 24px 56px; gap: 22px;
+}
+.hero::before {
+  content: ""; position: absolute; inset: -12% -8%; z-index: -1; pointer-events: none;
+  background: radial-gradient(68% 78% at 32% 46%, rgba(6,6,8,0.9), rgba(6,6,8,0.4) 52%, transparent 78%);
 }
 .hero-photo img {
   width: 96px; height: 96px; border-radius: 50%; object-fit: cover;

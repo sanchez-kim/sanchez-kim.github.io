@@ -10,6 +10,9 @@
   const has = (g) => typeof window[g] !== 'undefined';
 
   document.documentElement.classList.add('js');
+  // Disable GSAP lag-smoothing up front: under large frame gaps it can stall a
+  // timeline mid-play and leave from()-animated elements stuck hidden.
+  if (has('gsap')) gsap.ticker.lagSmoothing(0);
 
   /* ---------------- 1. WebGL reactive background ---------------- */
   function initWebGL() {
@@ -45,27 +48,34 @@
         float hash(vec2 p){ return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453); }
         float noise(vec2 p){ vec2 i=floor(p),f=fract(p); f=f*f*(3.0-2.0*f);
           return mix(mix(hash(i),hash(i+vec2(1,0)),f.x),mix(hash(i+vec2(0,1)),hash(i+vec2(1,1)),f.x),f.y); }
-        float fbm(vec2 p){ float v=0.0,a=0.5; for(int i=0;i<3;i++){ v+=a*noise(p); p*=2.02; a*=0.5; } return v; }
+        float fbm(vec2 p){ float v=0.0,a=0.5; for(int i=0;i<4;i++){ v+=a*noise(p); p*=2.02; a*=0.5; } return v; }
         void main(){
           vec2 uv = gl_FragCoord.xy/u_res.xy;
           float ar = u_res.x/u_res.y;
           vec2 p = vec2(uv.x*ar, uv.y);
-          float t = u_time*0.04;
-          vec2 q = p*1.5 + vec2(0.0, -u_scroll*0.00035);
-          float n = fbm(q + fbm(q + vec2(t, t*0.6)));
+          float t = u_time*0.07;
+          // domain-warped flow for a living aurora
+          vec2 q = vec2(fbm(p*1.3 + t), fbm(p*1.3 - t + 4.0));
+          float n = fbm(p*1.7 + q*1.6 + vec2(0.0, -u_scroll*0.0004));
+          // mouse glow
           vec2 m = vec2(u_mouse.x*ar, u_mouse.y);
-          float d = distance(p, m);
-          float glow = smoothstep(0.55, 0.0, d);
-          vec3 base = vec3(0.022,0.022,0.031);
-          vec3 indigo = vec3(0.43,0.48,1.0);
-          vec3 pink = vec3(0.62,0.42,0.95);
-          float field = smoothstep(0.35,0.95,n);
-          vec3 col = base;
-          col += indigo*field*0.17;
-          col += pink*pow(field,2.0)*0.06;
-          col += indigo*glow*0.12;
-          col *= 1.0 - 0.45*distance(uv,vec2(0.5));
-          gl_FragColor = vec4(col,1.0);
+          float glow = smoothstep(0.75, 0.0, distance(p, m));
+          // palette
+          vec3 indigo = vec3(0.30,0.36,0.98);
+          vec3 violet = vec3(0.60,0.30,0.98);
+          vec3 pink   = vec3(0.98,0.36,0.72);
+          vec3 col = vec3(0.018,0.018,0.028);
+          col += indigo * smoothstep(0.18,0.80,n) * 0.60;
+          col += violet * smoothstep(0.45,0.92,n) * 0.45;
+          col += pink   * pow(smoothstep(0.60,1.0,n),1.5) * 0.32;
+          col += (indigo+violet)*0.5 * glow * 0.55;
+          // vignette + keep the hero (left) darker for text legibility
+          col *= 1.0 - 0.48*distance(uv, vec2(0.5));
+          col *= mix(0.55, 1.0, smoothstep(0.05, 0.6, uv.x));
+          // vivid in the hero, fade to near-black as the user scrolls into content
+          float depth = clamp(u_scroll / max(u_res.y, 1.0), 0.0, 1.0);
+          col *= mix(1.0, 0.22, depth);
+          gl_FragColor = vec4(col, 1.0);
         }`,
     });
     scene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), material));

@@ -274,6 +274,33 @@
     }, { passive: true });
   }
 
+  /* ---------------- 5b. Liquid image distortion on card hover (SVG filter) ---------------- */
+  let dist = null;
+  function setupDistort() {
+    if (reduce || !finePointer) return;
+    const filter = document.getElementById('liquid');
+    if (!filter) return;
+    if (!dist) {
+      dist = { turb: filter.querySelector('feTurbulence'), disp: filter.querySelector('feDisplacementMap'), active: 0, target: 0, raf: 0, phase: 0 };
+      dist.loop = function loop() {
+        dist.raf = requestAnimationFrame(dist.loop);
+        dist.active += (dist.target - dist.active) * 0.12;
+        if (dist.active < 0.01 && dist.target === 0) { dist.active = 0; dist.disp.setAttribute('scale', '0'); cancelAnimationFrame(dist.raf); dist.raf = 0; return; }
+        dist.phase += 0.012;
+        const bf = 0.010 + Math.sin(dist.phase) * 0.004;
+        dist.turb.setAttribute('baseFrequency', `${bf.toFixed(4)} ${(bf * 1.3).toFixed(4)}`);
+        dist.disp.setAttribute('scale', (dist.active * 15).toFixed(1));
+      };
+    }
+    document.querySelectorAll('.build-card').forEach((card) => {
+      if (card.dataset.dist) return; card.dataset.dist = '1';
+      const img = card.querySelector('.card-media img');
+      if (!img) return;
+      card.addEventListener('pointerenter', () => { img.style.filter = 'url(#liquid)'; dist.target = 1; if (!dist.raf) dist.loop(); });
+      card.addEventListener('pointerleave', () => { dist.target = 0; if (!dist.raf) dist.loop(); setTimeout(() => { if (dist.target === 0) img.style.filter = ''; }, 500); });
+    });
+  }
+
   /* ---------------- 6. Kinetic marquee (scroll-velocity reactive) ---------------- */
   const MARQUEE = ['Generative AI', 'Local LLMs', 'AI Agents', 'Multimodal', '3D & WebGL', 'Indie Hacker', 'Always Building'];
   function initMarquee() {
@@ -308,6 +335,7 @@
     animateHero();
     setupScroll();
     magnetize();
+    setupDistort();
     built = true;
   });
 })();

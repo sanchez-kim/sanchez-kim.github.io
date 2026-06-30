@@ -279,6 +279,8 @@ export function applyLang(lang) {
   document.querySelectorAll('[data-lang]').forEach(s => {
     s.classList.toggle('active', s.getAttribute('data-lang') === lang);
   });
+  // Notify effects layer to (re)bind kinetic text + scroll animations after re-render.
+  window.dispatchEvent(new CustomEvent('langapplied', { detail: { lang } }));
 }
 
 // Guarded so the module can be imported in Node (no `document`) for verification.

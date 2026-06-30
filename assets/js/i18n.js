@@ -211,6 +211,10 @@ function wireMediaFallback() {
   });
 }
 
+// Slugs that have a real screenshot in assets/img/projects/<slug>.png.
+// Add a slug here when its image is dropped in; others show a gradient placeholder (no 404).
+const HAS_IMG = new Set(['icony', 'easymd', 'jeung', 'rabbit-hole']);
+
 function renderLists(t) {
   const set = (id, html) => { const el = document.getElementById(id); if (el) el.innerHTML = html; };
   set('about-points', t.about.points.map(p => `<li>${p}</li>`).join(''));
@@ -222,7 +226,7 @@ function renderLists(t) {
   set('building-grid', t.building.items.map(b => `
     <article class="build-card">
       <div class="card-media" data-slug="${b.slug}">
-        <img src="/assets/img/projects/${b.slug}.png" alt="" loading="lazy">
+        ${HAS_IMG.has(b.slug) ? `<img src="/assets/img/projects/${b.slug}.png" alt="${b.name}" loading="lazy">` : ''}
         <span class="media-label">${b.name}</span>
       </div>
       <div class="build-body">

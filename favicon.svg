@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Alien">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8b95ff"/>
+      <stop offset="1" stop-color="#5b67e6"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="#0a0c16"/>
+  <path d="M32 10 C46 10 51 22 50 33 C49 44 41 54 32 55 C23 54 15 44 14 33 C13 22 18 10 32 10 Z" fill="url(#g)"/>
+  <ellipse cx="24" cy="34" rx="5.4" ry="2.7" transform="rotate(24 24 34)" fill="#0a0c16"/>
+  <ellipse cx="40" cy="34" rx="5.4" ry="2.7" transform="rotate(-24 40 34)" fill="#0a0c16"/>
+</svg>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>김태형 · Taehyung Kim — AI Engineer</title>
+  <meta name="description" content="Taehyung Kim — AI Engineer. Computer vision, NLP, and generative AI.">
+  <link rel="canonical" href="https://sanchez-kim.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Taehyung Kim — AI Engineer">
+  <meta property="og:description" content="AI Engineer across computer vision, NLP, and generative AI.">
+  <meta property="og:url" content="https://sanchez-kim.github.io/">
+  <meta property="og:image" content="https://sanchez-kim.github.io/assets/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://sanchez-kim.github.io/assets/img/og.png">
+  <meta name="theme-color" content="#060608">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <svg class="svg-defs" aria-hidden="true" width="0" height="0" style="position:absolute">
+    <defs>
+      <filter id="liquid" x="-20%" y="-20%" width="140%" height="140%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.01 0.013" numOctaves="2" seed="3" result="noise"/>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+    </defs>
+  </svg>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-brand" href="#top" data-i18n="hero.name">Taehyung Kim</a>
+      <ul class="nav-links">
+        <li><a href="#about" data-i18n="nav.about">About</a></li>
+        <li><a href="#focus" data-i18n="nav.focus">Focus</a></li>
+        <li><a href="#building" data-i18n="nav.building">Building</a></li>
+        <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
+        <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+      <button id="lang-toggle" type="button" aria-pressed="false" aria-label="Toggle language">
+        <span data-lang="ko">KO</span><span aria-hidden="true">/</span><span data-lang="en">EN</span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" id="hero">
+      <canvas id="hero3d" aria-hidden="true"></canvas>
+      <div class="hero-photo"><img src="/assets/img/profile.png" alt="" width="180" height="180"></div>
+      <p class="hero-role" data-i18n="hero.role">AI Engineer</p>
+      <h1 class="hero-name" data-i18n="hero.name">Taehyung Kim</h1>
+      <div class="hero-fx" aria-hidden="true"><canvas></canvas></div>
+      <p class="hero-tagline" data-i18n="hero.tagline"></p>
+      <div class="hero-links">
+        <a class="hero-cta" href="#contact" data-i18n="hero.contact">Get in touch</a>
+      </div>
+      <a class="scroll-cue" href="#about" data-i18n="hero.cta">Scroll down</a>
+    </section>
+
+    <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee-track"></div></div>
+
+    <section class="section reveal" id="about">
+      <h2 data-i18n="about.title">About</h2>
+      <div id="about-intro" class="about-intro"></div>
+    </section>
+
+    <section class="section reveal" id="focus">
+      <h2 data-i18n="focus.title">Focus</h2>
+      <div id="focus-list" class="focus-list"></div>
+    </section>
+
+    <section class="section reveal" id="building">
+      <h2 data-i18n="building.title">Currently Building</h2>
+      <div id="building-grid" class="building-grid"></div>
+    </section>
+
+    <section class="section reveal" id="experience">
+      <h2 data-i18n="experience.title">Experience</h2>
+      <ol id="experience-list" class="timeline"></ol>
+    </section>
+
+    <section class="section reveal" id="projects">
+      <h2 data-i18n="projects.title">Projects</h2>
+      <div id="projects-grid" class="card-grid"></div>
+    </section>
+
+    <section class="section reveal" id="skills">
+      <h2 data-i18n="skills.title">Strengths</h2>
+      <div id="skills-groups" class="strengths"></div>
+    </section>
+
+    <section class="section reveal" id="education">
+      <h2 data-i18n="education.title">Education</h2>
+      <ul id="education-list" class="education-list"></ul>
+    </section>
+
+    <section class="section reveal" id="contact">
+      <h2 data-i18n="contact.title">Contact</h2>
+      <div class="contact-links">
+        <button class="contact-item" type="button" data-copy="sanchez.kim.kr@gmail.com" aria-label="Copy email address">
+          <svg class="contact-icon" viewBox="0 0 48 48" width="22" height="22" aria-hidden="true">
+            <path fill="#4caf50" d="M45,16.2l-5,2.75l-5,4.75L35,40h7c1.657,0,3-1.343,3-3V16.2z"/>
+            <path fill="#1e88e5" d="M3,16.2l3.614,1.71L13,23.7V40H6c-1.657,0-3-1.343-3-3V16.2z"/>
+            <polygon fill="#e53935" points="35,11.2 24,19.45 13,11.2 12,17 13,23.7 24,31.95 35,23.7 36,17"/>
+            <path fill="#c62828" d="M3,12.298V16.2l10,7.5V11.2L9.876,8.859C9.132,8.301,8.228,8,7.298,8 C4.924,8,3,9.924,3,12.298z"/>
+            <path fill="#fbc02d" d="M45,12.298V16.2l-10,7.5V11.2l3.124-2.341C38.868,8.301,39.772,8,40.702,8 C43.076,8,45,9.924,45,12.298z"/>
+          </svg>
+          <span class="contact-text">sanchez.kim.kr@gmail.com</span>
+          <span class="copy-hint" data-i18n="contact.copy">Copy</span>
+        </button>
+        <a class="contact-item" href="https://github.com/sanchez-kim" target="_blank" rel="noopener">
+          <svg class="contact-icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="currentColor">
+            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23a11.5 11.5 0 0 1 3.003-.404c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+          </svg>
+          <span class="contact-text">github.com/sanchez-kim</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Taehyung Kim</p>
+  </footer>
+
+  <script defer src="/assets/vendor/gsap.min.js"></script>
+  <script type="module" src="/assets/js/i18n.js"></script>
+  <script type="module" src="/assets/js/main.js"></script>
+  <script defer src="/assets/js/effects.js"></script>
+</body>
+</html>

@@ -199,7 +199,7 @@ function getByPath(obj, path) {
   return path.split('.').reduce((o, k) => (o == null ? o : o[k]), obj);
 }
 
-const HAS_IMG = new Set(['icony', 'easymd', 'jeung', 'rabbit-hole', 'autotube', 'ai-saju', 'stock-terminal']);
+const HAS_IMG = new Set(['icony', 'easymd', 'jeung', 'rabbit-hole', 'autotube', 'ai-saju', 'stock-terminal', 'automatone']);
 
 function wireMediaFallback() {
   document.querySelectorAll('.card-media img').forEach((img) => {

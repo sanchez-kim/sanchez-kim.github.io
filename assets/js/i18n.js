@@ -101,23 +101,23 @@ export const dict = {
   },
   en: {
     nav: { about: 'About', focus: 'What I Do', building: 'Building', experience: 'Experience', skills: 'Strengths', contact: 'Contact' },
-    hero: { name: 'Taehyung Kim', role: 'AI Engineer · Builder', tagline: "An AI engineer who builds whatever they're curious about.", contact: 'Get in touch', cta: 'Scroll down' },
+    hero: { name: 'Taehyung Kim', role: 'AI Engineer · Builder', tagline: "An AI engineer who can't resist building whatever he's curious about.", contact: 'Get in touch', cta: 'Scroll down' },
     about: {
       title: 'About',
       intro: [
         'What I enjoy most is building AI that actually gets used in the real world.',
-        "So I've taken projects end to end across the public, broadcasting, and medical sectors, from planning to deployment and operations.",
-        'And when a new technology appears, I build with it outside work too, and that is how I make it my own.'
+        "So I've built and shipped projects across the public sector, broadcasting, and healthcare, owning them from planning through deployment and operations.",
+        "When a new technology comes along, I build with it on my own time, and that's how I really make it my own."
       ]
     },
     focus: {
       title: 'What I Do',
       items: [
-        { label: 'Building with generative AI', desc: 'I create images, video, and music directly with AI.' },
-        { label: 'On-device LLMs', desc: 'I work with models that run locally, not leaning on the cloud.' },
-        { label: 'Bringing Korean context to AI', desc: 'I build AI shaped by our culture, from saju to period dramas to horror.' },
-        { label: 'Products I own end to end', desc: 'I go beyond building to deploy, operate, and serve real users.' },
-        { label: '3D and the interactive web', desc: 'I make experiences that come alive inside the browser.' }
+        { label: 'Building with generative AI', desc: 'I create images, video, and music with generative AI.' },
+        { label: 'On-device LLMs', desc: 'I work with models that run locally instead of in the cloud.' },
+        { label: 'Bringing Korean context to AI', desc: 'I build AI shaped by Korean culture, from saju to period dramas to horror.' },
+        { label: 'Products I own end to end', desc: "I don't just build them. I deploy, operate, and serve real users." },
+        { label: '3D and the interactive web', desc: 'I make experiences that come alive in the browser.' }
       ]
     },
     building: {
@@ -127,33 +127,33 @@ export const dict = {
       visit: 'Visit',
       items: [
         { slug: 'icony', name: 'icony', tagline: 'Find and customize icons, fast', summary: 'Search icons from many libraries in one place, then recolor, resize, and download them.', tags: ['Next.js', 'TypeScript'], status: 'live', url: 'https://iconyapp.com' },
-        { slug: 'easymd', name: 'EasyMD', tagline: 'A markdown editor that feels like Notion', summary: 'Formatting appears as you type, and everything stays saved in your own browser.', tags: ['SvelteKit', 'Tiptap'], status: 'live', url: 'https://easy-md.com' },
+        { slug: 'easymd', name: 'EasyMD', tagline: 'A markdown editor that feels like Notion', summary: 'Formatting appears as you type, and everything is saved right in your browser.', tags: ['SvelteKit', 'Tiptap'], status: 'live', url: 'https://easy-md.com' },
         { slug: 'autotube', name: 'autotube', tagline: 'Auto-editing for YouTube Shorts', summary: 'Drop in a long video and it finds the highlights, then adds captions and music to make a short.', tags: ['Whisper', 'MusicGen', 'Remotion'], status: 'dev', url: '' },
         { slug: 'automatone', name: 'automatone', tagline: 'A tech blog written by AI, reviewed by me', summary: 'A tech blog where AI drafts posts from trending topics and publishes them after a human review.', tags: ['n8n', 'Claude', 'Next.js'], status: 'live', url: 'https://automatone.win' },
         { slug: 'jeung', name: 'Jeung (제웅)', tagline: 'A first-person horror game I built', summary: 'A slow-burn horror in a 1990s Korean apartment, with every visual and sound generated in code.', tags: ['Three.js', 'Procedural'], status: 'dev', url: '' },
         { slug: 'ai-saju', name: 'ai-saju', tagline: 'AI that reads your saju', summary: 'Enter your birth date and a local LLM explains your Korean fortune chart in plain language.', tags: ['LLM', 'Ollama'], status: 'dev', url: '' },
         { slug: 'rabbit-hole', name: 'Rabbit Hole', tagline: 'A 3D game down a rabbit hole', summary: 'A browser 3D game where you run along a tunnel wall collecting carrots.', tags: ['Three.js', 'R3F'], status: 'live', url: 'https://rabbit-hole-games.com' },
-        { slug: 'stock-terminal', name: 'MarketSpot', tagline: 'An investing companion against panic-selling', summary: 'On a scary down day it tells you whether things are still normal and helps you hold steady.', tags: ['LLM', 'FastAPI'], status: 'dev', url: '' }
+        { slug: 'stock-terminal', name: 'MarketSpot', tagline: 'An investing companion that keeps you from panic-selling', summary: 'When the market drops, it tells you whether this is still normal and helps you hold steady.', tags: ['LLM', 'FastAPI'], status: 'dev', url: '' }
       ]
     },
     experience: {
       title: 'Experience',
       items: [
         { org: 'Insighter', role: 'AI Engineer', period: 'Jul 2022 – Present', bullets: [
-          '11+ AI projects across generative AI (Diffusion/LoRA), multimodal, speech, object detection, and LLMs',
-          'Led production projects: hanbok generation AI, autism speech recognition, barrier-free captioning',
-          'Owned the full cycle from data to training, deployment, and operations'
+          'Shipped 11+ AI projects spanning generative AI, multimodal, speech, object detection, and LLMs',
+          'Led production projects: hanbok generation AI, autism speech recognition, and barrier-free captioning',
+          'Owned the full cycle, from data and training to deployment and operations'
         ] },
         { org: 'Sunnymind', role: 'Data Scientist', period: 'Nov 2021 – Jun 2022', bullets: [
-          'Aspect-based sentiment analysis for e-commerce reviews',
-          'RoBERTa fine-tuning and inference optimization'
+          'Built aspect-based sentiment analysis for e-commerce reviews',
+          'Fine-tuned RoBERTa and optimized inference'
         ] },
         { org: 'Freelance', role: 'AI Engineer', period: 'Aug 2021 – Nov 2021', bullets: [
-          'Multiple short AI projects: face recognition, fire detection, ordering chatbot'
+          'Delivered short AI projects: face recognition, fire detection, an ordering chatbot'
         ] },
         { org: 'Luone Stay', role: 'Data Analyst', period: 'Jun 2020 – Nov 2020', bullets: [
-          'Location and demand data analysis and visualization',
-          'Automated financial feasibility tooling'
+          'Analyzed and visualized location and demand data',
+          'Built tooling to automate financial feasibility analysis'
         ] },
         { org: 'Studio MF', role: 'Founder & CEO', period: 'Apr 2017 – Apr 2020', bullets: [
           'Founded and ran a multimedia startup',
@@ -165,10 +165,10 @@ export const dict = {
       title: 'Selected Projects',
       items: [
         { name: 'Autism Speech Recognition', org: 'Insighter', year: '2024', summary: 'Speech recognition that understands kids on the autism spectrum, where general models fall short.', tags: ['Whisper', 'Fine-tuning'] },
-        { name: 'Hanbok Generation AI', org: 'Insighter · MBC Art', year: '2025', summary: 'A tool that generates traditional costumes for period dramas, refined together with designers.', tags: ['Diffusion', 'LoRA'] },
+        { name: 'Hanbok Generation AI', org: 'Insighter · MBC Art', year: '2025', summary: 'A tool that generates traditional hanbok costumes for period dramas, developed together with the designers who use it.', tags: ['Diffusion', 'LoRA'] },
         { name: 'Child Psychology (HTP) Analysis', org: 'Insighter', year: '2023', summary: "An object-detection model that reads elements in children's drawings to support psychological assessment.", tags: ['YOLO', 'Detection'] },
-        { name: 'Illegal Media Detection & Blocking', org: 'Insighter', year: '2024', summary: 'Technology that automatically detects and blocks services distributing illegal media.', tags: ['Detection', 'Automation'] },
-        { name: 'Barrier-Free Captions', org: 'Insighter', year: '2025', summary: 'Reads what happens on screen and in the audio to caption video for viewers with disabilities.', tags: ['VLM', 'Multimodal'] },
+        { name: 'Illegal Media Detection & Blocking', org: 'Insighter', year: '2024', summary: 'Automatically detects and blocks services that distribute illegal media.', tags: ['Detection', 'Automation'] },
+        { name: 'Barrier-Free Captions', org: 'Insighter', year: '2025', summary: 'Reads both the visuals and the audio of a video to caption it for viewers with disabilities.', tags: ['VLM', 'Multimodal'] },
         { name: 'High-Risk Youth Early Detection', org: 'Insighter', year: '2024', summary: 'An ELECTRA + sLLM model that detects crisis signals in real time, piloted with two city governments.', tags: ['LLM', 'ELECTRA'] }
       ]
     },
@@ -176,10 +176,10 @@ export const dict = {
       title: 'Strengths',
       toolsLabel: 'Tools I reach for',
       items: [
-        'I bring the latest LLMs and agents into real work, turning ideas into things that actually run.',
-        'I go past research to deploy, operate, and own the outcome.',
+        'I put the latest LLMs and agents to work, turning fuzzy ideas into things that actually run.',
+        "I don't stop at research. I deploy it, operate it, and own the outcome.",
         "I'm strong at designing multimodal systems across image, audio, and text.",
-        'I learn new tools fast and connect them to real problems.'
+        'I learn new tools fast and put them to work on real problems.'
       ],
       tools: ['LLMs & agents', 'RAG', 'Diffusion', 'Multimodal', 'Python', 'TypeScript', 'Three.js']
     },

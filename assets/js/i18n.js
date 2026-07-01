@@ -11,9 +11,9 @@ export const dict = {
     about: {
       title: '소개',
       intro: [
-        '제가 가장 좋아하는 일은, 현장에서 진짜로 쓰이는 AI를 만드는 것입니다.',
-        '그래서 공공, 방송, 의료 등 여러 도메인에서 기획부터 배포와 운영까지 직접 맡아 왔습니다.',
-        '새로운 기술이 나오면 회사 밖에서도 직접 만들어 보며, 그렇게 제 것으로 만듭니다.'
+        '저는 현장에서 진짜로 쓰이는 AI를 만들 때 가장 몰입합니다.',
+        '공공, 방송, 의료 등 여러 도메인에서 기획부터 배포, 운영까지 전 과정을 직접 책임지며 그 감각을 키워왔습니다.',
+        '새로운 기술이 나오면 가장 먼저 만들어보고 부딪혀보며, 그렇게 얻은 감각을 다시 실무에 씁니다.'
       ]
     },
     focus: {
@@ -34,11 +34,11 @@ export const dict = {
       items: [
         { slug: 'icony', name: 'icony', tagline: '아이콘을 쉽게 찾고 꾸미는 웹앱', summary: '여러 라이브러리의 아이콘을 한곳에서 찾아 색과 크기를 바꿔 내려받을 수 있습니다.', tags: ['Next.js', 'TypeScript'], status: 'live', url: 'https://iconyapp.com' },
         { slug: 'easymd', name: 'EasyMD', tagline: '노션처럼 쓰는 마크다운 에디터', summary: '입력하는 대로 바로 서식이 보이고, 모든 글은 내 브라우저에만 저장됩니다.', tags: ['SvelteKit', 'Tiptap'], status: 'live', url: 'https://easy-md.com' },
-        { slug: 'autotube', name: 'autotube', tagline: '유튜브 쇼츠를 자동으로 편집', summary: '긴 영상을 올리면 하이라이트를 찾아 자막과 음악까지 입혀 짧은 영상으로 만들어 줍니다.', tags: ['Whisper', 'MusicGen', 'Remotion'], status: 'dev', url: '' },
         { slug: 'automatone', name: 'automatone', tagline: 'AI가 쓰고 사람이 검토하는 기술 블로그', summary: '트렌드를 분석해 AI가 초안을 쓰고, 사람이 검토해 자동으로 발행하는 기술 블로그입니다.', tags: ['n8n', 'Claude', 'Next.js'], status: 'live', url: 'https://automatone.win' },
+        { slug: 'rabbit-hole', name: 'Rabbit Hole', tagline: '토끼굴을 달리는 3D 게임', summary: '터널 벽을 따라 달리며 당근을 모으는 브라우저 3D 게임입니다.', tags: ['Three.js', 'R3F'], status: 'live', url: 'https://rabbit-hole-games.com' },
+        { slug: 'autotube', name: 'autotube', tagline: '유튜브 쇼츠를 자동으로 편집', summary: '긴 영상을 올리면 하이라이트를 찾아 자막과 음악까지 입혀 짧은 영상으로 만들어 줍니다.', tags: ['Whisper', 'MusicGen', 'Remotion'], status: 'dev', url: '' },
         { slug: 'jeung', name: '제웅 (Jeung)', tagline: '직접 만든 1인칭 호러 게임', summary: '1990년대 한국 아파트를 배경으로, 모든 그래픽과 소리를 코드로 만들어 낸 슬로우번 호러입니다.', tags: ['Three.js', '절차적 생성'], status: 'dev', url: '' },
         { slug: 'ai-saju', name: 'ai-saju', tagline: '사주를 풀어 주는 AI', summary: '생년월일을 넣으면 사주를 계산하고, 로컬 LLM이 그 의미를 자연스러운 말로 풀어 줍니다.', tags: ['LLM', 'Ollama'], status: 'dev', url: '' },
-        { slug: 'rabbit-hole', name: 'Rabbit Hole', tagline: '토끼굴을 달리는 3D 게임', summary: '터널 벽을 따라 달리며 당근을 모으는 브라우저 3D 게임입니다.', tags: ['Three.js', 'R3F'], status: 'live', url: 'https://rabbit-hole-games.com' },
         { slug: 'stock-terminal', name: 'MarketSpot', tagline: '패닉 셀을 막아 주는 투자 동반자', summary: '급락장에서 지금이 정상인지 알려 주고, 차분하게 버티도록 돕는 대시보드입니다.', tags: ['LLM', 'FastAPI'], status: 'dev', url: '' }
       ]
     },
@@ -105,9 +105,9 @@ export const dict = {
     about: {
       title: 'About',
       intro: [
-        'What I enjoy most is building AI that actually gets used in the real world.',
-        "So I've built and shipped projects across the public sector, broadcasting, and healthcare, owning them from planning through deployment and operations.",
-        "When a new technology comes along, I build with it on my own time, and that's how I really make it my own."
+        "What energizes me most is building AI that actually gets used in the real world.",
+        "I've sharpened that instinct across domains like public sector, broadcasting, and healthcare, owning each project end to end, from planning through deployment and operations.",
+        "When something new comes along, I'm usually first to get hands-on with it, and I bring what I learn straight back into my work."
       ]
     },
     focus: {
@@ -128,11 +128,11 @@ export const dict = {
       items: [
         { slug: 'icony', name: 'icony', tagline: 'Find and customize icons, fast', summary: 'Search icons from many libraries in one place, then recolor, resize, and download them.', tags: ['Next.js', 'TypeScript'], status: 'live', url: 'https://iconyapp.com' },
         { slug: 'easymd', name: 'EasyMD', tagline: 'A markdown editor that feels like Notion', summary: 'Formatting appears as you type, and everything is saved right in your browser.', tags: ['SvelteKit', 'Tiptap'], status: 'live', url: 'https://easy-md.com' },
-        { slug: 'autotube', name: 'autotube', tagline: 'Auto-editing for YouTube Shorts', summary: 'Drop in a long video and it finds the highlights, then adds captions and music to make a short.', tags: ['Whisper', 'MusicGen', 'Remotion'], status: 'dev', url: '' },
         { slug: 'automatone', name: 'automatone', tagline: 'A tech blog written by AI, reviewed by me', summary: 'A tech blog where AI drafts posts from trending topics and publishes them after a human review.', tags: ['n8n', 'Claude', 'Next.js'], status: 'live', url: 'https://automatone.win' },
+        { slug: 'rabbit-hole', name: 'Rabbit Hole', tagline: 'A 3D game down a rabbit hole', summary: 'A browser 3D game where you run along a tunnel wall collecting carrots.', tags: ['Three.js', 'R3F'], status: 'live', url: 'https://rabbit-hole-games.com' },
+        { slug: 'autotube', name: 'autotube', tagline: 'Auto-editing for YouTube Shorts', summary: 'Drop in a long video and it finds the highlights, then adds captions and music to make a short.', tags: ['Whisper', 'MusicGen', 'Remotion'], status: 'dev', url: '' },
         { slug: 'jeung', name: 'Jeung (제웅)', tagline: 'A first-person horror game I built', summary: 'A slow-burn horror in a 1990s Korean apartment, with every visual and sound generated in code.', tags: ['Three.js', 'Procedural'], status: 'dev', url: '' },
         { slug: 'ai-saju', name: 'ai-saju', tagline: 'AI that reads your saju', summary: 'Enter your birth date and a local LLM explains your Korean fortune chart in plain language.', tags: ['LLM', 'Ollama'], status: 'dev', url: '' },
-        { slug: 'rabbit-hole', name: 'Rabbit Hole', tagline: 'A 3D game down a rabbit hole', summary: 'A browser 3D game where you run along a tunnel wall collecting carrots.', tags: ['Three.js', 'R3F'], status: 'live', url: 'https://rabbit-hole-games.com' },
         { slug: 'stock-terminal', name: 'MarketSpot', tagline: 'An investing companion that keeps you from panic-selling', summary: 'When the market drops, it tells you whether this is still normal and helps you hold steady.', tags: ['LLM', 'FastAPI'], status: 'dev', url: '' }
       ]
     },

@@ -289,7 +289,7 @@
         dist.phase += 0.012;
         const bf = 0.010 + Math.sin(dist.phase) * 0.004;
         dist.turb.setAttribute('baseFrequency', `${bf.toFixed(4)} ${(bf * 1.3).toFixed(4)}`);
-        dist.disp.setAttribute('scale', (dist.active * 15).toFixed(1));
+        dist.disp.setAttribute('scale', (dist.active * 8).toFixed(1));
       };
     }
     document.querySelectorAll('.build-card').forEach((card) => {

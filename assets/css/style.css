@@ -139,7 +139,7 @@ main { counter-reset: sec; }
 .scroll-cue:hover { color: var(--ink-soft); }
 
 /* about */
-.about-intro { max-width: 760px; }
+.about-intro { max-width: 960px; }
 .about-intro p { font-size: clamp(1.1rem, 1.8vw, 1.32rem); line-height: 1.65; color: var(--ink); letter-spacing: -0.015em; }
 .about-intro p + p { margin-top: 14px; }
 

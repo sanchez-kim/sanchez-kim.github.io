@@ -7,7 +7,7 @@ export function detectLang() {
 export const dict = {
   ko: {
     nav: { about: '소개', focus: '하는 일', building: '사이드', experience: '경력', skills: '강점', contact: '연락처' },
-    hero: { name: '김태형', role: 'AI Engineer', tagline: '궁금한 건 못 참고, 일단 만들어 보는 AI 엔지니어입니다.', contact: '연락하기', cta: '아래로 스크롤' },
+    hero: { name: '김태형', role: 'AI Engineer · Builder', tagline: '궁금한 건 못 참고, 일단 만들어 보는 AI 엔지니어입니다.', contact: '연락하기', cta: '아래로 스크롤' },
     about: {
       title: '소개',
       intro: [
@@ -101,7 +101,7 @@ export const dict = {
   },
   en: {
     nav: { about: 'About', focus: 'What I Do', building: 'Building', experience: 'Experience', skills: 'Strengths', contact: 'Contact' },
-    hero: { name: 'Taehyung Kim', role: 'AI Engineer', tagline: "An AI engineer who builds whatever they're curious about.", contact: 'Get in touch', cta: 'Scroll down' },
+    hero: { name: 'Taehyung Kim', role: 'AI Engineer · Builder', tagline: "An AI engineer who builds whatever they're curious about.", contact: 'Get in touch', cta: 'Scroll down' },
     about: {
       title: 'About',
       intro: [

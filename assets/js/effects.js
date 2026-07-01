@@ -1,10 +1,9 @@
 /* Interactive layer (vanilla, no build):
-   - Hero name rendered as a Canvas2D particle field that scatters away from the
-     cursor and springs back (the signature interaction).
-   - GSAP entrance for the rest of the hero + IntersectionObserver scroll reveals.
-   - Magnetic buttons + cursor-glow cards.
-   Everything degrades gracefully: content is visible by default, and if a lib or
-   the canvas is unavailable the page is still fully readable. */
+   - Hero name as a Canvas2D particle field that scatters from the cursor.
+   - Generative flow-field art (Canvas2D) that the cursor swirls in real time.
+   - GSAP hero entrance + IntersectionObserver scroll reveals.
+   - Magnetic buttons, cursor-glow cards, liquid image distortion, kinetic marquee.
+   Everything degrades gracefully: content is visible by default. */
 (() => {
   'use strict';
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -22,18 +21,16 @@
     if (!canvas) return null;
     const ctx = canvas.getContext('2d');
     if (!ctx) return null;
-
-    let W = 0, H = 0, dpr = 1, particles = [], raf = 0;
+    let W = 0, H = 0, dpr = 1, particles = [];
     const mouse = { x: -9999, y: -9999 };
 
-    function palette(t) { // 0..1 across width: indigo -> violet -> pink
+    function palette(t) {
       const a = [120, 135, 255], b = [165, 110, 250], c = [250, 120, 200];
       let r, g, bl;
       if (t < 0.5) { const k = t / 0.5; r = a[0] + (b[0] - a[0]) * k; g = a[1] + (b[1] - a[1]) * k; bl = a[2] + (b[2] - a[2]) * k; }
       else { const k = (t - 0.5) / 0.5; r = b[0] + (c[0] - b[0]) * k; g = b[1] + (c[1] - b[1]) * k; bl = b[2] + (c[2] - b[2]) * k; }
       return `rgb(${r | 0},${g | 0},${bl | 0})`;
     }
-
     function build() {
       const rect = wrap.getBoundingClientRect();
       W = Math.max(1, rect.width); H = Math.max(1, rect.height);
@@ -58,21 +55,15 @@
           if (data[(y * oc.width + x) * 4 + 3] > 128) targets.push([x / dpr, y / dpr]);
         }
       }
-      particles = targets.map((t, i) => {
+      particles = targets.map((tg, i) => {
         const old = particles[i];
-        return {
-          x: old ? old.x : Math.random() * W, y: old ? old.y : Math.random() * H,
-          tx: t[0], ty: t[1], vx: 0, vy: 0, col: palette(t[0] / W),
-        };
+        return { x: old ? old.x : Math.random() * W, y: old ? old.y : Math.random() * H, tx: tg[0], ty: tg[1], vx: 0, vy: 0, col: palette(tg[0] / W) };
       });
     }
-
     function frame() {
       raf = requestAnimationFrame(frame);
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.save();
-      ctx.scale(dpr, dpr);
-      ctx.globalCompositeOperation = 'lighter';
+      ctx.save(); ctx.scale(dpr, dpr); ctx.globalCompositeOperation = 'lighter';
       const R = 76, R2 = R * R;
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
@@ -86,128 +77,80 @@
       }
       ctx.restore();
     }
-
     function drawStatic() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.save(); ctx.scale(dpr, dpr); ctx.globalCompositeOperation = 'lighter';
       particles.forEach((p) => { ctx.globalAlpha = 0.9; ctx.fillStyle = p.col; ctx.fillRect(p.tx - 0.9, p.ty - 0.9, 1.8, 1.8); });
       ctx.restore();
     }
-
+    let raf = 0;
     if (finePointer) {
-      window.addEventListener('pointermove', (e) => {
-        const r = canvas.getBoundingClientRect();
-        mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
-      }, { passive: true });
+      window.addEventListener('pointermove', (e) => { const r = canvas.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; }, { passive: true });
       window.addEventListener('pointerout', () => { mouse.x = mouse.y = -9999; }, { passive: true });
     }
     window.addEventListener('resize', () => { build(); if (reduce) drawStatic(); }, { passive: true });
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { build(); if (reduce) drawStatic(); });
-
     build();
     document.documentElement.classList.add('fx-ready');
     if (reduce) drawStatic(); else { cancelAnimationFrame(raf); frame(); }
     return { rebuild: () => { build(); if (reduce) drawStatic(); } };
   }
 
-  /* ---------------- 1b. Procedural 3D object (hero, right side) ---------------- */
-  function init3D() {
-    if (reduce || isMobile || !has('THREE')) return;
+  /* ---------------- 1b. Generative flow-field art (hero, right side) ---------------- */
+  function initGenArt() {
     const canvas = document.getElementById('hero3d');
     if (!canvas) return;
-    let renderer;
-    try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'low-power' }); }
-    catch (e) { return; }
-    if (!renderer.getContext()) return;
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
-
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
-    camera.position.z = 3.4;
-
-    const uniforms = {
-      uTime: { value: 0 }, uAmp: { value: 0.3 },
-      uA: { value: new THREE.Color(0x2f33e8) }, uB: { value: new THREE.Color(0xb45cff) },
-    };
-    const SNOISE = `
-      vec4 permute(vec4 x){return mod(((x*34.0)+1.0)*x,289.0);}
-      vec4 taylorInvSqrt(vec4 r){return 1.79284291400159-0.85373472095314*r;}
-      float snoise(vec3 v){
-        const vec2 C=vec2(1.0/6.0,1.0/3.0); const vec4 D=vec4(0.0,0.5,1.0,2.0);
-        vec3 i=floor(v+dot(v,C.yyy)); vec3 x0=v-i+dot(i,C.xxx);
-        vec3 g=step(x0.yzx,x0.xyz); vec3 l=1.0-g; vec3 i1=min(g.xyz,l.zxy); vec3 i2=max(g.xyz,l.zxy);
-        vec3 x1=x0-i1+1.0*C.xxx; vec3 x2=x0-i2+2.0*C.xxx; vec3 x3=x0-1.0+3.0*C.xxx;
-        i=mod(i,289.0);
-        vec4 p=permute(permute(permute(i.z+vec4(0.0,i1.z,i2.z,1.0))+i.y+vec4(0.0,i1.y,i2.y,1.0))+i.x+vec4(0.0,i1.x,i2.x,1.0));
-        float n_=1.0/7.0; vec3 ns=n_*D.wyz-D.xzx;
-        vec4 j=p-49.0*floor(p*ns.z*ns.z); vec4 x_=floor(j*ns.z); vec4 y_=floor(j-7.0*x_);
-        vec4 x=x_*ns.x+ns.yyyy; vec4 y=y_*ns.x+ns.yyyy; vec4 h=1.0-abs(x)-abs(y);
-        vec4 b0=vec4(x.xy,y.xy); vec4 b1=vec4(x.zw,y.zw);
-        vec4 s0=floor(b0)*2.0+1.0; vec4 s1=floor(b1)*2.0+1.0; vec4 sh=-step(h,vec4(0.0));
-        vec4 a0=b0.xzyw+s0.xzyw*sh.xxyy; vec4 a1=b1.xzyw+s1.xzyw*sh.zzww;
-        vec3 p0=vec3(a0.xy,h.x); vec3 p1=vec3(a0.zw,h.y); vec3 p2=vec3(a1.xy,h.z); vec3 p3=vec3(a1.zw,h.w);
-        vec4 norm=taylorInvSqrt(vec4(dot(p0,p0),dot(p1,p1),dot(p2,p2),dot(p3,p3)));
-        p0*=norm.x;p1*=norm.y;p2*=norm.z;p3*=norm.w;
-        vec4 m=max(0.6-vec4(dot(x0,x0),dot(x1,x1),dot(x2,x2),dot(x3,x3)),0.0); m=m*m;
-        return 42.0*dot(m*m,vec4(dot(p0,x0),dot(p1,x1),dot(p2,x2),dot(p3,x3)));
-      }`;
-    const mat = new THREE.ShaderMaterial({
-      uniforms, transparent: true,
-      vertexShader: `${SNOISE}
-        uniform float uTime; uniform float uAmp;
-        varying vec3 vNormal; varying vec3 vView; varying float vN;
-        void main(){
-          float n = snoise(position*1.3 + vec3(0.0,0.0,uTime*0.28));
-          float n2 = snoise(position*2.8 - uTime*0.16);
-          float disp = n*0.72 + n2*0.28;
-          vec3 pos = position + normal*disp*uAmp;
-          vNormal = normalize(normalMatrix*normal);
-          vec4 mv = modelViewMatrix*vec4(pos,1.0);
-          vView = -mv.xyz; vN = disp;
-          gl_Position = projectionMatrix*mv;
-        }`,
-      fragmentShader: `
-        uniform vec3 uA; uniform vec3 uB;
-        varying vec3 vNormal; varying vec3 vView; varying float vN;
-        void main(){
-          vec3 N=normalize(vNormal); vec3 V=normalize(vView);
-          float fres=pow(1.0-max(dot(N,V),0.0),2.2);
-          vec3 col=mix(uA,uB,clamp(vN*0.6+0.5,0.0,1.0));
-          col+=fres*vec3(0.55,0.62,1.0)*1.35;
-          gl_FragColor=vec4(col, 0.94);
-        }`,
-    });
-    const mesh = new THREE.Mesh(new THREE.IcosahedronGeometry(1.05, 6), mat);
-    scene.add(mesh);
-
-    function resize() {
-      const w = canvas.clientWidth || 1, h = canvas.clientHeight || 1;
-      renderer.setSize(w, h, false);
-      camera.aspect = w / h; camera.updateProjectionMatrix();
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    let W = 1, H = 1, dpr = 1;
+    const mouse = { x: -9999, y: -9999 };
+    const N = isMobile ? 360 : 820;
+    let parts = [];
+    const pal = ['rgba(120,135,255,', 'rgba(165,110,250,', 'rgba(250,120,200,'];
+    function hash(x, y) { const s = Math.sin(x * 127.1 + y * 311.7) * 43758.5453; return s - Math.floor(s); }
+    function vnoise(x, y) {
+      const xi = Math.floor(x), yi = Math.floor(y), xf = x - xi, yf = y - yi;
+      const u = xf * xf * (3 - 2 * xf), v = yf * yf * (3 - 2 * yf);
+      const a = hash(xi, yi), b = hash(xi + 1, yi), c = hash(xi, yi + 1), d = hash(xi + 1, yi + 1);
+      return a * (1 - u) * (1 - v) + b * u * (1 - v) + c * (1 - u) * v + d * u * v;
     }
-    resize();
-    window.addEventListener('resize', resize, { passive: true });
-
-    const ptr = { x: 0, y: 0 };
-    if (finePointer) window.addEventListener('pointermove', (e) => {
-      ptr.x = (e.clientX / window.innerWidth) * 2 - 1;
-      ptr.y = (e.clientY / window.innerHeight) * 2 - 1;
-    }, { passive: true });
-
+    function spawn(p) { p.x = Math.random() * W; p.y = Math.random() * H; p.life = 20 + Math.random() * 130; p.c = pal[(Math.random() * pal.length) | 0]; }
+    function build() {
+      W = canvas.clientWidth || 1; H = canvas.clientHeight || 1;
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = W * dpr; canvas.height = H * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.fillStyle = '#06060a'; ctx.fillRect(0, 0, W, H);
+      parts = []; for (let i = 0; i < N; i++) { const p = {}; spawn(p); parts.push(p); }
+    }
+    let t = 0;
+    function step() {
+      t += 0.0032;
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.fillStyle = 'rgba(6,6,10,0.055)'; ctx.fillRect(0, 0, W, H);
+      ctx.globalCompositeOperation = 'lighter';
+      const sc = 0.006;
+      for (let i = 0; i < parts.length; i++) {
+        const p = parts[i];
+        const ang = vnoise(p.x * sc + t, p.y * sc - t) * Math.PI * 4;
+        let vx = Math.cos(ang), vy = Math.sin(ang);
+        const dx = p.x - mouse.x, dy = p.y - mouse.y, d = Math.hypot(dx, dy);
+        if (d < 150) { const f = (150 - d) / 150; vx += (-dy / (d || 1)) * f * 2.4; vy += (dx / (d || 1)) * f * 2.4; }
+        const px = p.x, py = p.y;
+        p.x += vx * 1.2; p.y += vy * 1.2; p.life--;
+        ctx.strokeStyle = p.c + '0.5)'; ctx.lineWidth = 1.1;
+        ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(p.x, p.y); ctx.stroke();
+        if (p.life <= 0 || p.x < 0 || p.x > W || p.y < 0 || p.y > H) spawn(p);
+      }
+    }
+    build();
+    if (finePointer) window.addEventListener('pointermove', (e) => { const r = canvas.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; }, { passive: true });
+    window.addEventListener('pointerout', () => { mouse.x = mouse.y = -9999; }, { passive: true });
+    window.addEventListener('resize', build, { passive: true });
+    if (reduce) { for (let i = 0; i < 260; i++) step(); return; }
     let running = true, last = 0;
     document.addEventListener('visibilitychange', () => { running = !document.hidden; if (running) requestAnimationFrame(loop); });
-    const start = performance.now();
-    function loop(now) {
-      if (!running) return;
-      requestAnimationFrame(loop);
-      if (now - last < 32) return; last = now;
-      const t = (now - start) / 1000;
-      uniforms.uTime.value = t;
-      mesh.rotation.y += 0.0035;
-      mesh.rotation.x = THREE.MathUtils.lerp(mesh.rotation.x, ptr.y * 0.5, 0.05);
-      mesh.rotation.z = THREE.MathUtils.lerp(mesh.rotation.z, -ptr.x * 0.4, 0.05);
-      renderer.render(scene, camera);
-    }
+    function loop(now) { if (!running) return; requestAnimationFrame(loop); if (now - last < 24) return; last = now; step(); }
     requestAnimationFrame(loop);
   }
 
@@ -314,19 +257,17 @@
       requestAnimationFrame(loop);
       const y = window.scrollY || 0;
       vel = y - lastY; lastY = y;
-      const boost = Math.min(Math.abs(vel) * 0.5, 36);
-      x -= 0.6 + boost;
+      x -= 0.6 + Math.min(Math.abs(vel) * 0.5, 36);
       const half = track.scrollWidth / 2;
       if (half > 0 && -x >= half) x += half;
-      const skew = Math.max(-10, Math.min(10, -vel * 0.35));
-      track.style.transform = `translateX(${x}px) skewX(${skew}deg)`;
+      track.style.transform = `translateX(${x}px) skewX(${Math.max(-10, Math.min(10, -vel * 0.35))}deg)`;
     }
     requestAnimationFrame(loop);
   }
 
   /* ---------------- boot ---------------- */
   let pc = null;
-  function boot() { init3D(); initMarquee(); glowCards(); }
+  function boot() { initGenArt(); initMarquee(); glowCards(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
 

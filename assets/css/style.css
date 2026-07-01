@@ -81,9 +81,11 @@ main { counter-reset: sec; }
   background: radial-gradient(68% 78% at 32% 46%, rgba(6,6,8,0.9), rgba(6,6,8,0.4) 52%, transparent 78%);
 }
 #hero3d {
-  position: absolute; top: 50%; right: -2%; transform: translateY(-50%);
-  width: clamp(300px, 38vw, 540px); height: clamp(300px, 38vw, 540px);
+  position: absolute; top: 50%; right: -3%; transform: translateY(-50%);
+  width: clamp(320px, 40vw, 560px); height: clamp(320px, 40vw, 560px);
   z-index: 0; pointer-events: none;
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 46%, transparent 74%);
+  mask-image: radial-gradient(circle at 50% 50%, #000 46%, transparent 74%);
 }
 @media (max-width: 860px) { #hero3d { display: none; } }
 .hero-photo img {

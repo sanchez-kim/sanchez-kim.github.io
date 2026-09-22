@@ -29,17 +29,24 @@ export const dict = {
     building: {
       title: '직접 만든 것들',
       live: '운영 중',
+      oss: '오픈소스',
       dev: '개발 중',
       visit: '바로가기',
+      github: 'GitHub',
       items: [
         { slug: 'icony', name: 'icony', tagline: '아이콘을 쉽게 찾고 꾸미는 웹앱', summary: '여러 라이브러리의 아이콘을 한곳에서 찾아 색과 크기를 바꿔 내려받을 수 있습니다.', tags: ['Next.js', 'TypeScript'], status: 'live', url: 'https://iconyapp.com' },
         { slug: 'easymd', name: 'EasyMD', tagline: '노션처럼 쓰는 마크다운 에디터', summary: '입력하는 대로 바로 서식이 보이고, 모든 글은 내 브라우저에만 저장됩니다.', tags: ['SvelteKit', 'Tiptap'], status: 'live', url: 'https://easy-md.com' },
-        { slug: 'automatone', name: 'automatone', tagline: 'AI가 쓰고 사람이 검토하는 기술 블로그', summary: '트렌드를 분석해 AI가 초안을 쓰고, 사람이 검토해 자동으로 발행하는 기술 블로그입니다.', tags: ['n8n', 'Claude', 'Next.js'], status: 'live', url: 'https://automatone.win' },
-        { slug: 'rabbit-hole', name: 'Rabbit Hole', tagline: '토끼굴을 달리는 3D 게임', summary: '터널 벽을 따라 달리며 당근을 모으는 브라우저 3D 게임입니다.', tags: ['Three.js', 'R3F'], status: 'live', url: 'https://rabbit-hole-games.com' },
-        { slug: 'autotube', name: 'autotube', tagline: '유튜브 쇼츠를 자동으로 편집', summary: '긴 영상을 올리면 하이라이트를 찾아 자막과 음악까지 입혀 짧은 영상으로 만들어 줍니다.', tags: ['Whisper', 'MusicGen', 'Remotion'], status: 'dev', url: '' },
-        { slug: 'jeung', name: '제웅 (Jeung)', tagline: '직접 만든 1인칭 호러 게임', summary: '1990년대 한국 아파트를 배경으로, 모든 그래픽과 소리를 코드로 만들어 낸 슬로우번 호러입니다.', tags: ['Three.js', '절차적 생성'], status: 'dev', url: '' },
-        { slug: 'ai-saju', name: 'ai-saju', tagline: '사주를 풀어 주는 AI', summary: '생년월일을 넣으면 사주를 계산하고, 로컬 LLM이 그 의미를 자연스러운 말로 풀어 줍니다.', tags: ['LLM', 'Ollama'], status: 'dev', url: '' },
-        { slug: 'stock-terminal', name: 'MarketSpot', tagline: '패닉 셀을 막아 주는 투자 동반자', summary: '급락장에서 지금이 정상인지 알려 주고, 차분하게 버티도록 돕는 대시보드입니다.', tags: ['LLM', 'FastAPI'], status: 'dev', url: '' }
+        { slug: 'automatone', name: 'automatone', tagline: 'AI가 쓰고 사람이 검토하는 기술 블로그', summary: '트렌드를 분석해 AI가 초안을 쓰고, 사람이 검토해 자동으로 발행하는 기술 블로그입니다.', tags: ['n8n', 'Claude', 'Next.js', 'Supabase'], status: 'live', url: 'https://automatone.win' },
+        { slug: 'rabbit-hole', name: 'Rabbit Hole', tagline: '토끼굴을 달리는 3D 게임', summary: '터널 벽을 따라 달리며 당근을 모으는 브라우저 3D 게임입니다.', tags: ['Three.js', 'R3F', 'Next.js'], status: 'live', url: 'https://rabbit-hole-games.com' },
+        { slug: 'onjeom', name: '온점 (Onjeom)', tagline: '사주가 읽어주는 오늘의 나', summary: '생년월일로 사주를 계산하면 LLM이 쉬운 말로 풀어 주고, 풀이마다 이어서 궁금한 걸 물어볼 수 있습니다. iOS 앱은 앱스토어 심사를 준비하고 있습니다.', tags: ['Next.js', 'React Native', 'LLM'], status: 'live', url: 'https://onjeom.net' },
+        { slug: 'trellis-silicon', name: 'trellis-silicon', tagline: '맥에서 도는 이미지 → 3D 변환', summary: 'CUDA에서만 돌던 마이크로소프트 TRELLIS.2를 애플 실리콘에서 그대로 돌리도록 옮겼습니다. 이미지 한 장을 넣으면 텍스처까지 입은 GLB가 나오고, 메시 추출은 67배 빨라졌습니다.', tags: ['PyTorch', 'MPS', 'Metal'], status: 'oss', url: 'https://github.com/sanchez-kim/trellis-silicon' },
+        { slug: 'keyshelf', name: 'KeyShelf', tagline: '맥 메뉴바에 두는 로컬 금고', summary: 'API 키와 로그인 정보, .env 묶음을 기기 안에서만 암호화해 보관합니다. 단축키로 찾아 엔터를 누르면 복사되고, 클립보드는 알아서 비워집니다.', tags: ['Swift', 'SwiftUI', 'macOS'], status: 'oss', url: 'https://github.com/sanchez-kim/keyshelf' },
+        { slug: 'stock-terminal', name: 'MarketSpot', tagline: '근거만 보여 주는 투자 리서치 터미널', summary: '토스증권 계좌를 동기화해, 예측 대신 판단의 근거가 되는 데이터를 펼쳐 주는 셀프호스트 터미널입니다. 해설은 로컬 Ollama 모델이 붙이고, 데이터는 내 컴퓨터 밖으로 나가지 않습니다.', tags: ['FastAPI', 'React', 'Local LLM'], status: 'oss', url: 'https://github.com/sanchez-kim/marketspot' },
+        { slug: 'how-to-ai', name: 'how-to-ai', tagline: '증거가 있어야 올라가는 AI 학습 플랫폼', summary: '과제를 풀면 서버가 pytest를 다시 돌려, 통과한 만큼만 스킬 그래프가 올라갑니다. 파이썬은 브라우저 안에서 바로 실행돼 따로 설치할 게 없습니다.', tags: ['Next.js', 'Pyodide', 'LLM'], status: 'dev', url: '' },
+        { slug: 'baby-beat', name: 'baby-beat', tagline: '아기가 처음 만나는 악기', summary: '키보드와 마우스를 아무렇게나 두드려도 박자와 음에 맞는 소리로 바뀌고, 밤하늘 인형극 무대가 그에 맞춰 움직입니다. 네트워크 없이 돌아가고, 한국어와 영어 음성은 전부 오픈소스 TTS로 미리 만들었습니다.', tags: ['Tone.js', 'PWA', 'TTS'], status: 'dev', url: '' },
+        { slug: 'where-am-i', name: 'where-am-i', tagline: '어디까지 하다 멈췄는지 알려 주는 대시보드', summary: '매일 밤 Claude Code 세션 로그를 읽어 프로젝트별로 무엇을 했고 어디서 멈췄는지 정리해 줍니다. launchd로 알아서 돌고, 데이터는 ~/.where-am-i 밖으로 나가지 않습니다.', tags: ['Next.js', 'Claude Code', 'launchd'], status: 'dev', url: '' },
+        { slug: 'autotube', name: 'autotube', tagline: '유튜브 쇼츠를 자동으로 편집', summary: '긴 영상을 올리면 하이라이트를 찾아 자막과 음악까지 입혀 짧은 영상으로 만들어 줍니다.', tags: ['Remotion', 'mlx-whisper', 'LLM'], status: 'dev', url: '' },
+        { slug: 'jeung', name: '제웅 (Jeung)', tagline: '직접 만든 1인칭 호러 게임', summary: '1990년대 한국 아파트를 배경으로, 모든 그래픽과 소리를 코드로 만들어 낸 슬로우번 호러입니다.', tags: ['Three.js', '절차적 생성'], status: 'dev', url: '' }
       ]
     },
     experience: {
@@ -123,17 +130,24 @@ export const dict = {
     building: {
       title: 'Things I Build',
       live: 'Live',
+      oss: 'Open source',
       dev: 'In progress',
       visit: 'Visit',
+      github: 'GitHub',
       items: [
         { slug: 'icony', name: 'icony', tagline: 'Find and customize icons, fast', summary: 'Search icons from many libraries in one place, then recolor, resize, and download them.', tags: ['Next.js', 'TypeScript'], status: 'live', url: 'https://iconyapp.com' },
         { slug: 'easymd', name: 'EasyMD', tagline: 'A markdown editor that feels like Notion', summary: 'Formatting appears as you type, and everything is saved right in your browser.', tags: ['SvelteKit', 'Tiptap'], status: 'live', url: 'https://easy-md.com' },
-        { slug: 'automatone', name: 'automatone', tagline: 'A tech blog written by AI, reviewed by me', summary: 'A tech blog where AI drafts posts from trending topics and publishes them after a human review.', tags: ['n8n', 'Claude', 'Next.js'], status: 'live', url: 'https://automatone.win' },
-        { slug: 'rabbit-hole', name: 'Rabbit Hole', tagline: 'A 3D game down a rabbit hole', summary: 'A browser 3D game where you run along a tunnel wall collecting carrots.', tags: ['Three.js', 'R3F'], status: 'live', url: 'https://rabbit-hole-games.com' },
-        { slug: 'autotube', name: 'autotube', tagline: 'Auto-editing for YouTube Shorts', summary: 'Drop in a long video and it finds the highlights, then adds captions and music to make a short.', tags: ['Whisper', 'MusicGen', 'Remotion'], status: 'dev', url: '' },
-        { slug: 'jeung', name: 'Jeung (제웅)', tagline: 'A first-person horror game I built', summary: 'A slow-burn horror in a 1990s Korean apartment, with every visual and sound generated in code.', tags: ['Three.js', 'Procedural'], status: 'dev', url: '' },
-        { slug: 'ai-saju', name: 'ai-saju', tagline: 'AI that reads your saju', summary: 'Enter your birth date and a local LLM explains your Korean fortune chart in plain language.', tags: ['LLM', 'Ollama'], status: 'dev', url: '' },
-        { slug: 'stock-terminal', name: 'MarketSpot', tagline: 'An investing companion that keeps you from panic-selling', summary: 'When the market drops, it tells you whether this is still normal and helps you hold steady.', tags: ['LLM', 'FastAPI'], status: 'dev', url: '' }
+        { slug: 'automatone', name: 'automatone', tagline: 'A tech blog written by AI, reviewed by me', summary: 'A tech blog where AI drafts posts from trending topics and publishes them after a human review.', tags: ['n8n', 'Claude', 'Next.js', 'Supabase'], status: 'live', url: 'https://automatone.win' },
+        { slug: 'rabbit-hole', name: 'Rabbit Hole', tagline: 'A 3D game down a rabbit hole', summary: 'A browser 3D game where you run along a tunnel wall collecting carrots.', tags: ['Three.js', 'R3F', 'Next.js'], status: 'live', url: 'https://rabbit-hole-games.com' },
+        { slug: 'onjeom', name: 'Onjeom (온점)', tagline: 'Your day, read through your saju', summary: 'Enter your birth date and it works out your saju, then an LLM explains what it means in plain language and takes your follow-up questions on every reading. The iOS app is getting ready for App Store review.', tags: ['Next.js', 'React Native', 'LLM'], status: 'live', url: 'https://onjeom.net' },
+        { slug: 'trellis-silicon', name: 'trellis-silicon', tagline: 'Image-to-3D running natively on a Mac', summary: "Microsoft's TRELLIS.2 only ran on CUDA, so I ported it to PyTorch MPS and Metal. One image in, a textured GLB out, with mesh extraction 67x faster than before.", tags: ['PyTorch', 'MPS', 'Metal'], status: 'oss', url: 'https://github.com/sanchez-kim/trellis-silicon' },
+        { slug: 'keyshelf', name: 'KeyShelf', tagline: 'A local-only vault in your menu bar', summary: 'Keeps API keys, logins, and .env bundles encrypted on the device and nowhere else. Hit the hotkey, search, press Enter, and it copies the value and clears the clipboard for you.', tags: ['Swift', 'SwiftUI', 'macOS'], status: 'oss', url: 'https://github.com/sanchez-kim/keyshelf' },
+        { slug: 'stock-terminal', name: 'MarketSpot', tagline: 'A research terminal that shows evidence, not predictions', summary: 'A self-hosted terminal that syncs my Toss Securities account and lays out the evidence behind a position instead of guessing where it goes. A local Ollama model does the explaining, and nothing leaves my machine.', tags: ['FastAPI', 'React', 'Local LLM'], status: 'oss', url: 'https://github.com/sanchez-kim/marketspot' },
+        { slug: 'how-to-ai', name: 'how-to-ai', tagline: 'A Korean AI course where progress has to be earned', summary: 'You solve the assignments, the server re-runs pytest, and only the tests that pass move your skill graph forward. Python runs in the browser, so there is nothing to install.', tags: ['Next.js', 'Pyodide', 'LLM'], status: 'dev', url: '' },
+        { slug: 'baby-beat', name: 'baby-beat', tagline: "A toddler's first instrument", summary: 'However hard a toddler mashes the keyboard or mouse, it comes out in time and in tune on a night-sky puppet-theatre stage. It runs with no network at all, and every Korean and English voice line was generated offline with open-source TTS.', tags: ['Tone.js', 'PWA', 'TTS'], status: 'dev', url: '' },
+        { slug: 'where-am-i', name: 'where-am-i', tagline: 'Where I left off, project by project', summary: 'Every night it reads my Claude Code session logs and writes up what I did and where I stopped in each project. It runs on launchd and the data never leaves ~/.where-am-i.', tags: ['Next.js', 'Claude Code', 'launchd'], status: 'dev', url: '' },
+        { slug: 'autotube', name: 'autotube', tagline: 'Auto-editing for YouTube Shorts', summary: 'Drop in a long video and it finds the highlights, then adds captions and music to make a short.', tags: ['Remotion', 'mlx-whisper', 'LLM'], status: 'dev', url: '' },
+        { slug: 'jeung', name: 'Jeung (제웅)', tagline: 'A first-person horror game I built', summary: 'A slow-burn horror in a 1990s Korean apartment, with every visual and sound generated in code.', tags: ['Three.js', 'Procedural'], status: 'dev', url: '' }
       ]
     },
     experience: {
@@ -199,7 +213,11 @@ function getByPath(obj, path) {
   return path.split('.').reduce((o, k) => (o == null ? o : o[k]), obj);
 }
 
-const HAS_IMG = new Set(['icony', 'easymd', 'jeung', 'rabbit-hole', 'autotube', 'ai-saju', 'stock-terminal', 'automatone']);
+const HAS_IMG = new Set([
+  'icony', 'easymd', 'automatone', 'rabbit-hole', 'onjeom',
+  'trellis-silicon', 'keyshelf', 'stock-terminal',
+  'how-to-ai', 'baby-beat', 'where-am-i', 'autotube', 'jeung'
+]);
 
 function wireMediaFallback() {
   document.querySelectorAll('.card-media img').forEach((img) => {
@@ -226,12 +244,12 @@ function renderLists(t) {
       <div class="build-body">
         <div class="build-head">
           <h3>${b.name}</h3>
-          <span class="badge badge-${b.status}">${b.status === 'live' ? t.building.live : t.building.dev}</span>
+          <span class="badge badge-${b.status}">${b.status === 'live' ? t.building.live : b.status === 'oss' ? t.building.oss : t.building.dev}</span>
         </div>
         <p class="build-tagline">${b.tagline}</p>
         <p class="card-summary">${b.summary}</p>
         <ul class="tags">${b.tags.map((tag) => `<li>${tag}</li>`).join('')}</ul>
-        ${b.url ? `<a class="build-link" href="${b.url}" target="_blank" rel="noopener">${t.building.visit} ↗</a>` : ''}
+        ${b.url ? `<a class="build-link" href="${b.url}" target="_blank" rel="noopener">${b.status === 'oss' ? t.building.github : t.building.visit} ↗</a>` : ''}
       </div>
     </article>`).join(''));
   set('experience-list', t.experience.items.map((e) => `

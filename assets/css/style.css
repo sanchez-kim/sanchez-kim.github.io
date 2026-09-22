@@ -176,6 +176,7 @@ main { counter-reset: sec; }
   padding: 4px 8px; border-radius: 5px; white-space: nowrap;
 }
 .badge-live { background: rgba(52,211,153,0.12); color: #6ee7b7; border: 1px solid rgba(52,211,153,0.34); }
+.badge-oss  { background: rgba(251,191,36,0.12); color: #fcd34d; border: 1px solid rgba(251,191,36,0.34); }
 .badge-dev  { background: var(--accent-soft); color: #aeb6ff; border: 1px solid var(--accent-line); }
 .build-tagline { color: var(--ink); font-size: .92rem; font-weight: 500; letter-spacing: -0.01em; }
 .build-card .card-summary { margin: 0; flex: 1; }

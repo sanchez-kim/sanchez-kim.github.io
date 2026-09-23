@@ -64,6 +64,7 @@ a { color: inherit; }
 /* section scaffolding + numbering */
 main { counter-reset: sec; }
 .section { max-width: var(--maxw); margin: 0 auto; padding: 92px 24px; }
+#building.section { max-width: 1480px; }
 .section h2 {
   counter-increment: sec;
   font-size: clamp(1.6rem, 3.2vw, 2.1rem); font-weight: 600; letter-spacing: -0.03em;
@@ -156,7 +157,7 @@ main { counter-reset: sec; }
 .focus-item p { color: var(--ink-soft); font-size: .9rem; line-height: 1.6; }
 
 /* currently building */
-.building-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+.building-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 22px; }
 .build-card { display: flex; flex-direction: column; overflow: hidden; transition: border-color .2s ease, transform .2s ease; }
 .build-card:hover { border-color: var(--accent-line); transform: translateY(-3px); }
 .card-media {
@@ -274,6 +275,11 @@ main { counter-reset: sec; }
 .build-card:hover::after, .card:hover::after, .focus-item:hover::after { opacity: 1; }
 
 /* responsive */
+@media (min-width: 1300px) {
+  .build-head h3 { font-size: 1.14rem; }
+  .build-tagline { font-size: .98rem; }
+  .build-body { padding: 22px; }
+}
 @media (max-width: 980px) {
   .focus-list { grid-template-columns: repeat(2,1fr); }
 }
@@ -282,6 +288,8 @@ main { counter-reset: sec; }
   .nav-links { display: none; }
   .section { padding: 64px 20px; }
   .hero { padding: 80px 20px 48px; min-height: 88vh; }
+  .build-body { padding: 16px; gap: 8px; }
+  .build-head { flex-wrap: wrap; }
 }
 
 @media (prefers-reduced-motion: reduce) {

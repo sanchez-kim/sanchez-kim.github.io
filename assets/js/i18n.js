@@ -6,7 +6,7 @@ export function detectLang() {
 
 export const dict = {
   ko: {
-    nav: { about: '소개', focus: '하는 일', building: '사이드', experience: '경력', skills: '강점', contact: '연락처' },
+    nav: { about: '소개', focus: '하는 일', building: '만든 것들', experience: '경력', skills: '강점', contact: '연락처' },
     hero: { name: '김태형', role: 'AI Engineer · Builder', tagline: '궁금한 건 못 참고, 일단 만들어 보는 AI 엔지니어입니다.', contact: '연락하기', cta: '아래로 스크롤' },
     about: {
       title: '소개',
@@ -23,7 +23,8 @@ export const dict = {
         { label: '온디바이스 LLM', desc: '클라우드에 기대지 않고 로컬에서 도는 모델을 다룹니다.' },
         { label: 'AI에 한국의 맥락을', desc: '사주, 사극, 한국형 호러처럼 우리 문화가 담긴 AI를 만듭니다.' },
         { label: '끝까지 책임지는 제품', desc: '기획과 개발에서 멈추지 않고, 배포하고 운영하며 사용자에게 직접 서비스합니다.' },
-        { label: '3D와 인터랙티브 웹', desc: '브라우저 안에서 살아 움직이는 경험을 만듭니다.' }
+        { label: '3D와 인터랙티브 웹', desc: '브라우저 안에서 살아 움직이는 경험을 만듭니다.' },
+        { label: '로컬에서 끝나는 도구', desc: '데이터가 내 기기 밖으로 나가지 않는 도구를 만듭니다. 비밀번호 금고, 세션 대시보드, 셀프호스트 터미널처럼요.' }
       ]
     },
     building: {
@@ -33,6 +34,7 @@ export const dict = {
       dev: '개발 중',
       visit: '바로가기',
       github: 'GitHub',
+      zoom: '크게 보기',
       items: [
         { slug: 'icony', name: 'icony', tagline: '아이콘을 쉽게 찾고 꾸미는 웹앱', summary: '여러 라이브러리의 아이콘을 한곳에서 찾아 색과 크기를 바꿔 내려받을 수 있습니다.', tags: ['Next.js', 'TypeScript'], status: 'live', url: 'https://iconyapp.com' },
         { slug: 'easymd', name: 'EasyMD', tagline: '노션처럼 쓰는 마크다운 에디터', summary: '입력하는 대로 바로 서식이 보이고, 모든 글은 내 브라우저에만 저장됩니다.', tags: ['SvelteKit', 'Tiptap'], status: 'live', url: 'https://easy-md.com' },
@@ -107,7 +109,7 @@ export const dict = {
     contact: { title: '연락처', copy: '복사', email: 'sanchez.kim.kr@gmail.com', github: 'https://github.com/sanchez-kim' }
   },
   en: {
-    nav: { about: 'About', focus: 'What I Do', building: 'Building', experience: 'Experience', skills: 'Strengths', contact: 'Contact' },
+    nav: { about: 'About', focus: 'What I Do', building: 'Things I Build', experience: 'Experience', skills: 'Strengths', contact: 'Contact' },
     hero: { name: 'Taehyung Kim', role: 'AI Engineer · Builder', tagline: "An AI engineer who can't resist building whatever he's curious about.", contact: 'Get in touch', cta: 'Scroll down' },
     about: {
       title: 'About',
@@ -124,7 +126,8 @@ export const dict = {
         { label: 'On-device LLMs', desc: 'I work with models that run locally instead of in the cloud.' },
         { label: 'Bringing Korean context to AI', desc: 'I build AI shaped by Korean culture, from saju to period dramas to horror.' },
         { label: 'Products I own end to end', desc: "I don't just build them. I deploy, operate, and serve real users." },
-        { label: '3D and the interactive web', desc: 'I make experiences that come alive in the browser.' }
+        { label: '3D and the interactive web', desc: 'I make experiences that come alive in the browser.' },
+        { label: 'Tools that stay on your machine', desc: 'I build tools where nothing leaves the device: a secrets vault, a session dashboard, a self-hosted terminal.' }
       ]
     },
     building: {
@@ -134,6 +137,7 @@ export const dict = {
       dev: 'In progress',
       visit: 'Visit',
       github: 'GitHub',
+      zoom: 'Click to enlarge',
       items: [
         { slug: 'icony', name: 'icony', tagline: 'Find and customize icons, fast', summary: 'Search icons from many libraries in one place, then recolor, resize, and download them.', tags: ['Next.js', 'TypeScript'], status: 'live', url: 'https://iconyapp.com' },
         { slug: 'easymd', name: 'EasyMD', tagline: 'A markdown editor that feels like Notion', summary: 'Formatting appears as you type, and everything is saved right in your browser.', tags: ['SvelteKit', 'Tiptap'], status: 'live', url: 'https://easy-md.com' },
@@ -227,6 +231,47 @@ function wireMediaFallback() {
   });
 }
 
+const BUILD_STATUS_ORDER = ['live', 'oss', 'dev'];
+
+function buildCardHTML(b, t) {
+  const hasImg = HAS_IMG.has(b.slug);
+  // Only image-bearing media is clickable (lightbox), so only that gets button semantics.
+  const mediaAttrs = hasImg
+    ? ` role="button" tabindex="0" title="${t.building.zoom}" aria-label="${b.name} — ${t.building.zoom}"`
+    : '';
+  const statusLabel = b.status === 'live' ? t.building.live : b.status === 'oss' ? t.building.oss : t.building.dev;
+  return `
+    <article class="build-card">
+      <div class="card-media" data-slug="${b.slug}"${mediaAttrs}>
+        ${hasImg ? `<img src="/assets/img/projects/${b.slug}.png" alt="${b.name}" loading="lazy">` : ''}
+        <span class="media-label">${b.name}</span>
+      </div>
+      <div class="build-body">
+        <div class="build-head">
+          <h3>${b.name}</h3>
+          <span class="badge badge-${b.status}">${statusLabel}</span>
+        </div>
+        <p class="build-tagline">${b.tagline}</p>
+        <p class="card-summary">${b.summary}</p>
+        <ul class="tags">${b.tags.map((tag) => `<li>${tag}</li>`).join('')}</ul>
+        ${b.url ? `<a class="build-link" href="${b.url}" target="_blank" rel="noopener">${b.status === 'oss' ? t.building.github : t.building.visit} ↗</a>` : ''}
+      </div>
+    </article>`;
+}
+
+// live → oss → dev, each as a sub-headed group with its own 2-up grid.
+function buildGroupsHTML(t) {
+  return BUILD_STATUS_ORDER.map((status) => {
+    const items = t.building.items.filter((b) => b.status === status);
+    if (!items.length) return '';
+    return `
+    <div class="build-group" data-status="${status}">
+      <h3 class="build-group-title">${t.building[status]}<span class="build-group-count">${items.length}</span></h3>
+      <div class="building-grid">${items.map((b) => buildCardHTML(b, t)).join('')}</div>
+    </div>`;
+  }).join('');
+}
+
 function renderLists(t) {
   const set = (id, html) => { const el = document.getElementById(id); if (el) el.innerHTML = html; };
   set('about-intro', t.about.intro.map((l) => `<p>${l}</p>`).join(''));
@@ -235,23 +280,7 @@ function renderLists(t) {
       <h3>${f.label}</h3>
       <p>${f.desc}</p>
     </div>`).join(''));
-  set('building-grid', t.building.items.map((b) => `
-    <article class="build-card">
-      <div class="card-media" data-slug="${b.slug}">
-        ${HAS_IMG.has(b.slug) ? `<img src="/assets/img/projects/${b.slug}.png" alt="${b.name}" loading="lazy">` : ''}
-        <span class="media-label">${b.name}</span>
-      </div>
-      <div class="build-body">
-        <div class="build-head">
-          <h3>${b.name}</h3>
-          <span class="badge badge-${b.status}">${b.status === 'live' ? t.building.live : b.status === 'oss' ? t.building.oss : t.building.dev}</span>
-        </div>
-        <p class="build-tagline">${b.tagline}</p>
-        <p class="card-summary">${b.summary}</p>
-        <ul class="tags">${b.tags.map((tag) => `<li>${tag}</li>`).join('')}</ul>
-        ${b.url ? `<a class="build-link" href="${b.url}" target="_blank" rel="noopener">${b.status === 'oss' ? t.building.github : t.building.visit} ↗</a>` : ''}
-      </div>
-    </article>`).join(''));
+  set('building-grid', buildGroupsHTML(t));
   set('experience-list', t.experience.items.map((e) => `
     <li class="timeline-item">
       <div class="timeline-head"><span class="org">${e.org}</span><span class="period">${e.period}</span></div>

@@ -40,12 +40,14 @@ a { color: inherit; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
 
 /* nav */
-.site-header { position: sticky; top: 0; z-index: 50; }
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(6,6,8,0.66); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+}
 .nav {
   max-width: var(--maxw); margin: 0 auto; padding: 15px 24px;
   display: flex; align-items: center; gap: 20px;
-  background: rgba(6,6,8,0.66); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--line);
 }
 .nav-brand { font-weight: 600; font-size: .95rem; text-decoration: none; color: var(--ink); letter-spacing: -0.02em; }
 .nav-links { list-style: none; display: flex; gap: 22px; margin-left: auto; flex-wrap: wrap; }

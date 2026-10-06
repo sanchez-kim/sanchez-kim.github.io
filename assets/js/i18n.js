@@ -13,7 +13,7 @@ export const dict = {
       intro: [
         '저는 현장에서 진짜로 쓰이는 AI를 만들 때 가장 몰입합니다.',
         '공공, 방송, 의료 등 여러 도메인에서 기획부터 배포, 운영까지 전 과정을 직접 책임지며 그 감각을 키워왔습니다.',
-        '새로운 기술이 나오면 가장 먼저 만들어보고 부딪혀보며, 그렇게 얻은 감각을 다시 실무에 씁니다.'
+        '새로운 기술이 나오면 가장 먼저 만들어보고 부딪혀보며 그렇게 얻은 감각을 다시 실무에 씁니다.'
       ]
     },
     focus: {
@@ -22,7 +22,7 @@ export const dict = {
         { label: '생성형 AI로 만드는 것', desc: '이미지와 영상, 음악을 AI로 직접 만들어 냅니다.' },
         { label: '온디바이스 LLM', desc: '클라우드에 기대지 않고 로컬에서 도는 모델을 다룹니다.' },
         { label: 'AI에 한국의 맥락을', desc: '사주, 사극, 한국형 호러처럼 우리 문화가 담긴 AI를 만듭니다.' },
-        { label: '끝까지 책임지는 제품', desc: '기획과 개발에서 멈추지 않고, 배포하고 운영하며 사용자에게 직접 서비스합니다.' },
+        { label: '끝까지 책임지는 제품', desc: '기획과 개발에서 멈추지 않고 배포하고 운영하며 사용자에게 직접 서비스합니다.' },
         { label: '3D와 인터랙티브 웹', desc: '브라우저 안에서 살아 움직이는 경험을 만듭니다.' },
         { label: '로컬에서 끝나는 도구', desc: '데이터가 내 기기 밖으로 나가지 않는 도구를 만듭니다. 비밀번호 금고, 세션 대시보드, 셀프호스트 터미널처럼요.' }
       ]
@@ -37,16 +37,16 @@ export const dict = {
       zoom: '크게 보기',
       items: [
         { slug: 'icony', name: 'icony', tagline: '아이콘을 쉽게 찾고 꾸미는 웹앱', summary: '여러 라이브러리의 아이콘을 한곳에서 찾아 색과 크기를 바꿔 내려받을 수 있습니다.', tags: ['Next.js', 'TypeScript'], status: 'live', url: 'https://iconyapp.com' },
-        { slug: 'easymd', name: 'EasyMD', tagline: '노션처럼 쓰는 마크다운 에디터', summary: '입력하는 대로 바로 서식이 보이고, 모든 글은 내 브라우저에만 저장됩니다.', tags: ['SvelteKit', 'Tiptap'], status: 'live', url: 'https://easy-md.com' },
-        { slug: 'automatone', name: 'automatone', tagline: 'AI가 쓰고 사람이 검토하는 기술 블로그', summary: '트렌드를 분석해 AI가 초안을 쓰고, 사람이 검토해 자동으로 발행하는 기술 블로그입니다.', tags: ['n8n', 'Claude', 'Next.js', 'Supabase'], status: 'live', url: 'https://automatone.win' },
+        { slug: 'easymd', name: 'EasyMD', tagline: '노션처럼 쓰는 마크다운 에디터', summary: '입력하는 대로 바로 서식이 보이고 모든 글은 내 브라우저에만 저장됩니다.', tags: ['SvelteKit', 'Tiptap'], status: 'live', url: 'https://easy-md.com' },
+        { slug: 'automatone', name: 'automatone', tagline: 'AI가 쓰고 사람이 검토하는 기술 블로그', summary: '트렌드를 분석해 AI가 초안을 쓰고 사람이 검토해 자동으로 발행하는 기술 블로그입니다.', tags: ['n8n', 'Claude', 'Next.js', 'Supabase'], status: 'live', url: 'https://automatone.win' },
         { slug: 'rabbit-hole', name: 'Rabbit Hole', tagline: '토끼굴을 달리는 3D 게임', summary: '터널 벽을 따라 달리며 당근을 모으는 브라우저 3D 게임입니다.', tags: ['Three.js', 'R3F', 'Next.js'], status: 'live', url: 'https://rabbit-hole-games.com' },
-        { slug: 'onjeom', name: '온점 (Onjeom)', tagline: '사주가 읽어주는 오늘의 나', summary: '생년월일로 사주를 계산하면 LLM이 쉬운 말로 풀어 주고, 풀이마다 이어서 궁금한 걸 물어볼 수 있습니다. iOS 앱은 앱스토어 심사를 준비하고 있습니다.', tags: ['Next.js', 'React Native', 'LLM'], status: 'live', url: 'https://onjeom.net' },
-        { slug: 'trellis-silicon', name: 'trellis-silicon', tagline: '맥에서 도는 이미지 → 3D 변환', summary: 'CUDA에서만 돌던 마이크로소프트 TRELLIS.2를 애플 실리콘에서 그대로 돌리도록 옮겼습니다. 이미지 한 장을 넣으면 텍스처까지 입은 GLB가 나오고, 메시 추출은 67배 빨라졌습니다.', tags: ['PyTorch', 'MPS', 'Metal'], status: 'oss', url: 'https://github.com/sanchez-kim/trellis-silicon' },
-        { slug: 'keyshelf', name: 'KeyShelf', tagline: '맥 메뉴바에 두는 로컬 금고', summary: 'API 키와 로그인 정보, .env 묶음을 기기 안에서만 암호화해 보관합니다. 단축키로 찾아 엔터를 누르면 복사되고, 클립보드는 알아서 비워집니다.', tags: ['Swift', 'SwiftUI', 'macOS'], status: 'oss', url: 'https://github.com/sanchez-kim/keyshelf' },
-        { slug: 'stock-terminal', name: 'MarketSpot', tagline: '근거만 보여 주는 투자 리서치 터미널', summary: '토스증권 계좌를 동기화해, 예측 대신 판단의 근거가 되는 데이터를 펼쳐 주는 셀프호스트 터미널입니다. 해설은 로컬 Ollama 모델이 붙이고, 데이터는 내 컴퓨터 밖으로 나가지 않습니다.', tags: ['FastAPI', 'React', 'Local LLM'], status: 'oss', url: 'https://github.com/sanchez-kim/marketspot' },
-        { slug: 'how-to-ai', name: 'how-to-ai', tagline: '증거가 있어야 올라가는 AI 학습 플랫폼', summary: '과제를 풀면 서버가 pytest를 다시 돌려, 통과한 만큼만 스킬 그래프가 올라갑니다. 파이썬은 브라우저 안에서 바로 실행돼 따로 설치할 게 없습니다.', tags: ['Next.js', 'Pyodide', 'LLM'], status: 'dev', url: '' },
-        { slug: 'baby-beat', name: 'baby-beat', tagline: '아기가 처음 만나는 악기', summary: '키보드와 마우스를 아무렇게나 두드려도 박자와 음에 맞는 소리로 바뀌고, 밤하늘 인형극 무대가 그에 맞춰 움직입니다. 네트워크 없이 돌아가고, 한국어와 영어 음성은 전부 오픈소스 TTS로 미리 만들었습니다.', tags: ['Tone.js', 'PWA', 'TTS'], status: 'dev', url: '' },
-        { slug: 'where-am-i', name: 'where-am-i', tagline: '어디까지 하다 멈췄는지 알려 주는 대시보드', summary: '매일 밤 Claude Code 세션 로그를 읽어 프로젝트별로 무엇을 했고 어디서 멈췄는지 정리해 줍니다. launchd로 알아서 돌고, 데이터는 ~/.where-am-i 밖으로 나가지 않습니다.', tags: ['Next.js', 'Claude Code', 'launchd'], status: 'dev', url: '' },
+        { slug: 'onjeom', name: '온점 (Onjeom)', tagline: '사주가 읽어주는 오늘의 나', summary: '생년월일로 사주를 계산하면 LLM이 쉬운 말로 풀어 주고 풀이마다 이어서 궁금한 걸 물어볼 수 있습니다. iOS 앱은 앱스토어 심사를 준비하고 있습니다.', tags: ['Next.js', 'React Native', 'LLM'], status: 'live', url: 'https://onjeom.net' },
+        { slug: 'trellis-silicon', name: 'trellis-silicon', tagline: '맥에서 도는 이미지 → 3D 변환', summary: 'CUDA에서만 돌던 마이크로소프트 TRELLIS.2를 애플 실리콘에서 그대로 돌리도록 옮겼습니다. 이미지 한 장을 넣으면 텍스처까지 입은 GLB가 나오고 메시 추출은 67배 빨라졌습니다.', tags: ['PyTorch', 'MPS', 'Metal'], status: 'oss', url: 'https://github.com/sanchez-kim/trellis-silicon' },
+        { slug: 'keyshelf', name: 'KeyShelf', tagline: '맥 메뉴바에 두는 로컬 금고', summary: 'API 키와 로그인 정보, .env 묶음을 기기 안에서만 암호화해 보관합니다. 단축키로 찾아 엔터를 누르면 복사되고 클립보드는 알아서 비워집니다.', tags: ['Swift', 'SwiftUI', 'macOS'], status: 'oss', url: 'https://github.com/sanchez-kim/keyshelf' },
+        { slug: 'stock-terminal', name: 'MarketSpot', tagline: '근거만 보여 주는 투자 리서치 터미널', summary: '토스증권 계좌를 동기화해 예측 대신 판단의 근거가 되는 데이터를 펼쳐 주는 셀프호스트 터미널입니다. 해설은 로컬 Ollama 모델이 붙이고, 데이터는 내 컴퓨터 밖으로 나가지 않습니다.', tags: ['FastAPI', 'React', 'Local LLM'], status: 'oss', url: 'https://github.com/sanchez-kim/marketspot' },
+        { slug: 'how-to-ai', name: 'how-to-ai', tagline: '증거가 있어야 올라가는 AI 학습 플랫폼', summary: '과제를 풀면 서버가 pytest를 다시 돌려 통과한 만큼만 스킬 그래프가 올라갑니다. 파이썬은 브라우저 안에서 바로 실행돼 따로 설치할 게 없습니다.', tags: ['Next.js', 'Pyodide', 'LLM'], status: 'dev', url: '' },
+        { slug: 'baby-beat', name: 'baby-beat', tagline: '아기가 처음 만나는 악기', summary: '키보드와 마우스를 아무렇게나 두드려도 박자와 음에 맞는 소리로 바뀌고, 밤하늘 인형극 무대가 그에 맞춰 움직입니다. 네트워크 없이 돌아가고 한국어와 영어 음성은 전부 오픈소스 TTS로 미리 만들었습니다.', tags: ['Tone.js', 'PWA', 'TTS'], status: 'dev', url: '' },
+        { slug: 'where-am-i', name: 'where-am-i', tagline: '어디까지 하다 멈췄는지 알려 주는 대시보드', summary: '매일 밤 Claude Code 세션 로그를 읽어 프로젝트별로 무엇을 했고 어디서 멈췄는지 정리해 줍니다. launchd로 알아서 돌고 데이터는 ~/.where-am-i 밖으로 나가지 않습니다.', tags: ['Next.js', 'Claude Code', 'launchd'], status: 'dev', url: '' },
         { slug: 'autotube', name: 'autotube', tagline: '유튜브 쇼츠를 자동으로 편집', summary: '긴 영상을 올리면 하이라이트를 찾아 자막과 음악까지 입혀 짧은 영상으로 만들어 줍니다.', tags: ['Remotion', 'mlx-whisper', 'LLM'], status: 'dev', url: '' },
         { slug: 'jeung', name: '제웅 (Jeung)', tagline: '직접 만든 1인칭 호러 게임', summary: '1990년대 한국 아파트를 배경으로, 모든 그래픽과 소리를 코드로 만들어 낸 슬로우번 호러입니다.', tags: ['Three.js', '절차적 생성'], status: 'dev', url: '' }
       ]
@@ -84,15 +84,15 @@ export const dict = {
         { name: '아동 심리검사(HTP) 분석 모델', org: '인사이터', year: '2023', summary: '아동이 그린 그림 속 요소를 인식해 심리 상태 분석을 돕는 객체 인식 모델 개발.', tags: ['YOLO', '객체 인식'] },
         { name: '불법 미디어 유통 탐지·차단', org: '인사이터', year: '2024', summary: '불법 미디어를 유통하는 서비스를 자동으로 탐지하고 차단하는 기술 개발.', tags: ['탐지', '자동화'] },
         { name: '배리어프리 자막', org: '인사이터', year: '2025', summary: '영상의 장면과 소리를 읽어 장애인을 위한 자막을 만들어 냅니다.', tags: ['VLM', '멀티모달'] },
-        { name: '고위험 청소년 조기 감지', org: '인사이터', year: '2024', summary: 'ELECTRA와 sLLM을 결합해 위기 신호를 실시간으로 감지하는 모델을 개발하고, 수원시와 화성시에 실증.', tags: ['LLM', 'ELECTRA'] }
+        { name: '고위험 청소년 조기 감지', org: '인사이터', year: '2024', summary: 'ELECTRA와 sLLM을 결합해 위기 신호를 실시간으로 감지하는 모델을 개발하고 수원시와 화성시에 실증.', tags: ['LLM', 'ELECTRA'] }
       ]
     },
     skills: {
       title: '강점',
       toolsLabel: '주로 쓰는 도구',
       items: [
-        '최신 LLM과 에이전트를 실무에 빠르게 적용해, 아이디어를 동작하는 결과물로 만듭니다.',
-        '리서치에 그치지 않고, 직접 배포하고 운영하며 끝까지 책임집니다.',
+        '최신 LLM과 에이전트를 실무에 빠르게 적용해 아이디어를 동작하는 결과물로 만듭니다.',
+        '리서치에 그치지 않고 직접 배포하고 운영하며 끝까지 책임집니다.',
         '이미지와 음성, 텍스트를 아우르는 멀티모달 시스템 설계에 강합니다.',
         '새로운 기술을 빠르게 익혀 실제 문제 해결로 연결합니다.'
       ],
@@ -233,6 +233,11 @@ function wireMediaFallback() {
 
 const BUILD_STATUS_ORDER = ['live', 'oss', 'dev'];
 
+// Break a summary onto a new line after each sentence. The lookbehind keeps
+// periods that sit inside a token (".env", "~/.where-am-i", "Next.js") intact,
+// since only a period followed by whitespace ends a sentence here.
+const bySentence = (text) => text.split(/(?<=\.)\s+/).join('<br>');
+
 function buildCardHTML(b, t) {
   const hasImg = HAS_IMG.has(b.slug);
   // Only image-bearing media is clickable (lightbox), so only that gets button semantics.
@@ -252,7 +257,7 @@ function buildCardHTML(b, t) {
           <span class="badge badge-${b.status}">${statusLabel}</span>
         </div>
         <p class="build-tagline">${b.tagline}</p>
-        <p class="card-summary">${b.summary}</p>
+        <p class="card-summary">${bySentence(b.summary)}</p>
         <ul class="tags">${b.tags.map((tag) => `<li>${tag}</li>`).join('')}</ul>
         ${b.url ? `<a class="build-link" href="${b.url}" target="_blank" rel="noopener">${b.status === 'oss' ? t.building.github : t.building.visit} ↗</a>` : ''}
       </div>
@@ -290,7 +295,7 @@ function renderLists(t) {
   set('projects-grid', t.projects.items.map((p) => `
     <article class="card">
       <header class="card-head"><h3>${p.name}</h3><span class="card-meta">${p.org} · ${p.year}</span></header>
-      <p class="card-summary">${p.summary}</p>
+      <p class="card-summary">${bySentence(p.summary)}</p>
       <ul class="tags">${p.tags.map((tag) => `<li>${tag}</li>`).join('')}</ul>
     </article>`).join(''));
   set('skills-groups', `
